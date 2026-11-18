@@ -129,7 +129,8 @@ for (const [at, want, tn] of [
   await pg.locator('.formats [data-format="Finger-food cocktail party"]').click(); await pg.waitForTimeout(300);
   ok(await pg.inputValue('#ev-form [name=format]') === 'Finger-food cocktail party', 'a format button reopens the form after an inquiry was sent');
   await pg.goto(FILE + '#catering'); await pg.waitForTimeout(200);
-  ok(await pg.locator('#trays details').count() === 5 && await pg.locator('#trays .tray:not(.tray--head)').count() === 38, 'catering menu: 5 sections, 38 dishes, got ' + await pg.locator('#trays .tray:not(.tray--head)').count());
+  ok(await pg.locator('#trays details').count() === 6 && await pg.locator('#trays .tray:not(.tray--head)').count() === 44, 'catering menu: 6 sections, 44 rows, got ' + await pg.locator('#trays .tray:not(.tray--head)').count());
+  ok(await pg.locator('#trays .tray__each').count() === 12 && (await pg.locator('#trays .tray__each').first().innerText()) === '$7 each' && await pg.evaluate(() => !Array.from(document.querySelectorAll('#trays .tray > span')).some(e => /^each$/i.test(e.textContent.trim()))), 'per-piece dishes show one price, got ' + await pg.locator('#trays .tray__each').count());
   await pg.fill('#cat-form [name=name]', 'Cat Erer'); await pg.fill('#cat-form [name=email]', 'cat@example.com'); await pg.fill('#cat-form [name=guests]', '25'); await pg.fill('#cat-form [name=order]', 'One full pan of rigatoni');
   await pg.fill('#cat-form [name=date]', '2026-11-18'); await pg.click('#cat-form button[type=submit]');
   ok((await txt(pg, '#cat-form')).includes('at least 48 hours') && (await txt(pg, '#cat-form')).includes('Thursday, November 19'), 'catering explains the 48 hours');

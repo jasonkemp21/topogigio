@@ -184,3 +184,6 @@ details.trays .tray:last-child { border-bottom: 0; margin-bottom: 12px; }
 .formats .u { margin: 12px 0 16px; font-weight: 600; }
 
 .phead--photo .lead { color: #f6e6e8; }
+
+/* dishes sold by the piece show one price across both pan columns */
+.tray > .tray__each { grid-column: 2 / 4; white-space: nowrap; }

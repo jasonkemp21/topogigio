@@ -73,7 +73,8 @@ $('#m-q').addEventListener('input', e => { MSTATE.q = e.target.value.trim(); ren
 
 /* catering trays */
 function renderTrays() {
-  $('#trays').innerHTML = MENU.catering.map((s, n) => `<details class="trays"${n === 0 ? ' open' : ''}><summary><span>${esc(s.title)}<small>${s.items.length} dishes</small></span></summary>
-    <div class="tray tray--head"><span style="text-align:left">Dish</span><span>Half pan</span><span>Full pan</span></div>
-    ${s.items.map(i => `<div class="tray"><b>${esc(i.n)}</b><span>${esc(String(i.a).replace(/\.00$/, ''))}</span><span>${esc(String(i.b).replace(/\.00$/, '').replace(/^Each$/, 'each'))}</span>${i.d ? `<p>${esc(i.d)}</p>` : ''}</div>`).join('')}</details>`).join('');
+  $('#trays').innerHTML = MENU.catering.map((s, n) => `<details class="trays"${n === 0 ? ' open' : ''}><summary><span>${esc(s.title)}<small>${s.items.length} ${s.cols ? 'sauces' : 'dishes'}</small></span></summary>
+    <div class="tray tray--head"><span style="text-align:left">${s.cols ? 'Sauce' : 'Dish'}</span><span>${(s.cols || ['Half pan'])[0]}</span><span>${(s.cols || [0, 'Full pan'])[1]}</span></div>
+    ${s.items.map(i => { const price = v => esc(String(v).replace(/\.00$/, '')), each = /^each$/i.test(i.b);
+      return `<div class="tray"><b>${esc(i.n)}</b>${each ? `<span class="tray__each">${price(i.a)} each</span>` : `<span>${price(i.a)}</span><span>${price(i.b)}</span>`}${i.d ? `<p>${esc(i.d)}</p>` : ''}</div>`; }).join('')}</details>`).join('');
 }
