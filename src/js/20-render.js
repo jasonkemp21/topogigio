@@ -61,7 +61,7 @@ function renderMenu() {
   const total = secs.reduce((a, x) => a + x.items.length, 0);
   const filtered = q || diet.length;
   $('#m-body').innerHTML = (filtered ? `<p class="note" style="padding-top:18px">${total} ${total === 1 ? 'item' : 'items'} ${q ? 'matching “' + esc(MSTATE.q) + '”' : ''}${q && diet.length ? ', ' : ''}${diet.map(k => DIET[k].toLowerCase()).join(' and ')}. <button class="u" type="button" id="m-clear">Show everything</button></p>` : '')
-    + (secs.length ? secs.map(x => `<section class="msec" id="msec-${x.n}" style="scroll-margin-top:calc(var(--head) + 70px)"><h2 class="h-m">${esc(name(x.s))}${x.s.en ? `<small>${esc(x.s.en)}</small>` : ''}</h2><div class="mcols${!food && x.items.every(i => !i.d) ? ' mcols--3' : ''}">${x.items.map(dishHTML).join('')}</div></section>`).join('')
+    + (secs.length ? secs.map(x => `<section class="msec" id="msec-${x.n}" style="scroll-margin-top:60px"><h2 class="h-m">${esc(name(x.s))}${x.s.en ? `<small>${esc(x.s.en)}</small>` : ''}</h2><div class="mcols${!food && x.items.every(i => !i.d) ? ' mcols--3' : ''}">${x.items.map(dishHTML).join('')}</div></section>`).join('')
       : `<p class="kempty">Nothing on the ${esc(MENUS[tab].title.toLowerCase())} menu matches that.</p>`);
   const c = $('#m-clear'); if (c) c.addEventListener('click', () => { MSTATE.q = ''; MSTATE.diet = []; $('#m-q').value = ''; renderMenu(); });
   $('#m-notes').innerHTML = MENU_NOTES[food ? 'food' : 'drinks'].map(n => `<p><b>${n[0]}.</b> ${n[1]}</p>`).join('')

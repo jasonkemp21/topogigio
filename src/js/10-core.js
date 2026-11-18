@@ -88,19 +88,9 @@ function route() {
     if (h === 'admin') renderAdmin();
   }
   if (target) { const el = document.getElementById(target); if (el) el.scrollIntoView(); } else window.scrollTo(0, 0);
-  setOver();
   if (afterRoute) { const f = afterRoute; afterRoute = null; f(); }
 }
 window.addEventListener('hashchange', route);
-
-/* the header is clear while it sits on the home hero */
-function setOver() {
-  const hero = $('.hero');
-  const over = currentPage === 'home' && hero && window.scrollY < hero.offsetHeight - 80 - (hero.offsetTop || 0);
-  document.body.classList.toggle('over', !!over);
-}
-window.addEventListener('scroll', setOver, { passive: true });
-window.addEventListener('resize', setOver);
 
 /* one listener for every data-action */
 document.addEventListener('click', e => {

@@ -16,10 +16,12 @@
   --text: 'Libre Franklin', 'Franklin Gothic Medium', system-ui, sans-serif;
   --max: 1200px;
   --pad: clamp(20px, 4.6vw, 56px);
-  --head: 76px;
+  --sq: 10px;                          /* one square of the tablecloth check */
+  --trim: calc(var(--sq) * 2);
+  --head: 94px;
   --gap: clamp(60px, 8vw, 112px);
 }
-@media (max-width: 760px) { :root { --head: 62px; } }
+@media (max-width: 760px) { :root { --sq: 8px; --head: 76px; } }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--head) + 16px); }
