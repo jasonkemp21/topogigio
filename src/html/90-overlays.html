@@ -1,0 +1,147 @@
+<div class="scrim" id="scrim" data-action="overlay-close"></div>
+
+<!-- reserve / request sheet -->
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" aria-hidden="true">
+  <div class="sheet__head">
+    <div><p id="sheet-label">Reserve</p><h2 id="sheet-title"></h2></div>
+    <button class="round" type="button" data-action="overlay-close" aria-label="Close"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="sheet__body" id="sheet-body"></div>
+  <div class="sheet__foot" id="sheet-foot"></div>
+</aside>
+
+<!-- pitch notes -->
+<aside class="pitch" id="pitch" role="dialog" aria-modal="true" aria-labelledby="pitch-title" aria-hidden="true">
+  <div class="pitch__head">
+    <div><p>For Topo Gigio Ristorante</p><h2 id="pitch-title">Pitch notes</h2></div>
+    <button class="round" type="button" data-action="overlay-close" aria-label="Close pitch notes"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="ptabs" role="tablist">
+    <button class="on" data-ptab="today">Your site today</button>
+    <button data-ptab="changed">What changed</button>
+    <button data-ptab="model">Modeled on</button>
+    <button data-ptab="plan">The plan</button>
+    <button data-ptab="questions">Questions</button>
+    <button data-ptab="inbox">Staff portal <span class="cnt" id="inbox-cnt" hidden>0</span></button>
+  </div>
+  <div class="pitch__body">
+
+    <section class="on" data-ptab="today">
+      <h3>What the current site is costing you</h3>
+      <p>Everything here was checked on November 17, 2026, signed out, on a laptop and at phone width. Each item is something you can check yourself in a minute.</p>
+      <div class="finding"><span>1</span><div><b>Every page tells Google not to list it.</b><p>All twelve pages of topogigiochicago.com carry a <code>noindex, nofollow</code> tag. That is usually WordPress's "Discourage search engines from indexing this site" box, left ticked. There are no page descriptions and no sitemap either.</p><p>In two web searches, one for the restaurant by name and address and one for "topogigiochicago.com dinner menu", your own pages did not come up. Menu-listing sites did. One of them shows Monday as open. Another shows Sunday hours as "9:00 PM to 4:00 PM".</p><p><b>Fix it today, whether or not you want a new site:</b> in WordPress, go to Settings, then Reading, and untick that box.</p></div></div>
+      <figure><div class="shot"><img src="img/today-home.webp" alt="The top of the current home page on a laptop, with the logo sitting on top of the Instagram button" loading="lazy"></div><figcaption>The top of the home page on a laptop. The logo covers the Instagram button.</figcaption></figure>
+      <div class="finding"><span>2</span><div><b>On a phone, the home page is two columns of text about three words wide.</b><p>At a phone's width the welcome text, the story and the hours each run in a column 128 pixels across.</p></div></div>
+      <div class="finding"><span>3</span><div><b>Some of the text is close to invisible.</b><p>"Hours", "Parking" and the note about holiday hours are dark grey on black, a contrast of 1.7 to 1. The notice that the garden takes no reservations is 2.8 to 1. The accessibility guideline asks for at least 4.5 to 1.</p></div></div>
+      <figure><div class="shot" style="max-width:300px"><img src="img/today-phone.webp" alt="The current home page on a phone, with the story and the hours in two narrow columns of dim text" loading="lazy"></div><figcaption>The home page on a phone, as it looks today. Two columns, each about three words wide, with grey and dark red text on black.</figcaption></figure>
+      <div class="finding"><span>4</span><div><b>The banquet planner's email link is broken.</b><p>On the Private Banquet Hall page, clicking Elizabeth's email address opens a "page not found". The link is missing the "mailto:" that makes it an email link. That page is where a wedding or a company dinner starts.</p></div></div>
+      <figure><div class="shot"><img src="img/today-hall.webp" alt="The current Private Banquet Hall page, with the planner's email address in the middle" loading="lazy"></div><figcaption>The Private Banquet Hall page. Clicking the email address opens a page-not-found.</figcaption></figure>
+      <div class="finding"><span>5</span><div><b>The site contradicts itself about reservations.</b><p>The home page and the button in the header send people to OpenTable. The Contact page says "We do NOT accept online reservations".</p></div></div>
+      <div class="finding"><span>6</span><div><b>The Reservations button carries a date from 2024.</b><p>The OpenTable link is fixed to October 15, 2024 at 7:00 pm.</p></div></div>
+      <div class="finding"><span>7</span><div><b>A link on the home page opens a WordPress placeholder.</b><p>"We do offer gift cards … over the phone" links to a page that still has WordPress's sample text: "You might also try a plugin to add a contact form."</p></div></div>
+      <div class="finding"><span>8</span><div><b>Hours are hard to find.</b><p>On a laptop they are inside a drop-down in the menu bar. On the home page they are in green italics near the bottom. Pinch-to-zoom is switched off on phones, so small text can't be enlarged.</p></div></div>
+      <div class="finding"><span>9</span><div><b>Banquets, catering and gift cards all end in "email Vince" or "call Elizabeth".</b><p>None of them has a request form. The 26 professional photographs of the banquet room sit on a page Google is told to ignore.</p></div></div>
+      <div class="finding"><span>10</span><div><b>The dietary icons are borrowed from other websites.</b><p>The gluten-free, vegetarian and pescatarian symbols on the menus load from Google's image cache, a stock-art site and a Dutch website. If any of those files moves, the symbols disappear from your menu.</p></div></div>
+      <div class="finding"><span>11</span><div><b>Small errors a guest will notice.</b><p>"FIRST COME, FIRST SEVERE", "Baralo" and "Sanoma" on the wine list, "ADD A PROTIEN", "Paramgiaan cheese", "Parts Uknown", "DELIVERY UNAVALIBLE", a missing logo image on the Contact page, and The Knot and WeddingWire badges that link to those sites' front pages, not to your listings.</p></div></div>
+      <h3>What already works</h3>
+      <ul class="plist">
+        <li>The menus are real text with prices, not PDFs.</li>
+        <li>OpenTable is set up and busy.</li>
+        <li>The banquet room photographs are professional.</li>
+        <li>The story, the awards and the policies are all written down. This concept reuses them.</li>
+      </ul>
+    </section>
+
+    <section data-ptab="changed">
+      <h3>What this concept does differently</h3>
+      <div class="finding"><span>1</span><div><b>Google can list it.</b><p>Every page can be indexed, with its own title and description, and the hours, address and menu are marked up the way Google reads a restaurant.</p></div></div>
+      <div class="finding"><span>2</span><div><b>It is laid out for a phone first.</b><p>One column, text at a readable size, and Reserve and Call fixed to the bottom of the screen.</p></div></div>
+      <div class="finding"><span>3</span><div><b>Reserve asks three questions and opens OpenTable on that table.</b><p>Date, time and party size, then OpenTable with those already filled in. The panel also says what OpenTable can't book: the garden, the tent and the bars.</p><button class="jumpto" type="button" data-action="reserve">Show me</button></div></div>
+      <figure><div class="shot" style="max-width:300px"><img src="img/today-phone.webp" alt="The current home page on a phone, with the story and the hours in two narrow columns of dim text" loading="lazy"></div><figcaption>The home page on a phone, as it looks today. Two columns, each about three words wide, with grey and dark red text on black.</figcaption></figure>
+      <div class="finding"><span>4</span><div><b>The first screen says whether you're open.</b><p>"Open now until 10:00 pm" or "Closed today. Opens Tuesday at 11:30 am", worked out from your hours on Chicago time.</p><a class="jumpto" href="#home" data-action="pitch-jump">Show me</a></div></div>
+      <figure><div class="shot"><img src="img/today-hall.webp" alt="The current Private Banquet Hall page, with the planner's email address in the middle" loading="lazy"></div><figcaption>The Private Banquet Hall page. Clicking the email address opens a page-not-found.</figcaption></figure>
+      <div class="finding"><span>5</span><div><b>The menu can be searched and filtered.</b><p>Dinner, lunch, and wine and cocktails in one place. Type "clams" or tap Gluten free and the list narrows. It opens on lunch or dinner depending on the time of day.</p><a class="jumpto" href="#menu" data-action="pitch-jump">Show me</a></div></div>
+      <div class="finding"><span>6</span><div><b>The private room sells itself.</b><p>Capacity, three ways to serve it with starting prices, the photographs, and an inquiry form that asks for the date and the guest count.</p><a class="jumpto" href="#events" data-action="pitch-jump">Show me</a></div></div>
+      <div class="finding"><span>7</span><div><b>Catering and gift cards get request forms.</b><p>The catering page explains the 48 hours' notice, the pick-up window and the tray sizes before anyone has to ask.</p><a class="jumpto" href="#catering" data-action="pitch-jump">Show me</a></div></div>
+      <div class="finding"><span>8</span><div><b>Every request lands in one staff page.</b><p>Banquet inquiries, catering requests, gift card requests and messages, one row per person, with a status, notes and a next step. It also counts how many people clicked through to OpenTable.</p><a class="jumpto" href="#admin" data-action="pitch-jump">Open the staff portal</a></div></div>
+      <h3>What it leaves alone</h3>
+      <ul class="plist">
+        <li>OpenTable stays your reservation book.</li>
+        <li>Carry-out stays a phone call. No online ordering, no delivery.</li>
+        <li>The garden, tent and bars stay first come, first served.</li>
+        <li>Your menu, prices, story and policies are yours, word for word where it matters.</li>
+      </ul>
+    </section>
+
+    <section data-ptab="model">
+      <h3>What well-run restaurant sites do</h3>
+      <p>I looked at Carbone, Gene &amp; Georgetti, Italian Village, Bavette's, Gibsons Italia and Monteverde. These are the decisions they share.</p>
+      <div class="finding"><span>1</span><div><b>One photograph of the place, the name, and how long it has been there.</b><p>Gene &amp; Georgetti: "Chicago's original steakhouse. Since 1941." Italian Village: "Family owned since 1927." Bavette's shows one dim photograph of its dining room and the word "Chicago".</p><p><b>Here:</b> the garden at dusk and "Italian cooking on Wells Street since 1988".</p></div></div>
+      <div class="finding"><span>2</span><div><b>Reserve is always in the top right corner.</b><p>Carbone has "Reserve a table" there, Italian Village has "Reserve", and Gibsons Italia fixes a Reservations tab to the edge of the screen.</p><p><b>Here:</b> Reserve in the header on every page, and at the bottom of the screen on a phone.</p></div></div>
+      <div class="finding"><span>3</span><div><b>Private events have their own place in the main menu.</b><p>Carbone, Gene &amp; Georgetti and Italian Village all give private dining a top-level link.</p><p><b>Here:</b> Private events is the second link.</p></div></div>
+      <figure><div class="shot" style="max-width:300px"><img src="img/today-phone.webp" alt="The current home page on a phone, with the story and the hours in two narrow columns of dim text" loading="lazy"></div><figcaption>The home page on a phone, as it looks today. Two columns, each about three words wide, with grey and dark red text on black.</figcaption></figure>
+      <div class="finding"><span>4</span><div><b>Hours and location are one click from anywhere.</b><p>Carbone calls it "Hours &amp; Info". Gene &amp; Georgetti calls it "Hours &amp; Location".</p><p><b>Here:</b> "Hours and location" in the header, and today's hours on the first screen.</p></div></div>
+      <figure><div class="shot"><img src="img/today-hall.webp" alt="The current Private Banquet Hall page, with the planner's email address in the middle" loading="lazy"></div><figcaption>The Private Banquet Hall page. Clicking the email address opens a page-not-found.</figcaption></figure>
+      <div class="finding"><span>5</span><div><b>Gift cards are in the main menu.</b><p>Italian Village, Monteverde and Gene &amp; Georgetti all link them from the top of the page.</p><p><b>Here:</b> Gift cards in the header.</p></div></div>
+      <div class="finding"><span>6</span><div><b>A wordmark and one deep colour.</b><p>Carbone is navy. Italian Village is red. The photographs do the rest.</p><p><b>Here:</b> burgundy, with white and a little ochre.</p></div></div>
+      <h3>Why it looks like this</h3>
+      <ul class="plist">
+        <li><b>The colours are from your room.</b> The burgundy is the velvet drapes upstairs. The ochre is the plaster walls. The green of the open-now light is the garden awning.</li>
+        <li><b>The type is a menu's type.</b> Headings and dish names are in Besley, a Clarendon, the kind of letter trattoria menus and shop signs were printed in. The reading text is Libre Franklin.</li>
+        <li><b>The stripes are yours.</b> The red and white band under the photograph comes from the stripes in your logo.</li>
+        <li><b>Dots between the dish and the price</b>, the way a printed menu sets them.</li>
+        <li><b>Your logo and the mouse are not in the concept.</b> The logo would go straight back in on the real site. I left the character out of a demo because he belongs to someone else.</li>
+      </ul>
+    </section>
+
+    <section data-ptab="plan">
+      <h3>From concept to live</h3>
+      <div class="plan-wk"><span>Week 1</span><div><b>Lock the content</b><p>You check the menus, prices, hours and policies against what is true today. I collect the original photographs, and we decide whether to shoot the dining room and a few dishes.</p></div></div>
+      <div class="plan-wk"><span>Week 2</span><div><b>Build it for real</b><p>The pages you see here, with your logo. Requests from the banquet, catering, gift card and contact forms are saved to the site's own database, emailed to Elizabeth or Vince, and listed in the staff page behind a login. Reserve links to OpenTable with the date, time and party size filled in.</p></div></div>
+      <div class="plan-wk"><span>Week 3</span><div><b>Switch over</b><p>The new site goes live on topogigiochicago.com. Every old address, such as /dinner-menu/ and /banquets-2/, forwards to its new page. The "do not list" tag comes off, a sitemap goes to Google, and the menu and reservation links on your Google listing are checked.</p></div></div>
+      <div class="plan-wk"><span>After</span><div><b>Keep it current</b><p>Menu and price changes, holiday hours and new photographs, done within a day of you sending them.</p></div></div>
+      <h3>What I need from you</h3>
+      <ul class="plist">
+        <li>The logo file and the original photographs</li>
+        <li>Access to the domain, or an introduction to whoever manages it today</li>
+        <li>The email addresses that should receive each kind of request</li>
+        <li>A read through the menu on this concept for anything I got wrong</li>
+      </ul>
+    </section>
+
+    <section data-ptab="questions">
+      <h3>What I assumed, and what to check</h3>
+      <ul class="plist">
+        <li><b>The menu is copied from your site as it read on November 17, 2026.</b> Dish names are set in capitals and lower case, descriptions in sentence case, and the misspellings listed under "Your site today" are corrected. Prices are yours.</li>
+        <li><b>Dietary marks are copied from your menus.</b> A few dishes are marked differently at lunch and at dinner. Joe's Salad is gluten free and vegetarian at lunch, and also pescatarian at dinner. Please check them.</li>
+        <li><b>"The dishes people come back for"</b> are the ones your banquet page says guests rave about, plus the pasta that carries your name. Swap in your real best sellers.</li>
+        <li><b>The Reserve panel offers parties of up to ten.</b> I don't know your limit on OpenTable. Lunch and dinner times follow your posted hours.</li>
+        <li><b>The OpenTable button is a real link.</b> It opens your live OpenTable page in a new tab, and anything booked there is a real reservation. The link is built the same way as the Reservations button on your site today, with the chosen date, time and party size in place of October 15, 2024. Click it once to confirm OpenTable opens on the right table.</li>
+        <li><b>The garden's season.</b> The site says "the summer months" and mentions a heated tent. I did not put dates on either.</li>
+        <li><b>Open-now uses your posted hours.</b> It does not know about holidays or weather.</li>
+        <li><b>Private events.</b> The three formats and their starting prices are summarised from your Banquet Packages page. The full list of dishes is not reproduced here.</li>
+        <li><b>One catering price looks like a typing error.</b> Insalata Rustica di Nonna Caruso is $48 for a half pan and $54 for a full pan on your site. Every other salad roughly doubles. I copied it as it is.</li>
+        <li><b>Catering.</b> The tray menu is copied from your Catering page. Your page says prices change, so the form promises a confirmed price, not a posted one.</li>
+        <li><b>Photographs</b> are yours, from the current site. The garden picture is a phone photo and there are only three food pictures, so a short shoot would lift the whole site. The mouse statue and the t-shirt art are left out.</li>
+        <li><b>Reviews.</b> The ratings are from Google and OpenTable on November 17, 2026. The three quotes are short excerpts from Google reviews.</li>
+        <li><b>Names.</b> Elizabeth for banquets and Vince for catering and gift cards, as on your site today. I corrected the spelling of two guests' names in the story, Joe Pesci and Sid Caesar, and of San Pellegrino and Tignanello on the drinks list. The other wine names are as you wrote them, so please read that list closely.</li>
+        <li><b>The staff portal is a demo.</b> It keeps its data in the browser it is opened in and starts with six people tagged Sample. The real one uses a shared database and a staff login.</li>
+        <li><b>Nothing else here is live.</b> The forms don't send anything and nothing is charged.</li>
+      </ul>
+    </section>
+
+    <section data-ptab="inbox">
+      <h3>The staff portal</h3>
+      <p>Every request made on this site lands in one staff page, one row per person, with a status, notes and a next step. On the real site it is at /admin behind a staff login. Here it is one click, from this button or from the Staff link in the footer.</p>
+      <p><a class="jumpto" href="#admin" data-action="pitch-jump">Open the staff portal</a></p>
+      <h3>What you have submitted in this browser</h3>
+      <div id="inbox"></div>
+    </section>
+  </div>
+  <div class="pitch__foot">
+    <span>Prepared by Jason Kemp, November 2026</span>
+    <span>Sources: topogigiochicago.com, your OpenTable page, your Google listing, and the home pages of Carbone, Gene &amp; Georgetti, Italian Village, Bavette's, Gibsons Italia and Monteverde</span>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>

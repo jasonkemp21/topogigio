@@ -1,0 +1,39 @@
+/* the sheet, pitch notes and staff portal share an engine with other concepts. These lines dress them for this one. */
+:root { --ease: cubic-bezier(.2, .7, .2, 1); }
+.round { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border: 1.5px solid currentColor; border-radius: 2px; flex: none; }
+.round:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.pitch .round:hover { background: #fff; color: var(--ink); border-color: #fff; }
+.sheet__head h2, .pitch__head h2, .pitch__body h3, .wlbox h3 { font-family: var(--display); font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+.sheet__head h2 { font-size: 30px; }
+.pitch__head h2 { font-size: 32px; }
+.pitch__body h3 { font-size: 24px; }
+.wlbox h3 { font-size: 22px; }
+@media (max-width: 560px) { .sheet__head h2 { font-size: 26px; } }
+.summary__name { font-size: 22px; line-height: 1.15; }
+.conf__big { font-size: 32px; line-height: 1.12; }
+.pitch__body ul { list-style: disc; }
+.finding > span, .plan-wk > span { color: var(--ochre); }
+.ptabs button.on { border-bottom-color: var(--ochre); }
+.ptabs .cnt { background: var(--ochre); color: var(--ink); }
+.jumpto { text-align: left; }
+.pitch__body code { background: #3a3331; }
+/* staff portal */
+body.admin .head, body.admin .foot, body.admin .bookbar, body.admin .stripes { display: none; }
+.adm__bar .logo { font-size: 24px; }
+.adm__stats b { font-size: clamp(38px, 4.4vw, 56px); line-height: 1; }
+.adm__tabs button { font-size: 22px; }
+.prow__name { font-family: var(--text); }
+.st-new { background: var(--red); border-color: var(--red); }
+.pd__next b { color: var(--red); }
+/* reserve panel */
+.tel { white-space: nowrap; }
+.rnote { background: var(--wall); padding: 16px 18px; margin-top: 18px; font-size: 15.5px; }
+.rnote b { display: block; margin-bottom: 2px; }
+.rnote + .tel { white-space: nowrap; }
+.rnote { margin-top: 8px; }
+.rclosed { margin-top: 14px; padding: 12px 14px; border-left: 4px solid var(--red); background: #f8eeee; font-size: 15.5px; }
+.sheet__foot .btn { white-space: normal; text-align: center; }
+[hidden] { display: none !important; }
+.field .err { display: block; margin-top: 5px; color: #b3261e; font-size: 14px; font-weight: 500; }
+.sheet__foot { gap: 10px; }
+.ok-box b { font-family: var(--display); font-size: 18px; }

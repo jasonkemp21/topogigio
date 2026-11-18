@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topo Gigio website concept</title>
+<meta name="description" content="A redesign concept for Topo Gigio Ristorante, 1516 N Wells St, Chicago. Not the restaurant's live site.">
+<meta name="theme-color" content="#7b1728">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Topo Gigio website concept">
+<meta property="og:description" content="A redesign concept for Topo Gigio Ristorante by Jason Kemp. Not the restaurant's live site. Nothing here books or charges.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400..900;1,400..900&family=Libre+Franklin:wght@400..700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%237b1728'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='19' fill='%23fff'%3ETG%3C/text%3E%3C/svg%3E">
+<style>
+/* Topo Gigio concept. Colours come from the room itself: the burgundy velvet drapes, the ochre plaster walls,
+   the green garden awning and white tablecloths. Type is a Clarendon (Besley) with Libre Franklin, the pairing
+   of a printed trattoria menu. Corners are square, like a menu card. */
+:root {
+  --paper: #ffffff;
+  --wall: #f5f1eb;         /* linen */
+  --wall-2: #e9e2d8;
+  --ink: #201c1b;
+  --grey: #6a605b;
+  --line: #ddd4c9;
+  --red: #7b1728;          /* drape burgundy: the brand colour */
+  --red-dark: #5c0f1c;
+  --ochre: #d9a440;        /* plaster wall */
+  --ok: #1f5a40;           /* garden awning green */
+  --display: 'Besley', 'Clarendon', Georgia, serif;
+  --text: 'Libre Franklin', 'Franklin Gothic Medium', system-ui, sans-serif;
+  --max: 1200px;
+  --pad: clamp(20px, 4.6vw, 56px);
+  --head: 76px;
+  --gap: clamp(60px, 8vw, 112px);
+}
+@media (max-width: 760px) { :root { --head: 62px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--head) + 16px); }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.55 var(--text); -webkit-font-smoothing: antialiased; }
+body.locked { overflow: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+h1, h2, h3, h4, p, dl, dd, ol, ul, figure, address { margin: 0; padding: 0; font-style: normal; }
+ul, ol { list-style: none; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--ochre); outline-offset: 3px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+/* type */
+.h-xl, .h-l, .h-m, .h-s { font-family: var(--display); font-weight: 700; letter-spacing: -.012em; text-wrap: balance; }
+.h-xl { font-size: clamp(40px, 6vw, 84px); line-height: 1.03; }
+.h-l { font-size: clamp(30px, 3.7vw, 50px); line-height: 1.08; }
+.h-m { font-size: clamp(23px, 2.2vw, 29px); line-height: 1.18; font-weight: 600; }
+.h-s { font-size: 19px; line-height: 1.25; font-weight: 600; letter-spacing: 0; }
+.lead { font-size: clamp(18px, 1.5vw, 20px); line-height: 1.5; max-width: 34em; }
+.small { font-size: 14.5px; }
+.grey { color: var(--grey); }
+.u { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.u:hover { color: var(--red); }
+.q { font-weight: 600; font-size: 15.5px; margin: 0 0 10px; }
+.note { font-size: 14.5px; color: var(--grey); line-height: 1.5; }
+
+/* layout */
+.wrap { width: 100%; max-width: calc(var(--max) + var(--pad) * 2); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
+.page { display: none; }
+.page.on { display: block; }
+.sec { padding: var(--gap) 0; }
+.sec-wall { background: var(--wall); }
+.sec-wine { background: var(--red); color: #fff; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 14px 32px; margin-bottom: clamp(26px, 3.4vw, 44px); }
+.sec-head .lead { margin-top: 12px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 80px); align-items: center; }
+.cols-top { align-items: start; }
+.cols-wide { grid-template-columns: 5fr 7fr; }
+@media (max-width: 860px) { .cols, .cols-wide { grid-template-columns: 1fr; } }
+.photo { overflow: hidden; background: var(--wall-2); }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.r-43 { aspect-ratio: 4/3; } .r-45 { aspect-ratio: 4/5; } .r-32 { aspect-ratio: 3/2; } .r-11 { aspect-ratio: 1; } .r-169 { aspect-ratio: 16/9; }
+.end { height: clamp(52px, 7vw, 92px); }
+
+/* buttons: plain rectangles, like the buttons on a till */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 50px; padding: 0 24px; border-radius: 2px; border: 1.5px solid transparent; font-weight: 600; font-size: 16px; line-height: 1.1; white-space: nowrap; transition: background .15s, color .15s, border-color .15s; }
+.btn-red { background: var(--red); color: #fff; }
+.btn-red:hover { background: var(--red-dark); }
+.btn-ink { background: var(--ink); color: #fff; }
+.btn-ink:hover { background: #000; }
+.btn-white { background: #fff; color: var(--red-dark); }
+.btn-white:hover { background: var(--wall); }
+.btn-line { border-color: currentColor; }
+.btn-line:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.sec-wine .btn-line:hover, .hero .btn-line:hover, .band .btn-line:hover { background: #fff; color: var(--red-dark); border-color: #fff; }
+.btn-s { min-height: 40px; padding: 0 16px; font-size: 15px; }
+.btn-wide { width: 100%; }
+.btn-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
+.ic { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+/* forms */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; }
+.span2 { grid-column: 1 / -1; }
+.field { display: block; }
+.field > span { display: block; font-size: 14.5px; font-weight: 600; margin-bottom: 6px; }
+.field input, .field select, .field textarea { width: 100%; min-height: 48px; padding: 10px 13px; border: 1.5px solid #b9aea2; border-radius: 2px; background: #fff; font: inherit; color: var(--ink); }
+.field textarea { min-height: 104px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 0; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(217, 164, 64, .45); }
+.field--err input, .field--err select, .field--err textarea { border-color: #b3261e; background: #fdf3f2; }
+.check { display: flex; gap: 10px; align-items: flex-start; font-size: 15.5px; }
+.check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--red); flex: none; }
+.check.field--err { color: #b3261e; }
+.ok-box { background: #e9f1ec; border-left: 4px solid var(--ok); padding: 14px 16px; font-size: 16px; }
+@media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
+
+/* filter chips and small tabs */
+.cats { display: flex; flex-wrap: wrap; gap: 8px; }
+.cats button { min-height: 40px; padding: 0 14px; border: 1.5px solid #b9aea2; border-radius: 2px; font-size: 15px; font-weight: 600; background: #fff; }
+.cats button:hover { border-color: var(--ink); }
+.cats button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+.kempty { padding: 26px 0; color: var(--grey); border-bottom: 1px solid var(--line); }
+
+/* definition rows: hours, facts */
+.facts > div { display: grid; grid-template-columns: minmax(120px, 190px) 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.facts > div:first-child { border-top: 2px solid var(--ink); }
+.facts dt { font-weight: 600; }
+.sec-wine .facts > div { border-color: rgba(255, 255, 255, .28); }
+.sec-wine .facts > div:first-child { border-top-color: #fff; }
+@media (max-width: 560px) { .facts > div { grid-template-columns: 1fr; gap: 2px; } }
+
+/* price rows used by requests and rate lists */
+.rows { border-top: 2px solid var(--ink); }
+.rrow { display: grid; grid-template-columns: 1fr auto auto; gap: 8px 22px; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--line); }
+.rrow__name { font-weight: 600; }
+.rrow__name small { display: block; font-weight: 400; color: var(--grey); font-size: 14.5px; margin-top: 2px; }
+.rrow__price { font-family: var(--display); font-weight: 700; font-size: 20px; white-space: nowrap; }
+
+.toast { position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 20px); background: var(--ink); color: #fff; padding: 13px 20px; border-radius: 2px; font-size: 15.5px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 90; max-width: calc(100vw - 32px); text-align: center; }
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- header: wordmark in the middle, like the sign over the door ---------- */
+.head { position: sticky; top: 0; z-index: 40; height: var(--head); background: var(--red); color: #fff; transition: background .2s; }
+body.over .head { background: transparent; }
+.head .wrap { height: 100%; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; }
+.logo { font-family: var(--display); font-style: italic; font-weight: 800; font-size: 29px; line-height: 1; letter-spacing: -.01em; white-space: nowrap; }
+.logo span { font-weight: 500; }
+.nav { display: flex; align-items: center; gap: clamp(14px, 1.7vw, 26px); font-size: 15.5px; font-weight: 500; white-space: nowrap; }
+.nav--right { justify-content: flex-end; }
+.nav a:not(.btn) { padding: 6px 0; border-bottom: 2px solid transparent; }
+.nav a:not(.btn):hover, .nav a.on:not(.btn) { border-bottom-color: #fff; }
+.head .btn { min-height: 42px; padding: 0 18px; font-size: 15px; }
+.menu-btn { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; }
+.menu-btn .ic { width: 26px; height: 26px; }
+@media (max-width: 1160px) {
+  .head .wrap { grid-template-columns: 1fr auto; }
+  .nav--left, .nav--right a:not(.btn) { display: none; }
+  .logo { font-size: 24px; }
+  .menu-btn { display: inline-flex; }
+  .nav--right { gap: 6px; }
+}
+@media (max-width: 400px) { .logo span { display: none; } }
+
+/* full-screen menu on phones */
+.menu { position: fixed; inset: 0; z-index: 80; background: var(--red); color: #fff; display: flex; flex-direction: column; padding: 14px var(--pad) 28px; transform: translateY(-100%); visibility: hidden; transition: transform .28s ease, visibility 0s .28s; overflow-y: auto; }
+.menu.on { transform: none; visibility: visible; transition: transform .28s ease; }
+.menu__top { display: flex; align-items: center; justify-content: space-between; height: 44px; }
+.menu__links { margin: 28px 0 auto; display: grid; gap: 4px; }
+.menu__links a { font-family: var(--display); font-weight: 700; font-size: clamp(30px, 8.4vw, 42px); line-height: 1.22; }
+.menu__foot { margin-top: 28px; display: grid; gap: 14px; font-size: 16px; }
+
+/* ---------- footer ---------- */
+.stripes { height: 14px; background: repeating-linear-gradient(90deg, var(--red) 0 22px, #fff 22px 44px); }
+.foot { background: var(--ink); color: #fff; padding: clamp(48px, 6vw, 80px) 0 34px; }
+.foot__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 36px 40px; }
+.foot .logo { font-size: 34px; }
+.foot address { margin-top: 18px; line-height: 1.6; color: #d9d2cc; }
+.foot h3 { font-family: var(--text); font-size: 15px; font-weight: 600; color: #b9aea6; margin-bottom: 12px; }
+.foot ul { display: grid; gap: 9px; font-size: 16px; }
+.foot ul a:hover, .foot address a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.foot__fine { margin-top: 48px; padding-top: 20px; border-top: 1px solid #4a423f; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 14px; color: #b9aea6; }
+.foot__fine a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 860px) { .foot__grid { grid-template-columns: 1fr 1fr; } .foot__grid > :first-child { grid-column: 1 / -1; } .foot { padding-bottom: 150px; } }
+
+/* ---------- concept label: always on screen ---------- */
+.concept { position: fixed; z-index: 60; right: 0; top: 50%; transform: translateY(-50%) rotate(180deg); writing-mode: vertical-rl; display: flex; align-items: center; gap: 12px; background: var(--ink); color: #fff; padding: 14px 8px; font-size: 13.5px; }
+.concept button { writing-mode: vertical-rl; background: var(--ochre); color: var(--ink); font-weight: 700; padding: 12px 6px; border-radius: 2px; }
+.concept button:hover { background: #fff; }
+@media (max-width: 760px) {
+  .concept { top: auto; right: 0; left: 0; bottom: calc(66px + env(safe-area-inset-bottom, 0px)); transform: none; writing-mode: horizontal-tb; justify-content: space-between; padding: 5px 12px 5px 16px; font-size: 13px; }
+  .concept button { writing-mode: horizontal-tb; padding: 8px 12px; }
+  body.admin .concept { bottom: 0; padding-bottom: calc(5px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* ---------- phone bar: the two things people do ---------- */
+.bookbar { display: none; }
+@media (max-width: 760px) {
+  .bookbar { position: fixed; z-index: 55; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px)); background: #fff; border-top: 1px solid var(--line); }
+  .bookbar .btn { min-height: 50px; padding: 0 10px; }
+  .toast { bottom: 118px; }
+}
+
+/* ---------- home hero: the garden under the lights ---------- */
+.hero { position: relative; margin-top: calc(var(--head) * -1); min-height: min(88vh, 860px); display: flex; align-items: flex-end; color: #fff; background: #2a2220; overflow: hidden; }
+.hero picture, .hero picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(24, 12, 12, .62) 0%, rgba(24, 12, 12, 0) 24%), linear-gradient(0deg, rgba(24, 12, 12, .92) 0%, rgba(24, 12, 12, .7) 34%, rgba(24, 12, 12, 0) 72%); }
+.hero__in { position: relative; z-index: 1; width: 100%; padding-top: calc(var(--head) + 140px); padding-bottom: clamp(40px, 5vw, 64px); }
+.hero h1 { max-width: 12em; }
+.hero .lead { margin-top: 18px; }
+.hero .btn-row { margin-top: 28px; }
+.status { display: inline-flex; align-items: center; gap: 10px; margin-top: 24px; font-size: 15.5px; font-weight: 500; }
+.status i { width: 10px; height: 10px; border-radius: 50%; background: #9a8f88; flex: none; }
+.status.is-open i { background: #6fd39a; box-shadow: 0 0 0 4px rgba(111, 211, 154, .25); }
+@media (max-width: 760px) {
+  .hero { min-height: 84vh; }
+  .hero picture img { object-position: 50% 30%; }
+  .hero__in { padding-bottom: 32px; }
+}
+
+/* three facts under the hero */
+.tonight { background: var(--wall); }
+.tonight .wrap { display: grid; grid-template-columns: repeat(3, 1fr); }
+.tonight .wrap > div { padding: 24px 28px 26px 0; }
+.tonight .wrap > div + div { padding-left: 28px; border-left: 1px solid var(--line); }
+.tonight b { display: block; font-family: var(--display); font-weight: 700; font-size: 21px; line-height: 1.2; }
+.tonight span { display: block; margin-top: 5px; font-size: 15.5px; color: var(--grey); }
+@media (max-width: 860px) {
+  .tonight .wrap { grid-template-columns: 1fr; }
+  .tonight .wrap > div { padding: 16px 0; } .tonight .wrap > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+}
+
+/* ---------- a dish on the menu: name, leader dots, price ---------- */
+.dish { break-inside: avoid; padding: 13px 0; }
+.dish__top { display: flex; align-items: baseline; gap: 8px; }
+.dish__name { font-family: var(--display); font-weight: 600; font-size: 18.5px; line-height: 1.25; }
+.dish__name small { font-family: var(--text); font-weight: 400; font-size: 14px; color: var(--grey); margin-left: 4px; }
+.dish__dots { flex: 1; min-width: 18px; border-bottom: 2px dotted #b9aea2; transform: translateY(-4px); }
+.dish__price { font-family: var(--display); font-weight: 700; font-size: 18.5px; white-space: nowrap; }
+.dish p { margin-top: 3px; color: var(--grey); font-size: 15.5px; line-height: 1.45; max-width: 46em; }
+.dt { display: inline-flex; gap: 4px; margin-left: 8px; vertical-align: 2px; }
+.dt abbr { font-family: var(--text); font-size: 11.5px; font-weight: 700; line-height: 1; padding: 3px 4px; border: 1.5px solid var(--ok); color: var(--ok); text-decoration: none; cursor: help; }
+.sec-wall .dish__dots { border-bottom-color: #a99d90; }
+
+/* home: house favourites */
+.fav { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 5vw, 80px); align-items: start; }
+.fav__list { border-top: 2px solid var(--ink); padding-top: 8px; }
+.fav .photo { position: sticky; top: calc(var(--head) + 24px); }
+@media (max-width: 860px) { .fav { grid-template-columns: 1fr; } .fav .photo { position: static; order: -1; aspect-ratio: 3/2; } }
+
+/* home: private room band */
+.roomband { position: relative; color: #fff; background: #2a2220; }
+.roomband img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.roomband::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(32, 12, 14, .9) 0%, rgba(32, 12, 14, .68) 46%, rgba(32, 12, 14, .12) 100%); }
+.roomband .wrap { position: relative; z-index: 1; padding-top: clamp(72px, 10vw, 150px); padding-bottom: clamp(72px, 10vw, 150px); }
+.roomband h2 { max-width: 11em; }
+.roomband .lead { margin-top: 16px; max-width: 28em; }
+.roomband .btn-row { margin-top: 28px; }
+@media (max-width: 760px) { .roomband::after { background: linear-gradient(0deg, rgba(32, 12, 14, .93) 0%, rgba(32, 12, 14, .62) 100%); } }
+
+/* home: story and awards */
+.awards { border-top: 2px solid var(--ink); }
+.awards li { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.awards b { display: block; font-family: var(--display); font-weight: 600; font-size: 19px; line-height: 1.25; }
+.awards span { color: var(--grey); font-size: 15.5px; }
+
+/* reviews */
+.proof { display: flex; flex-wrap: wrap; gap: 10px 36px; align-items: baseline; }
+.proof b { font-family: var(--display); font-size: 21px; }
+.stars { color: var(--ochre); letter-spacing: 2px; }
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(22px, 3.6vw, 52px); padding-top: 26px; border-top: 2px solid var(--ink); }
+.quote p { font-family: var(--display); font-weight: 500; font-style: italic; font-size: clamp(20px, 1.9vw, 25px); line-height: 1.32; }
+.quote cite { display: block; font-style: normal; font-size: 14.5px; color: var(--grey); margin-top: 10px; }
+@media (max-width: 860px) { .quotes { grid-template-columns: 1fr; } }
+
+/* hours */
+.hours { width: 100%; border-collapse: collapse; }
+.hours td { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.hours tr:first-child td { border-top: 2px solid var(--ink); }
+.hours td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.hours tr.is-today td { font-weight: 700; }
+.hours tr.is-today td:first-child::after { content: 'Today'; font-size: 12px; font-weight: 700; color: #fff; background: var(--ok); padding: 3px 6px; margin-left: 10px; vertical-align: 2px; }
+.hours small { display: block; font-weight: 400; color: var(--grey); font-size: 14px; }
+
+/* closing band */
+.band { background: var(--red); color: #fff; padding: clamp(60px, 7.5vw, 104px) 0; }
+.band .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 22px 40px; }
+.band p { margin-top: 10px; font-size: 18px; color: #f1d9dc; }
+
+/* ---------- inner page heads ---------- */
+.phead { background: var(--red); color: #fff; padding-top: clamp(40px, 5.5vw, 72px); padding-bottom: clamp(36px, 5vw, 64px); }
+.phead .lead { margin-top: 14px; color: #f6e6e8; }
+.phead--photo { position: relative; background: #2a2220; padding-top: clamp(120px, 20vw, 300px); }
+.phead--photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.phead--photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(32, 12, 14, .92) 0%, rgba(32, 12, 14, .5) 55%, rgba(32, 12, 14, .15) 100%); }
+.phead--photo .wrap { position: relative; z-index: 1; }
+
+/* ---------- the menu ---------- */
+.mbar { position: sticky; top: var(--head); z-index: 20; background: #fff; border-bottom: 1px solid var(--line); }
+.mbar .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; padding-top: 12px; padding-bottom: 12px; }
+.mtabs { display: flex; gap: 26px; }
+.mtabs button { font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1; padding: 8px 0; color: var(--grey); border-bottom: 3px solid transparent; }
+.mtabs button.on { color: var(--ink); border-bottom-color: var(--red); }
+.mtools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.mtools input { min-height: 40px; width: 220px; padding: 0 12px; border: 1.5px solid #b9aea2; border-radius: 2px; font: inherit; font-size: 15px; }
+.mtools input:focus { outline: 0; border-color: var(--ink); }
+.mtools .cats button { min-height: 40px; padding: 0 11px; font-size: 14.5px; }
+.mwhen { padding: 26px 0 6px; display: grid; grid-template-columns: 1fr auto; gap: 12px 40px; align-items: end; }
+.mwhen p { color: var(--grey); max-width: 44em; }
+.mjump { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 15.5px; }
+.msec { padding-top: clamp(30px, 4vw, 48px); }
+.msec h2 { display: flex; align-items: baseline; gap: 12px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); }
+.msec h2 small { font-family: var(--text); font-weight: 400; font-size: 15px; color: var(--grey); letter-spacing: 0; }
+.mcols { columns: 2; column-gap: clamp(32px, 5vw, 72px); padding-top: 6px; }
+.mcols--3 { columns: 3; }
+.mcols .dish { padding: 12px 0; }
+.mnotes { margin-top: clamp(36px, 5vw, 56px); padding: 22px 24px; background: var(--wall); display: grid; gap: 8px; font-size: 15px; color: var(--grey); }
+.mnotes b { color: var(--ink); }
+.mkey { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 14.5px; color: var(--grey); padding-top: 14px; }
+@media (max-width: 900px) {
+  .mcols, .mcols--3 { columns: 1; }
+  .mwhen { grid-template-columns: 1fr; }
+  .mtools { width: 100%; } .mtools input { flex: 1; width: auto; min-width: 150px; }
+  .mtabs { gap: 20px; } .mtabs button { font-size: 19px; }
+}
+@media (max-width: 760px) { .mbar { position: static; } }
+
+/* ---------- private events ---------- */
+.formats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid var(--ink); }
+.formats div { padding: 24px 28px 8px 0; }
+.formats div + div { padding-left: 28px; border-left: 1px solid var(--line); }
+.formats h3 { font-size: 23px; }
+.formats b { display: block; font-family: var(--display); font-size: 19px; color: var(--red); margin: 6px 0 8px; }
+.formats p { color: var(--grey); font-size: 15.5px; }
+@media (max-width: 860px) { .formats { grid-template-columns: 1fr; } .formats div { padding: 20px 0; } .formats div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); } }
+.gal { display: grid; grid-template-columns: repeat(12, 1fr); gap: 12px; }
+.gal figure { position: relative; overflow: hidden; background: var(--wall-2); }
+.gal img { width: 100%; height: 100%; object-fit: cover; }
+.gal figcaption { position: absolute; left: 0; bottom: 0; background: rgba(32, 28, 27, .82); color: #fff; font-size: 13.5px; padding: 5px 10px; }
+.gal figure:nth-child(1) { grid-column: span 7; aspect-ratio: 16/10; }
+.gal figure:nth-child(2) { grid-column: span 5; aspect-ratio: auto; }
+.gal figure:nth-child(n+3) { grid-column: span 4; aspect-ratio: 4/3; }
+@media (max-width: 760px) { .gal { grid-template-columns: 1fr 1fr; gap: 8px; } .gal figure:nth-child(n) { grid-column: span 1; aspect-ratio: 4/3; } .gal figure:nth-child(1) { grid-column: 1 / -1; aspect-ratio: 16/10; } }
+.panel { background: var(--wall); padding: clamp(24px, 3.4vw, 40px); }
+.panel h2 { margin-bottom: 6px; }
+.panel > p { color: var(--grey); margin-bottom: 20px; }
+.hosted { color: var(--grey); font-size: 15.5px; }
+
+/* ---------- catering trays ---------- */
+.tray { display: grid; grid-template-columns: 1fr 92px 92px; gap: 4px 16px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.tray--head { border-bottom: 2px solid var(--ink); font-size: 14px; font-weight: 600; color: var(--grey); padding: 8px 0; }
+.tray--head span, .tray > span { text-align: right; }
+.tray > span { font-family: var(--display); font-weight: 700; }
+.tray b { font-family: var(--display); font-weight: 600; font-size: 17.5px; }
+.tray p { grid-column: 1 / -1; color: var(--grey); font-size: 15px; max-width: 52em; }
+details.trays { border-bottom: 1px solid var(--line); }
+details.trays:first-of-type { border-top: 2px solid var(--ink); }
+details.trays summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 18px 0; font-family: var(--display); font-weight: 700; font-size: 23px; }
+details.trays summary::-webkit-details-marker { display: none; }
+details.trays summary::after { content: '+'; font-family: var(--text); font-weight: 400; font-size: 26px; color: var(--grey); }
+details.trays[open] summary::after { content: '\2212'; }
+details.trays summary small { font-family: var(--text); font-weight: 400; font-size: 15px; color: var(--grey); margin-left: 12px; }
+details.trays .tray:last-child { border-bottom: 0; margin-bottom: 12px; }
+@media (max-width: 560px) { .tray { grid-template-columns: 1fr 70px 70px; gap: 4px 10px; } }
+
+/* steps */
+.steps { counter-reset: s; border-top: 2px solid var(--ink); }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 44px 1fr; gap: 6px 14px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.steps li::before { content: counter(s); font-family: var(--display); font-weight: 800; font-size: 28px; line-height: 1; color: var(--red); }
+.steps li::before { grid-row: 1 / span 2; }
+.steps b { display: block; grid-column: 2; align-self: center; }
+.steps span { grid-column: 2; color: var(--grey); font-size: 15.5px; }
+
+.tel { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.tel:hover { opacity: .75; }
+
+/* text links get a taller tap area on phones without changing the layout */
+@media (max-width: 760px) {
+  a.u, .tel, .jumpto, .foot ul a, .foot ul button, .foot__fine a, .mjump a { padding-top: 9px; padding-bottom: 9px; }
+  .head .logo, .menu .logo, .adm__bar .logo { padding: 10px 0; }
+  .formats .u { margin: 6px 0 4px; }
+  button.u { padding-top: 9px; padding-bottom: 9px; margin-top: -9px; margin-bottom: -9px; }
+  .foot ul { gap: 12px; }
+  .hosted { columns: 1; }
+}
+
+.formats .u { margin: 12px 0 16px; font-weight: 600; }
+
+.scrim { position: fixed; inset: 0; background: rgba(10,11,11,.55); z-index: 125; opacity: 0; pointer-events: none; transition: opacity .25s; }
+.scrim.on { opacity: 1; pointer-events: auto; }
+
+/* booking, purchase, inquiry and bag all open in this sheet */
+.sheet { position: fixed; z-index: 130; right: 0; top: 0; bottom: 0; width: min(540px, 100vw); background: #fff; transform: translateX(104%); transition: transform .35s var(--ease); display: flex; flex-direction: column; }
+.sheet.on { transform: none; }
+.sheet__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 24px 28px 18px; border-bottom: 1px solid var(--line); }
+.sheet__head p { margin: 0 0 6px; font-size: 14.5px; font-weight: 600; color: var(--red); }
+.sheet__head h2 { font-size: 40px; }
+.sheet__body { flex: 1; overflow: auto; padding: 22px 28px; }
+.sheet__foot { padding: 14px 28px calc(18px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+.sheet__foot .small { color: var(--grey); }
+@media (max-width: 560px) { .sheet__head, .sheet__body, .sheet__foot { padding-left: 18px; padding-right: 18px; } .sheet__head h2 { font-size: 34px; } }
+
+.steps-bar { display: flex; gap: 6px; margin-bottom: 20px; }
+.steps-bar i { flex: 1; height: 4px; background: var(--wall-2); }
+.steps-bar i.on { background: var(--red); }
+.summary { background: var(--wall); padding: 18px 20px; margin-bottom: 22px; display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; font-size: 15px; }
+.summary__name { grid-column: 1 / -1; font-family: var(--display); font-weight: 700; font-size: 30px; line-height: 1; margin-bottom: 4px; }
+.summary b { font-size: 17px; }
+.summary small { color: var(--grey); font-size: 14.5px; }
+.q { font-weight: 700; font-size: 17px; margin: 0 0 10px; }
+.pay { display: grid; gap: 8px; margin: 0 0 22px; }
+.pay label { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 13px 16px; border: 1.5px solid #b9beb6; border-radius: 6px; cursor: pointer; }
+.pay label:has(input:checked) { border-color: var(--ink); box-shadow: 0 0 0 1.5px var(--ink) inset; }
+.pay input { accent-color: var(--red); width: 18px; height: 18px; }
+.pay b { display: block; font-size: 16.5px; }
+.pay small { color: var(--grey); font-size: 14.5px; }
+.pay .amt { font-family: var(--display); font-weight: 700; font-size: 28px; }
+.conf { display: grid; gap: 20px; }
+.conf__big { font-family: var(--display); font-weight: 700; font-size: 56px; line-height: .95; }
+.conf__list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.conf__list li { display: grid; grid-template-columns: 110px 1fr; gap: 14px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+.conf__list li span:first-child { font-weight: 600; }
+.conf__tip { background: var(--wall); padding: 16px 18px; font-size: 15.5px; }
+.cart-line { display: grid; grid-template-columns: 1fr auto auto; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.cart-line small { color: var(--grey); }
+.qty { display: inline-flex; align-items: center; border: 1.5px solid #b9beb6; border-radius: 2px; }
+.qty button { width: 36px; height: 36px; text-align: center; font-size: 18px; }
+.qty output { min-width: 22px; text-align: center; font-weight: 600; }
+.cart-total { display: flex; justify-content: space-between; padding: 18px 0 0; font-family: var(--display); font-weight: 700; font-size: 34px; }
+
+/* pitch notes: not part of the site, so it looks like a different object */
+.pitch { position: fixed; z-index: 135; right: 0; top: 0; bottom: 0; width: min(780px, 100vw); background: var(--ink); color: #fff; transform: translateX(104%); transition: transform .38s var(--ease); display: flex; flex-direction: column; font-size: 16px; }
+.pitch.on { transform: none; }
+.pitch__head { display: flex; justify-content: space-between; align-items: flex-start; padding: 24px 30px 0; }
+.pitch__head p { margin: 0 0 6px; font-size: 14.5px; color: #a9ada8; }
+.pitch__head h2 { font-size: 44px; }
+.ptabs { display: flex; gap: 4px; padding: 20px 30px 0; border-bottom: 1px solid #3a3d3c; overflow-x: auto; scrollbar-width: none; flex: none; }
+.ptabs::-webkit-scrollbar { display: none; }
+.ptabs button { padding: 10px 12px; font-size: 15px; font-weight: 600; color: #a9ada8; border-bottom: 3px solid transparent; white-space: nowrap; }
+.ptabs button.on { color: #fff; border-bottom-color: var(--red); }
+.ptabs .cnt { display: inline-block; min-width: 20px; padding: 0 6px; margin-left: 6px; border-radius: 2px; background: var(--red); color: #fff; font-size: 12px; line-height: 20px; text-align: center; }
+.pitch__body { flex: 1; overflow: auto; padding: 26px 30px 44px; line-height: 1.55; }
+.pitch__body > section { display: none; }
+.pitch__body > section.on { display: block; }
+.pitch__body h3 { font-size: 34px; margin: 34px 0 12px; }
+.pitch__body h3:first-child { margin-top: 0; }
+.pitch__body p, .pitch__body li { color: #c9ccc7; }
+.pitch__body b { color: #fff; font-weight: 600; }
+.pitch__body ul, .pitch__body ol { margin: 0 0 16px; padding-left: 20px; }
+.pitch__body li { margin-bottom: 8px; }
+.pitch__body a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.pitch__body code { font-size: .92em; background: #2b2e2d; padding: 1px 5px; border-radius: 3px; }
+.pitch__body figure { margin: 0; }
+.shot { border: 1px solid #3a3d3c; overflow: hidden; margin: 12px 0 6px; background: #000; }
+.shot img { width: 100%; }
+.shot--scroll { max-height: 360px; overflow: auto; }
+.pitch__body figcaption { font-size: 13.5px; color: #a9ada8; margin-bottom: 18px; }
+.shots2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+.finding { display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 18px 0; border-top: 1px solid #3a3d3c; }
+.finding > span { font-family: var(--display); font-weight: 700; font-size: 30px; line-height: 1; color: var(--red); }
+.finding > div > b { display: block; font-size: 17.5px; margin-bottom: 4px; }
+.finding p { margin: 0 0 8px; }
+.jumpto { display: inline-block; margin-top: 2px; font-size: 14.5px; font-weight: 700; color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+.plan-wk { display: grid; grid-template-columns: 84px 1fr; gap: 14px; padding: 16px 0; border-top: 1px solid #3a3d3c; }
+.plan-wk > span { font-weight: 700; color: var(--red); }
+.plan-wk b { display: block; margin-bottom: 4px; }
+.plan-wk p { margin: 0; }
+.inbox-item { border: 1px solid #3a3d3c; padding: 14px 16px; margin-bottom: 10px; }
+.inbox-item .kind { display: flex; justify-content: space-between; font-size: 13.5px; font-weight: 700; color: #ff6b70; margin-bottom: 4px; }
+.inbox-item .kind span:last-child { color: #a9ada8; font-weight: 400; }
+.inbox-item p { margin: 2px 0 0; font-size: 15px; }
+.inbox-empty { padding: 36px 0; color: #a9ada8; }
+.pitch__foot { padding: 14px 30px 18px; border-top: 1px solid #3a3d3c; font-size: 13px; color: #a9ada8; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; }
+@media (max-width: 560px) { .pitch__head, .ptabs, .pitch__body, .pitch__foot { padding-left: 18px; padding-right: 18px; } .shots2 { grid-template-columns: 1fr; } }
+
+/* ---------- two ways to book, inside the sheet ---------- */
+.paths { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 0 22px; }
+.path { text-align: left; padding: 13px 16px; border: 1.5px solid #b9beb6; border-radius: 6px; background: #fff; }
+.path b { display: block; font-size: 16.5px; }
+.path small { display: block; color: var(--grey); font-size: 14px; margin-top: 2px; }
+.path:hover { border-color: var(--ink); }
+.path.on { border-color: var(--ink); box-shadow: 0 0 0 1.5px var(--ink) inset; }
+.wlbox { background: var(--wall); padding: 22px 22px 18px; }
+.wlbox h3 { font-size: 30px; margin-bottom: 10px; }
+.wlbox p { margin: 0 0 12px; }
+.foot-pane { flex: 1; display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+@media (max-width: 560px) { .foot-pane .small { font-size: 13px; } }
+
+/* ---------- front desk portal: a staff tool, so no site header, offer bar or footer ---------- */
+body.admin .offerbar, body.admin .head, body.admin .foot, body.admin .bookbar { display: none; }
+.adm__bar { background: var(--ink); color: #fff; }
+.adm__bar .wrap { height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.adm__bar .logo { font-size: 23px; }
+.adm__bar .logo span { color: #fff; }
+.adm__right { display: flex; align-items: center; gap: 20px; font-size: 15px; white-space: nowrap; }
+.adm__right .u:hover { color: #fff; opacity: .75; }
+.adm__gate { padding-top: clamp(64px, 10vw, 140px); padding-bottom: 40px; }
+.adm__gate .lead { margin-top: 22px; }
+.adm__in { padding-top: clamp(32px, 4.5vw, 56px); }
+.adm__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; }
+.adm__head span { color: var(--grey); font-size: 16px; }
+.adm__note { margin-top: 14px; font-size: 14.5px; color: var(--grey); max-width: 62em; }
+.adm__stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 30px; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); }
+.adm__stats div { padding: 18px 20px 18px 0; }
+.adm__stats div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+.adm__stats b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(44px, 5vw, 68px); line-height: .9; }
+.adm__stats div:first-child b { color: var(--red); }
+.adm__stats span { display: block; margin-top: 8px; font-size: 14.5px; color: var(--grey); line-height: 1.35; }
+.adm__tabs { display: flex; gap: 28px; margin-top: 34px; border-bottom: 1px solid var(--line); }
+.adm__tabs button { padding: 0 0 12px; font-family: var(--display); font-weight: 700; font-size: 30px; line-height: 1; color: var(--grey); border-bottom: 3px solid transparent; margin-bottom: -1px; }
+.adm__tabs button.on { color: var(--ink); border-bottom-color: var(--red); }
+.adm__tabs small { font-family: var(--text); font-weight: 500; font-size: 14px; margin-left: 4px; }
+.adm__tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding: 18px 0; }
+.adm__tools .cats small { font-weight: 400; margin-left: 4px; opacity: .7; }
+.adm__find { display: flex; gap: 8px; align-items: center; flex: 1; justify-content: flex-end; min-width: min(100%, 300px); }
+.adm__find input { flex: 1; max-width: 300px; min-height: 40px; padding: 0 16px; border: 1.5px solid #b9beb6; border-radius: 2px; background: #fff; font-size: 15px; }
+.adm__find input:focus { outline: 0; border-color: var(--ink); }
+.adm__split { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: clamp(24px, 3vw, 48px); align-items: start; }
+.ptable { border-top: 2px solid var(--ink); }
+.prow { width: 100%; text-align: left; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr) 136px; grid-template-areas: 'name last status' 'name when status'; gap: 2px 18px; align-items: center; padding: 14px 12px 14px 0; border-bottom: 1px solid var(--line); border-left: 4px solid transparent; padding-left: 12px; }
+.prow:hover { background: var(--wall); }
+.prow.on { border-left-color: var(--red); background: var(--wall); }
+.prow__name { grid-area: name; font-weight: 600; font-size: 17px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.prow__last { grid-area: last; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.prow__last b { font-weight: 600; }
+.prow__when { grid-area: when; font-size: 13.5px; color: var(--grey); }
+.prow__status { grid-area: status; justify-self: end; font-size: 13px; font-weight: 600; line-height: 1; padding: 6px 9px; white-space: nowrap; border: 1.5px solid var(--ink); }
+.st-new { background: var(--red); border-color: var(--red); color: #fff; }
+.st-wl { background: var(--ok); border-color: var(--ok); color: #fff; }
+.st-member { background: var(--ink); color: #fff; }
+.tag2 { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1; padding: 4px 6px; background: var(--wall-2); color: var(--grey); }
+.tag2--red { background: none; color: var(--red); box-shadow: 0 0 0 1.5px var(--red) inset; }
+.adm__detail { position: sticky; top: 20px; border-top: 2px solid var(--ink); padding-top: 20px; }
+.pd__tags { display: flex; gap: 6px; margin: 8px 0 0; min-height: 4px; }
+.pd__info { margin: 14px 0 22px; }
+.pd__info div { display: grid; grid-template-columns: 96px 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; }
+.pd__info dt { font-weight: 600; }
+.pd__info dd { margin: 0; overflow-wrap: anywhere; }
+.pd__status { display: flex; flex-wrap: wrap; gap: 6px; }
+.pd__status button { min-height: 38px; padding: 0 14px; border-radius: 2px; border: 1.5px solid #b9beb6; font-size: 14.5px; font-weight: 600; }
+.pd__status button:hover { border-color: var(--ink); }
+.pd__status button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+.pd__next { margin: 18px 0 20px; padding: 14px 16px; background: var(--wall); font-size: 15.5px; }
+.pd__next b { display: block; font-size: 13.5px; color: var(--red); margin-bottom: 3px; }
+.pd .field textarea { min-height: 84px; font-size: 15.5px; }
+.pd__log { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.pd__log li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; }
+.pd__log span { display: block; font-size: 13.5px; color: var(--grey); }
+.pd__log p { margin: 4px 0 0; font-size: 14.5px; color: var(--grey); }
+.alog { border-top: 2px solid var(--ink); margin-top: 18px; }
+.alog__row { display: grid; grid-template-columns: 150px 150px minmax(0, 1fr) auto; gap: 16px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; }
+.alog__when { color: var(--grey); font-size: 14.5px; }
+.alog__kind { font-weight: 600; }
+.alog__kind.is-wl { color: var(--grey); }
+.alog__what small { display: block; color: var(--grey); font-size: 14.5px; margin-top: 2px; }
+@media (max-width: 1020px) {
+  .adm__split { grid-template-columns: 1fr; }
+  .adm__detail { display: none; }
+  .prow.on { border-left-color: transparent; background: none; }
+}
+@media (max-width: 760px) {
+  .adm__stats { grid-template-columns: 1fr 1fr; }
+  .adm__stats div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .adm__stats div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .adm__tools .cats { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 calc(var(--pad) * -1); padding: 0 var(--pad); max-width: 100vw; }
+  .adm__tools .cats::-webkit-scrollbar { display: none; }
+  .adm__tools .cats button { white-space: nowrap; flex: none; }
+  .adm__find input { max-width: none; }
+  .prow { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'name status' 'last last' 'when when'; padding-left: 0; border-left: 0; }
+  .alog__row { grid-template-columns: 1fr auto; grid-template-areas: 'kind when' 'what what' 'open open'; gap: 4px 12px; }
+  .alog__when { grid-area: when; } .alog__kind { grid-area: kind; } .alog__what { grid-area: what; }
+  .adm__right { gap: 14px; font-size: 14px; }
+  .adm__bar .logo { font-size: 19px; }
+  body.admin .concept { bottom: 0; padding-bottom: calc(5px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* the sheet, pitch notes and staff portal share an engine with other concepts. These lines dress them for this one. */
+:root { --ease: cubic-bezier(.2, .7, .2, 1); }
+.round { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border: 1.5px solid currentColor; border-radius: 2px; flex: none; }
+.round:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.pitch .round:hover { background: #fff; color: var(--ink); border-color: #fff; }
+.sheet__head h2, .pitch__head h2, .pitch__body h3, .wlbox h3 { font-family: var(--display); font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+.sheet__head h2 { font-size: 30px; }
+.pitch__head h2 { font-size: 32px; }
+.pitch__body h3 { font-size: 24px; }
+.wlbox h3 { font-size: 22px; }
+@media (max-width: 560px) { .sheet__head h2 { font-size: 26px; } }
+.summary__name { font-size: 22px; line-height: 1.15; }
+.conf__big { font-size: 32px; line-height: 1.12; }
+.pitch__body ul { list-style: disc; }
+.finding > span, .plan-wk > span { color: var(--ochre); }
+.ptabs button.on { border-bottom-color: var(--ochre); }
+.ptabs .cnt { background: var(--ochre); color: var(--ink); }
+.jumpto { text-align: left; }
+.pitch__body code { background: #3a3331; }
+/* staff portal */
+body.admin .head, body.admin .foot, body.admin .bookbar, body.admin .stripes { display: none; }
+.adm__bar .logo { font-size: 24px; }
+.adm__stats b { font-size: clamp(38px, 4.4vw, 56px); line-height: 1; }
+.adm__tabs button { font-size: 22px; }
+.prow__name { font-family: var(--text); }
+.st-new { background: var(--red); border-color: var(--red); }
+.pd__next b { color: var(--red); }
+/* reserve panel */
+.tel { white-space: nowrap; }
+.rnote { background: var(--wall); padding: 16px 18px; margin-top: 18px; font-size: 15.5px; }
+.rnote b { display: block; margin-bottom: 2px; }
+.rnote + .tel { white-space: nowrap; }
+.rnote { margin-top: 8px; }
+.rclosed { margin-top: 14px; padding: 12px 14px; border-left: 4px solid var(--red); background: #f8eeee; font-size: 15.5px; }
+.sheet__foot .btn { white-space: normal; text-align: center; }
+[hidden] { display: none !important; }
+.field .err { display: block; margin-top: 5px; color: #b3261e; font-size: 14px; font-weight: 500; }
+.sheet__foot { gap: 10px; }
+.ok-box b { font-family: var(--display); font-size: 18px; }
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L16 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></symbol>
+</svg>
+
+<header class="head">
+  <div class="wrap">
+    <nav class="nav nav--left" aria-label="Menu and events">
+      <a href="#menu" data-nav="menu">Menu</a>
+      <a href="#events" data-nav="events">Private events</a>
+      <a href="#catering" data-nav="catering">Catering</a>
+      <a href="#story" data-nav="story">Our story</a>
+    </nav>
+    <a class="logo" href="#home" aria-label="Topo Gigio Ristorante, home">Topo Gigio <span>Ristorante</span></a>
+    <nav class="nav nav--right" aria-label="Visit and reserve">
+      <a href="#visit" data-nav="visit">Hours and location</a>
+      <a href="#gifts" data-nav="gifts">Gift cards</a>
+      <button class="btn btn-white" type="button" data-action="reserve">Reserve</button>
+      <button class="menu-btn" type="button" data-action="menu-open" aria-label="Open menu"><svg class="ic"><use href="#i-menu"/></svg></button>
+    </nav>
+  </div>
+</header>
+
+<div class="menu" id="nav-menu" aria-hidden="true">
+  <div class="menu__top">
+    <a class="logo" href="#home" data-action="menu-close">Topo Gigio <span>Ristorante</span></a>
+    <button class="menu-btn" style="display:inline-flex" type="button" data-action="menu-close" aria-label="Close menu"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <nav class="menu__links" aria-label="All pages">
+    <a href="#menu" data-action="menu-close">Menu</a>
+    <a href="#visit" data-action="menu-close">Hours and location</a>
+    <a href="#events" data-action="menu-close">Private events</a>
+    <a href="#catering" data-action="menu-close">Catering</a>
+    <a href="#gifts" data-action="menu-close">Gift cards</a>
+    <a href="#story" data-action="menu-close">Our story</a>
+  </nav>
+  <div class="menu__foot">
+    <button class="btn btn-white btn-wide" type="button" data-action="reserve">Reserve a table</button>
+    <p>1516 N Wells St, Old Town<br>Call <a class="tel" href="tel:+13122669355">(312) 266-9355</a></p>
+  </div>
+</div>
+
+<main id="main">
+
+<section class="page" data-page="home">
+
+  <div class="hero">
+    <picture>
+      <source media="(max-width: 760px)" srcset="img/hero-m.webp">
+      <img src="img/hero.webp" alt="The garden at Topo Gigio at dusk, tables full under strings of lights" fetchpriority="high">
+    </picture>
+    <div class="wrap hero__in">
+      <h1 class="h-xl">Italian cooking on Wells Street since 1988</h1>
+      <p class="lead">Family recipes from Calabria, a lively dining room and a garden under the lights. In Old Town, six days a week.</p>
+      <div class="btn-row">
+        <button class="btn btn-white" type="button" data-action="reserve">Reserve a table</button>
+        <a class="btn btn-line" href="#menu">See the menu</a>
+      </div>
+      <p class="status" id="status"><i></i><span></span></p>
+    </div>
+  </div>
+  <div class="stripes" aria-hidden="true"></div>
+
+  <div class="tonight">
+    <div class="wrap">
+      <div><b id="tn-hours"></b><span id="tn-hours-sub"></span></div>
+      <div><b>Inside, by reservation</b><span>Book the dining room on OpenTable. Recommended, especially on weekends.</span></div>
+      <div><b>Garden, tent and bars, walk in</b><span>First come, first served. There is nothing to book.</span></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 class="h-l">The dishes people come back for</h2>
+          <p class="lead grey">Six from a dinner menu of more than eighty.</p>
+        </div>
+        <a class="u" href="#menu">See the full menu</a>
+      </div>
+      <div class="fav">
+        <div class="fav__list" id="fav"></div>
+        <div class="photo r-45"><img src="img/conchiglie.webp" alt="Conchiglie alla Sarda, seashell pasta in tomato-cream sauce with sausage and peas" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="cols">
+        <div class="photo r-45"><img src="img/garden.webp" alt="Guests at tables in the brick-walled garden, green awning and string lights overhead" loading="lazy"></div>
+        <div>
+          <h2 class="h-l">The garden</h2>
+          <p class="lead" style="margin-top:16px">Brick walls, a green awning and strings of lights. It is open through the summer months, with a heated tent when the weather turns.</p>
+          <dl class="facts" style="margin-top:28px">
+            <div><dt>Seating</dt><dd>First come, first served. We don't take reservations for the garden, the tent or the bars</dd></div>
+            <div><dt>Pets</dt><dd>Service animals only</dd></div>
+            <div><dt>Late</dt><dd>The bar stays open late on Friday and Saturday</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="roomband">
+    <img src="img/room.webp" alt="The second-floor private room set for dinner, with round tables, burgundy drapes and ochre walls" loading="lazy">
+    <div class="wrap">
+      <h2 class="h-xl">A private room for 40 to 90, one floor up</h2>
+      <p class="lead">Twenty-five-foot ceilings, a mosaic dome, velvet drapes and its own bar. Weddings, anniversary dinners and company events.</p>
+      <div class="btn-row">
+        <a class="btn btn-white" href="#events">See the room</a>
+        <button class="btn btn-line" type="button" data-action="ask-event">Ask about a date</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">Why a mouse?</h2>
+          <p class="lead" style="margin-top:16px">Topo is Italian for mouse. Topo Gigio was a puppet on The Ed Sullivan Show in the 1960s, and a cartoon and comic-book character in Italy.</p>
+          <p style="margin-top:14px;max-width:34em">Frank, who founded the restaurant, watched him as a boy. When he came to the United States from Calabria he brought his family's recipes with him, and they are still on the menu.</p>
+          <p style="margin-top:22px"><a class="u" href="#story">Read our story</a></p>
+        </div>
+        <ul class="awards">
+          <li><b>IFMA award for Culinary Excellence</b><span>Seventeen years running</span></li>
+          <li><b>"Top Italian Restaurant in Chicago"</b><span>James Ward, Channel 7 restaurant critic</span></li>
+          <li><b>Parts Unknown with Anthony Bourdain</b><span>A segment on the show</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 class="h-l">What guests say</h2>
+          <p class="proof" style="margin-top:14px"><span><span class="stars" aria-hidden="true">★★★★★</span> <b>4.6</b> on Google from 1,902 reviews</span><span><b>4.8</b> on OpenTable</span></p>
+        </div>
+      </div>
+      <div class="quotes" id="quotes"></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">1516 N Wells St, Old Town</h2>
+          <p class="lead" style="margin-top:16px">Just south of North Avenue. Closed Mondays.</p>
+          <dl class="facts" style="margin-top:26px">
+            <div><dt>Parking</dt><dd>Self-park lot at 1554 N Wells, or street parking. No valet</dd></div>
+            <div><dt>Dress</dt><dd>Business casual. No tank tops indoors</dd></div>
+            <div><dt>Carry-out</dt><dd>By phone, <a class="tel" href="tel:+13122669355">(312) 266-9355</a>. No delivery</dd></div>
+          </dl>
+          <div class="btn-row" style="margin-top:28px">
+            <a class="btn btn-ink" href="https://www.google.com/maps/search/?api=1&query=Topo+Gigio+Ristorante+1516+N+Wells+St+Chicago+IL+60610" target="_blank" rel="noopener">Get directions</a>
+            <a class="u" href="#visit">Hours and location</a>
+          </div>
+        </div>
+        <table class="hours" id="hours-home"></table>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="wrap">
+      <div>
+        <h2 class="h-xl">Come hungry</h2>
+        <p>Reservations for the dining room are recommended, especially on weekends.</p>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-white" type="button" data-action="reserve">Reserve a table</button>
+        <a class="btn btn-line" href="tel:+13122669355">Call (312) 266-9355</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="page" data-page="menu">
+  <div class="phead"><div class="wrap">
+    <h1 class="h-xl">Menu</h1>
+    <p class="lead">Every dish and every price, as text you can search. Ask your server about the daily specials.</p>
+  </div></div>
+  <div class="mbar"><div class="wrap">
+    <div class="mtabs" role="tablist" id="mtabs">
+      <button type="button" role="tab" data-menu="dinner">Dinner</button>
+      <button type="button" role="tab" data-menu="lunch">Lunch</button>
+      <button type="button" role="tab" data-menu="drinks">Drinks</button>
+    </div>
+    <div class="mtools">
+      <input type="search" id="m-q" placeholder="Search the menu" aria-label="Search the menu">
+      <div class="cats" id="m-diet" aria-label="Dietary filters">
+        <button type="button" data-diet="GF" aria-pressed="false">Gluten free</button>
+        <button type="button" data-diet="V" aria-pressed="false">Vegetarian</button>
+        <button type="button" data-diet="P" aria-pressed="false">Pescatarian</button>
+      </div>
+    </div>
+  </div></div>
+  <div class="wrap">
+    <div class="mwhen"><div><h2 class="h-l" id="m-title"></h2><p id="m-when" style="margin-top:8px"></p></div><nav class="mjump" id="m-jump" aria-label="Menu sections"></nav></div>
+    <div id="m-body"></div>
+    <div class="mnotes" id="m-notes"></div>
+    <div class="sec" id="sec-carryout" style="scroll-margin-top:var(--head);padding-bottom:0">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">Carry-out</h2>
+          <p class="lead" style="margin-top:14px">Call the restaurant to place an order. We don't take carry-out orders online and we don't deliver.</p>
+          <div class="btn-row" style="margin-top:24px"><a class="btn btn-red" href="tel:+13122669355"><svg class="ic"><use href="#i-tel"/></svg>Call (312) 266-9355</a></div>
+        </div>
+        <dl class="facts">
+          <div><dt>Lunch</dt><dd>Tuesday to Saturday, 11:30 am to 3:00 pm</dd></div>
+          <div><dt>Dinner</dt><dd>Tuesday to Thursday, until 6:00 pm</dd></div>
+          <div><dt>For a crowd</dt><dd>Trays by the half or full pan, with 48 hours' notice. <a class="u" href="#catering">See catering</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="end"></div>
+</section>
+
+<!-- PRIVATE EVENTS -->
+<section class="page" data-page="events">
+  <div class="phead phead--photo">
+    <img src="img/room.webp" alt="The private room set with round tables for a dinner">
+    <div class="wrap">
+      <h1 class="h-xl">Private events</h1>
+      <p class="lead">One private room on the second floor, for 40 to 90 guests.</p>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">The room</h2>
+          <p class="lead" style="margin-top:14px">Classic décor, a mosaic dome in a twenty-five-foot ceiling, burgundy velvet drapes and a bar of its own. We plan each event with you, to your specifications.</p>
+          <dl class="facts" style="margin-top:26px">
+            <div><dt>Guests</dt><dd>40 minimum, 90 maximum</dd></div>
+            <div><dt>Where</dt><dd>Second floor, 1516 N Wells St</dd></div>
+            <div><dt>Good for</dt><dd>Weddings, anniversary dinners and company events</dd></div>
+            <div><dt>Planner</dt><dd>Elizabeth, <a class="tel" href="tel:+13122669355">(312) 266-9355</a><br><a class="tel" href="mailto:emiranda@topogigiochicago.com">emiranda@topogigiochicago.com</a></dd></div>
+          </dl>
+        </div>
+        <form class="panel" id="ev-form" novalidate>
+          <h2 class="h-m">Ask about a date</h2>
+          <p>Elizabeth replies with availability and a quote.</p>
+          <div class="form-grid">
+            <label class="field"><span>Your name</span><input name="name" required autocomplete="name"></label>
+            <label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+            <label class="field"><span>Phone (optional)</span><input name="phone" type="tel" autocomplete="tel"></label>
+            <label class="field"><span>Date you have in mind</span><input name="date" type="date"></label>
+            <label class="field"><span>Occasion</span><select name="type"><option>Wedding</option><option>Rehearsal dinner</option><option>Anniversary or birthday</option><option>Company event</option><option>Something else</option></select></label>
+            <label class="field"><span>Guests (40 to 90)</span><input name="guests" type="number" min="40" max="90" inputmode="numeric" required></label>
+            <label class="field span2"><span>Style of service</span><select name="format"><option>Not sure yet</option><option>Plated four-course dinner</option><option>Buffet</option><option>Finger-food cocktail party</option></select></label>
+            <label class="field span2"><span>Anything we should know? (optional)</span><textarea name="notes"></textarea></label>
+          </div>
+          <button class="btn btn-red btn-wide" type="submit" style="margin-top:18px">Send inquiry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="sec-head"><div><h2 class="h-l">Three ways to serve it</h2><p class="lead grey">Prices are per guest, before the bar package. The full package list comes with your quote.</p></div></div>
+      <div class="formats">
+        <div><h3 class="h-m">Plated dinner</h3><b>Entrées $33 to $45</b><p>Four courses. Antipasto served butler style, house salad, your guests' choice of two main courses plus a vegetarian option, dessert, coffee and tea. A pasta course can be added.</p><button class="u" type="button" data-action="ask-event" data-format="Plated four-course dinner">Ask about a plated dinner</button></div>
+        <div><h3 class="h-m">Buffet</h3><b>From $40 a guest</b><p>Built dish by dish from the buffet menu, plus a bar package.</p><button class="u" type="button" data-action="ask-event" data-format="Buffet">Ask about a buffet</button></div>
+        <div><h3 class="h-m">Cocktail party</h3><b>From $35 a guest</b><p>Finger food priced by the piece, 20 pieces minimum of each, plus a bar package.</p><button class="u" type="button" data-action="ask-event" data-format="Finger-food cocktail party">Ask about a cocktail party</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h-l">Have a look</h2></div>
+      <div class="gal">
+        <figure><img src="img/long.webp" alt="The room dressed for a seated dinner, tables running its full length" loading="lazy"><figcaption>Seated dinner</figcaption></figure>
+        <figure><img src="img/dome.webp" alt="The hand-painted sun in the centre of the ceiling dome" loading="lazy"><figcaption>The hand-painted sun in the dome</figcaption></figure>
+        <figure><img src="img/mural.webp" alt="The mural wall across from the bar, with high-top tables" loading="lazy"><figcaption>The mural wall</figcaption></figure>
+        <figure><img src="img/bar.webp" alt="The private room's wooden bar" loading="lazy"><figcaption>The bar</figcaption></figure>
+        <figure><img src="img/wedding.webp" alt="The room arranged for a wedding with a dance floor" loading="lazy"><figcaption>Set for a wedding</figcaption></figure>
+      </div>
+    </div>
+  </div>
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div><h2 class="h-l">Who has held events here</h2><p class="lead grey" style="margin-top:12px">Companies that have booked the room.</p></div>
+        <p class="hosted">IFMA, Motorola, Andersen Consulting, The Boston Consulting Group, Morgan Stanley Dean Witter, HBO, Wells Fargo, DHL, McDonald's, Grainger, Guaranteed Rate, Rock Trading, Chicago Fire and Chicago PD, The Chicago Board of Trade, GTCR, Jameson Realty, New West Realty and The Habitat Company.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATERING -->
+<section class="page" data-page="catering">
+  <div class="phead"><div class="wrap">
+    <h1 class="h-xl">Catering</h1>
+    <p class="lead">Trays from our kitchen for your table. Pick-up only, with 48 hours' notice.</p>
+  </div></div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">How it works</h2>
+          <ol class="steps" style="margin-top:22px">
+            <li><b>Tell us what you need</b><span>Use the form, or email Vince. Give us at least 48 hours.</span></li>
+            <li><b>We confirm the order and the price</b><span>Prices change with the market, so Vince confirms the total before we cook.</span></li>
+            <li><b>Pick it up</b><span>11:30 am to 4:30 pm, Tuesday to Thursday and Sunday. We don't deliver.</span></li>
+          </ol>
+          <dl class="facts" style="margin-top:28px">
+            <div><dt>Tray sizes</dt><dd>A half pan feeds 10 to 16. A full pan feeds 18 to 25</dd></div>
+            <div><dt>Extras</dt><dd>Sterno heaters $4 each, racks $2 each. Plates and utensils cost extra</dd></div>
+            <div><dt>Gluten free</dt><dd>Gluten-free pasta isn't available for catering</dd></div>
+            <div><dt>Contact</dt><dd>Vince, <a class="tel" href="mailto:vince@topogigiochicago.com">vince@topogigiochicago.com</a></dd></div>
+          </dl>
+        </div>
+        <form class="panel" id="cat-form" novalidate>
+          <h2 class="h-m">Request catering</h2>
+          <p>Nothing is ordered until Vince confirms it with you.</p>
+          <div class="form-grid">
+            <label class="field"><span>Your name</span><input name="name" required autocomplete="name"></label>
+            <label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+            <label class="field"><span>Phone</span><input name="phone" type="tel" autocomplete="tel"></label>
+            <label class="field"><span>How many people</span><input name="guests" type="number" min="1" inputmode="numeric" required></label>
+            <label class="field"><span>Pick-up day</span><input name="date" type="date" required></label>
+            <label class="field"><span>Pick-up time</span><select name="time"><option>11:30 am</option><option>12:30 pm</option><option>1:30 pm</option><option>2:30 pm</option><option>3:30 pm</option><option>4:30 pm</option></select></label>
+            <label class="field span2"><span>What would you like?</span><textarea name="order" required placeholder="For example: one full pan of Rigatoni al Filo di Fumo, one half pan of house salad"></textarea></label>
+          </div>
+          <button class="btn btn-red btn-wide" type="submit" style="margin-top:18px">Send request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="sec-head"><div><h2 class="h-l">The catering menu</h2><p class="lead grey">Prices for a half pan and a full pan, unless marked each.</p></div></div>
+      <div id="trays"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GIFT CARDS -->
+<section class="page" data-page="gifts">
+  <div class="phead"><div class="wrap">
+    <h1 class="h-xl">Gift cards and t-shirts</h1>
+    <p class="lead">Ask for one here and pick it up at the restaurant.</p>
+  </div></div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">How to get one</h2>
+          <ol class="steps" style="margin-top:22px">
+            <li><b>Send a request</b><span>Say what you'd like. You can also ask over the phone or in person.</span></li>
+            <li><b>Vince replies</b><span>He confirms the amount or the shirt size and how to pay.</span></li>
+            <li><b>Pick it up at the restaurant</b><span>Gift cards and t-shirts are for in-person pickup only. We no longer mail them.</span></li>
+          </ol>
+          <p class="note" style="margin-top:18px">Vince: <a class="tel" href="mailto:vince@topogigiochicago.com">vince@topogigiochicago.com</a></p>
+        </div>
+        <form class="panel" id="gift-form" novalidate>
+          <h2 class="h-m">Request a gift card or shirt</h2>
+          <p>Nothing is charged here.</p>
+          <div class="form-grid">
+            <label class="field"><span>Your name</span><input name="name" required autocomplete="name"></label>
+            <label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+            <label class="field"><span>What would you like</span><select name="what"><option>Gift card</option><option>T-shirt</option><option>Both</option></select></label>
+            <label class="field"><span>Gift card amount or shirt size</span><input name="detail" required placeholder="$100, or a size large"></label>
+            <label class="field span2"><span>Anything else? (optional)</span><textarea name="notes"></textarea></label>
+          </div>
+          <button class="btn btn-red btn-wide" type="submit" style="margin-top:18px">Send request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="page" data-page="story">
+  <div class="phead"><div class="wrap">
+    <h1 class="h-xl">Our story</h1>
+    <p class="lead">A mouse, a boy in Calabria and a restaurant on Wells Street.</p>
+  </div></div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top cols-wide">
+        <div class="photo r-45"><img src="img/garden.webp" alt="The garden at dusk with guests at every table" loading="lazy"></div>
+        <div>
+          <h2 class="h-l">The name</h2>
+          <p class="lead" style="margin-top:14px">Topo is Italian for mouse. Topo Gigio was the puppet who appeared on The Ed Sullivan Show in the 1960s, and a cartoon and comic-book character in Italy.</p>
+          <p style="margin-top:14px;max-width:36em">Frank, our founding owner, grew up watching Topo Gigio and his adventures. When he came to the United States from Calabria, he brought his family's recipes with him. They are on the menu today.</p>
+          <h2 class="h-l" style="margin-top:44px">The cooking</h2>
+          <p style="margin-top:14px;max-width:36em">We opened in 1988, in the heart of Old Town, with a modern Tuscan-style approach to Italian cooking. More than 35 years later the dining room is lively in the cold months and the garden is full in the summer.</p>
+          <p style="margin-top:14px;max-width:36em">The dishes people talk about are the mussels marinara, the Lake Superior whitefish, Conchiglie alla Sarda, Rigatoni al Filo di Fumo and the tiramisu, which is made fresh every day. Vic Damone cooked in our kitchen, and Linguine alla "Vic Damone" is his own recipe.</p>
+          <div class="btn-row" style="margin-top:26px"><a class="btn btn-red" href="#menu">See the menu</a><button class="u" type="button" data-action="reserve">Reserve a table</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">Recognition</h2>
+          <ul class="awards" style="margin-top:22px">
+            <li><b>IFMA award for Culinary Excellence</b><span>Seventeen years running</span></li>
+            <li><b>"Top Italian Restaurant in Chicago"</b><span>James Ward, Channel 7 restaurant critic</span></li>
+            <li><b>Parts Unknown with Anthony Bourdain</b><span>A segment on the show</span></li>
+            <li><b>Chicago Sun-Times</b><span>Our mussels, whitefish, pastas and tiramisu have been praised in its pages</span></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="h-l">At the tables</h2>
+          <p style="margin-top:22px;color:var(--grey)">Over the years the restaurant has entertained Vic Damone, Madonna, Brooke Shields, Bonnie Hunt, Jerry Seinfeld, Bruce Springsteen, Keanu Reeves, Joe Pesci, Robert De Niro, Red Skelton, Don Ameche, Marisa Tomei, Tommy Lee Jones, Christopher Lloyd, Sid Caesar, Imogene Coca, Joyce Sloane, Joe Pantoliano, Joe Mantegna, Frankie Avalon, David Duchovny, Minnie Driver, David Schwimmer, Julia Roberts, Wayne Gretzky and Lori Greiner, among others.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="page" data-page="visit">
+  <div class="phead"><div class="wrap">
+    <h1 class="h-xl">Hours and location</h1>
+    <p class="lead">1516 N Wells St in Old Town, just south of North Avenue.</p>
+  </div></div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">Hours</h2>
+          <table class="hours" id="hours" style="margin-top:22px"></table>
+          <p class="note" style="margin-top:14px">Hours can change on major holidays and in bad weather. If you're not sure, call <a class="tel" href="tel:+13122669355">(312) 266-9355</a>.</p>
+        </div>
+        <div>
+          <h2 class="h-l">Getting a table</h2>
+          <dl class="facts" style="margin-top:22px">
+            <div><dt>Dining room</dt><dd>Reservations are recommended, especially on weekends. Lunch reservations are through OpenTable only</dd></div>
+            <div><dt>Garden, tent, bars</dt><dd>First come, first served. No reservations</dd></div>
+            <div><dt>Groups of 40 to 90</dt><dd>The private room upstairs. <a class="u" href="#events">Private events</a></dd></div>
+          </dl>
+          <div class="btn-row" style="margin-top:24px"><button class="btn btn-red" type="button" data-action="reserve">Reserve a table</button><a class="btn btn-line" href="tel:+13122669355">Call</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec sec-wall" id="sec-parking" style="scroll-margin-top:var(--head)">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">Getting here</h2>
+          <dl class="facts" style="margin-top:22px">
+            <div><dt>Address</dt><dd>1516 N Wells St, Chicago, IL 60610</dd></div>
+            <div><dt>Parking</dt><dd>Self-park lot at 1554 N Wells St, and street parking. We don't offer valet</dd></div>
+            <div><dt>By car</dt><dd>From I-90/94, take the North Avenue exit and head east about 1¾ miles to Wells. Turn right onto Wells</dd></div>
+          </dl>
+          <div class="btn-row" style="margin-top:24px">
+            <a class="btn btn-ink" href="https://www.google.com/maps/search/?api=1&query=Topo+Gigio+Ristorante+1516+N+Wells+St+Chicago+IL+60610" target="_blank" rel="noopener">Get directions</a>
+            <a class="u" href="https://www.google.com/maps/search/?api=1&query=1554+N+Wells+St+Parking+Chicago" target="_blank" rel="noopener">Find the parking lot</a>
+          </div>
+        </div>
+        <div>
+          <h2 class="h-l">Good to know</h2>
+          <dl class="facts" style="margin-top:22px">
+            <div><dt>Dress</dt><dd>Business casual. No tank tops indoors</dd></div>
+            <div><dt>Pets</dt><dd>Not on the patio, except service animals</dd></div>
+            <div><dt>Outside food</dt><dd>No outside food or drinks</dd></div>
+            <div><dt>Split plates</dt><dd>$4 charge</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">Send us a note</h2>
+          <p class="lead grey" style="margin-top:12px">For a table tonight, call. For everything else, write.</p>
+        </div>
+        <form class="panel" id="contact-form" novalidate>
+          <div class="form-grid">
+            <label class="field"><span>Your name</span><input name="name" required autocomplete="name"></label>
+            <label class="field"><span>Email or phone</span><input name="contact" required></label>
+            <label class="field span2"><span>What is it about</span><select name="about"><option>A question</option><option>Catering</option><option>Private events</option><option>Gift cards</option><option>The website</option></select></label>
+            <label class="field span2"><span>Message</span><textarea name="msg" required></textarea></label>
+          </div>
+          <button class="btn btn-red btn-wide" type="submit" style="margin-top:18px">Send message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRONT DESK: the staff side. Not in the menu. On the real site it sits at /admin behind a login. -->
+<section class="page adm" data-page="admin">
+  <div class="adm__bar">
+    <div class="wrap">
+      <a class="logo" href="#home">Topo Gigio <span>Ristorante</span></a>
+      <div class="adm__right"><a class="u" href="#home">Back to site</a><button class="u" type="button" id="adm-out" data-action="adm" data-do="out" hidden>Sign out</button></div>
+    </div>
+  </div>
+  <div id="adm-root"></div>
+  <div class="end"></div>
+</section>
+
+</main>
+
+<div class="stripes" aria-hidden="true"></div>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <a class="logo" href="#home">Topo Gigio <span>Ristorante</span></a>
+        <address>1516 N Wells St<br>Chicago, IL 60610<br><a class="tel" href="tel:+13122669355">(312) 266-9355</a></address>
+      </div>
+      <div>
+        <h3>Eat</h3>
+        <ul>
+          <li><a href="#menu">Dinner, lunch and wine</a></li>
+          <li><button type="button" data-action="reserve">Reserve a table</button></li>
+          <li><a href="#carryout">Carry-out</a></li>
+          <li><a href="#catering">Catering</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Celebrate</h3>
+        <ul>
+          <li><a href="#events">Private events</a></li>
+          <li><a href="#gifts">Gift cards and t-shirts</a></li>
+          <li><a href="#story">Our story</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Visit</h3>
+        <ul>
+          <li><a href="#visit">Hours and location</a></li>
+          <li><a href="#parking">Parking</a></li>
+          <li><a href="https://www.instagram.com/topogigiochicago" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/TopoGigioChicago" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__fine">
+      <span>Est. 1988. Closed Mondays.</span>
+      <span><a href="#admin">Staff</a> &nbsp; Concept by Jason Kemp</span>
+    </div>
+  </div>
+</footer>
+
+<div class="bookbar">
+  <button class="btn btn-red" type="button" data-action="reserve">Reserve</button>
+  <a class="btn btn-line" href="tel:+13122669355"><svg class="ic"><use href="#i-tel"/></svg>Call</a>
+</div>
+
+<div class="concept" role="region" aria-label="Concept notice">
+  <span>Concept site, not live</span>
+  <button type="button" data-action="pitch-open">Pitch notes</button>
+</div>
+
+<div class="scrim" id="scrim" data-action="overlay-close"></div>
+
+<!-- reserve / request sheet -->
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" aria-hidden="true">
+  <div class="sheet__head">
+    <div><p id="sheet-label">Reserve</p><h2 id="sheet-title"></h2></div>
+    <button class="round" type="button" data-action="overlay-close" aria-label="Close"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="sheet__body" id="sheet-body"></div>
+  <div class="sheet__foot" id="sheet-foot"></div>
+</aside>
+
+<!-- pitch notes -->
+<aside class="pitch" id="pitch" role="dialog" aria-modal="true" aria-labelledby="pitch-title" aria-hidden="true">
+  <div class="pitch__head">
+    <div><p>For Topo Gigio Ristorante</p><h2 id="pitch-title">Pitch notes</h2></div>
+    <button class="round" type="button" data-action="overlay-close" aria-label="Close pitch notes"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="ptabs" role="tablist">
+    <button class="on" data-ptab="today">Your site today</button>
+    <button data-ptab="changed">What changed</button>
+    <button data-ptab="model">Modeled on</button>
+    <button data-ptab="plan">The plan</button>
+    <button data-ptab="questions">Questions</button>
+    <button data-ptab="inbox">Staff portal <span class="cnt" id="inbox-cnt" hidden>0</span></button>
+  </div>
+  <div class="pitch__body">
+
+    <section class="on" data-ptab="today">
+      <h3>What the current site is costing you</h3>
+      <p>Everything here was checked on November 17, 2026, signed out, on a laptop and at phone width. Each item is something you can check yourself in a minute.</p>
+      <div class="finding"><span>1</span><div><b>Every page tells Google not to list it.</b><p>All twelve pages of topogigiochicago.com carry a <code>noindex, nofollow</code> tag. That is usually WordPress's "Discourage search engines from indexing this site" box, left ticked. There are no page descriptions and no sitemap either.</p><p>In two web searches, one for the restaurant by name and address and one for "topogigiochicago.com dinner menu", your own pages did not come up. Menu-listing sites did. One of them shows Monday as open. Another shows Sunday hours as "9:00 PM to 4:00 PM".</p><p><b>Fix it today, whether or not you want a new site:</b> in WordPress, go to Settings, then Reading, and untick that box.</p></div></div>
+      <figure><div class="shot"><img src="img/today-home.webp" alt="The top of the current home page on a laptop, with the logo sitting on top of the Instagram button" loading="lazy"></div><figcaption>The top of the home page on a laptop. The logo covers the Instagram button.</figcaption></figure>
+      <div class="finding"><span>2</span><div><b>On a phone, the home page is two columns of text about three words wide.</b><p>At a phone's width the welcome text, the story and the hours each run in a column 128 pixels across.</p></div></div>
+      <div class="finding"><span>3</span><div><b>Some of the text is close to invisible.</b><p>"Hours", "Parking" and the note about holiday hours are dark grey on black, a contrast of 1.7 to 1. The notice that the garden takes no reservations is 2.8 to 1. The accessibility guideline asks for at least 4.5 to 1.</p></div></div>
+      <figure><div class="shot" style="max-width:300px"><img src="img/today-phone.webp" alt="The current home page on a phone, with the story and the hours in two narrow columns of dim text" loading="lazy"></div><figcaption>The home page on a phone, as it looks today. Two columns, each about three words wide, with grey and dark red text on black.</figcaption></figure>
+      <div class="finding"><span>4</span><div><b>The banquet planner's email link is broken.</b><p>On the Private Banquet Hall page, clicking Elizabeth's email address opens a "page not found". The link is missing the "mailto:" that makes it an email link. That page is where a wedding or a company dinner starts.</p></div></div>
+      <figure><div class="shot"><img src="img/today-hall.webp" alt="The current Private Banquet Hall page, with the planner's email address in the middle" loading="lazy"></div><figcaption>The Private Banquet Hall page. Clicking the email address opens a page-not-found.</figcaption></figure>
+      <div class="finding"><span>5</span><div><b>The site contradicts itself about reservations.</b><p>The home page and the button in the header send people to OpenTable. The Contact page says "We do NOT accept online reservations".</p></div></div>
+      <div class="finding"><span>6</span><div><b>The Reservations button carries a date from 2024.</b><p>The OpenTable link is fixed to October 15, 2024 at 7:00 pm.</p></div></div>
+      <div class="finding"><span>7</span><div><b>A link on the home page opens a WordPress placeholder.</b><p>"We do offer gift cards … over the phone" links to a page that still has WordPress's sample text: "You might also try a plugin to add a contact form."</p></div></div>
+      <div class="finding"><span>8</span><div><b>Hours are hard to find.</b><p>On a laptop they are inside a drop-down in the menu bar. On the home page they are in green italics near the bottom. Pinch-to-zoom is switched off on phones, so small text can't be enlarged.</p></div></div>
+      <div class="finding"><span>9</span><div><b>Banquets, catering and gift cards all end in "email Vince" or "call Elizabeth".</b><p>None of them has a request form. The 26 professional photographs of the banquet room sit on a page Google is told to ignore.</p></div></div>
+      <div class="finding"><span>10</span><div><b>The dietary icons are borrowed from other websites.</b><p>The gluten-free, vegetarian and pescatarian symbols on the menus load from Google's image cache, a stock-art site and a Dutch website. If any of those files moves, the symbols disappear from your menu.</p></div></div>
+      <div class="finding"><span>11</span><div><b>Small errors a guest will notice.</b><p>"FIRST COME, FIRST SEVERE", "Baralo" and "Sanoma" on the wine list, "ADD A PROTIEN", "Paramgiaan cheese", "Parts Uknown", "DELIVERY UNAVALIBLE", a missing logo image on the Contact page, and The Knot and WeddingWire badges that link to those sites' front pages, not to your listings.</p></div></div>
+      <h3>What already works</h3>
+      <ul class="plist">
+        <li>The menus are real text with prices, not PDFs.</li>
+        <li>OpenTable is set up and busy.</li>
+        <li>The banquet room photographs are professional.</li>
+        <li>The story, the awards and the policies are all written down. This concept reuses them.</li>
+      </ul>
+    </section>
+
+    <section data-ptab="changed">
+      <h3>What this concept does differently</h3>
+      <div class="finding"><span>1</span><div><b>Google can list it.</b><p>Every page can be indexed, with its own title and description, and the hours, address and menu are marked up the way Google reads a restaurant.</p></div></div>
+      <div class="finding"><span>2</span><div><b>It is laid out for a phone first.</b><p>One column, text at a readable size, and Reserve and Call fixed to the bottom of the screen.</p></div></div>
+      <div class="finding"><span>3</span><div><b>Reserve asks three questions and opens OpenTable on that table.</b><p>Date, time and party size, then OpenTable with those already filled in. The panel also says what OpenTable can't book: the garden, the tent and the bars.</p><button class="jumpto" type="button" data-action="reserve">Show me</button></div></div>
+      <figure><div class="shot" style="max-width:300px"><img src="img/today-phone.webp" alt="The current home page on a phone, with the story and the hours in two narrow columns of dim text" loading="lazy"></div><figcaption>The home page on a phone, as it looks today. Two columns, each about three words wide, with grey and dark red text on black.</figcaption></figure>
+      <div class="finding"><span>4</span><div><b>The first screen says whether you're open.</b><p>"Open now until 10:00 pm" or "Closed today. Opens Tuesday at 11:30 am", worked out from your hours on Chicago time.</p><a class="jumpto" href="#home" data-action="pitch-jump">Show me</a></div></div>
+      <figure><div class="shot"><img src="img/today-hall.webp" alt="The current Private Banquet Hall page, with the planner's email address in the middle" loading="lazy"></div><figcaption>The Private Banquet Hall page. Clicking the email address opens a page-not-found.</figcaption></figure>
+      <div class="finding"><span>5</span><div><b>The menu can be searched and filtered.</b><p>Dinner, lunch, and wine and cocktails in one place. Type "clams" or tap Gluten free and the list narrows. It opens on lunch or dinner depending on the time of day.</p><a class="jumpto" href="#menu" data-action="pitch-jump">Show me</a></div></div>
+      <div class="finding"><span>6</span><div><b>The private room sells itself.</b><p>Capacity, three ways to serve it with starting prices, the photographs, and an inquiry form that asks for the date and the guest count.</p><a class="jumpto" href="#events" data-action="pitch-jump">Show me</a></div></div>
+      <div class="finding"><span>7</span><div><b>Catering and gift cards get request forms.</b><p>The catering page explains the 48 hours' notice, the pick-up window and the tray sizes before anyone has to ask.</p><a class="jumpto" href="#catering" data-action="pitch-jump">Show me</a></div></div>
+      <div class="finding"><span>8</span><div><b>Every request lands in one staff page.</b><p>Banquet inquiries, catering requests, gift card requests and messages, one row per person, with a status, notes and a next step. It also counts how many people clicked through to OpenTable.</p><a class="jumpto" href="#admin" data-action="pitch-jump">Open the staff portal</a></div></div>
+      <h3>What it leaves alone</h3>
+      <ul class="plist">
+        <li>OpenTable stays your reservation book.</li>
+        <li>Carry-out stays a phone call. No online ordering, no delivery.</li>
+        <li>The garden, tent and bars stay first come, first served.</li>
+        <li>Your menu, prices, story and policies are yours, word for word where it matters.</li>
+      </ul>
+    </section>
+
+    <section data-ptab="model">
+      <h3>What well-run restaurant sites do</h3>
+      <p>I looked at Carbone, Gene &amp; Georgetti, Italian Village, Bavette's, Gibsons Italia and Monteverde. These are the decisions they share.</p>
+      <div class="finding"><span>1</span><div><b>One photograph of the place, the name, and how long it has been there.</b><p>Gene &amp; Georgetti: "Chicago's original steakhouse. Since 1941." Italian Village: "Family owned since 1927." Bavette's shows one dim photograph of its dining room and the word "Chicago".</p><p><b>Here:</b> the garden at dusk and "Italian cooking on Wells Street since 1988".</p></div></div>
+      <div class="finding"><span>2</span><div><b>Reserve is always in the top right corner.</b><p>Carbone has "Reserve a table" there, Italian Village has "Reserve", and Gibsons Italia fixes a Reservations tab to the edge of the screen.</p><p><b>Here:</b> Reserve in the header on every page, and at the bottom of the screen on a phone.</p></div></div>
+      <div class="finding"><span>3</span><div><b>Private events have their own place in the main menu.</b><p>Carbone, Gene &amp; Georgetti and Italian Village all give private dining a top-level link.</p><p><b>Here:</b> Private events is the second link.</p></div></div>
+      <figure><div class="shot" style="max-width:300px"><img src="img/today-phone.webp" alt="The current home page on a phone, with the story and the hours in two narrow columns of dim text" loading="lazy"></div><figcaption>The home page on a phone, as it looks today. Two columns, each about three words wide, with grey and dark red text on black.</figcaption></figure>
+      <div class="finding"><span>4</span><div><b>Hours and location are one click from anywhere.</b><p>Carbone calls it "Hours &amp; Info". Gene &amp; Georgetti calls it "Hours &amp; Location".</p><p><b>Here:</b> "Hours and location" in the header, and today's hours on the first screen.</p></div></div>
+      <figure><div class="shot"><img src="img/today-hall.webp" alt="The current Private Banquet Hall page, with the planner's email address in the middle" loading="lazy"></div><figcaption>The Private Banquet Hall page. Clicking the email address opens a page-not-found.</figcaption></figure>
+      <div class="finding"><span>5</span><div><b>Gift cards are in the main menu.</b><p>Italian Village, Monteverde and Gene &amp; Georgetti all link them from the top of the page.</p><p><b>Here:</b> Gift cards in the header.</p></div></div>
+      <div class="finding"><span>6</span><div><b>A wordmark and one deep colour.</b><p>Carbone is navy. Italian Village is red. The photographs do the rest.</p><p><b>Here:</b> burgundy, with white and a little ochre.</p></div></div>
+      <h3>Why it looks like this</h3>
+      <ul class="plist">
+        <li><b>The colours are from your room.</b> The burgundy is the velvet drapes upstairs. The ochre is the plaster walls. The green of the open-now light is the garden awning.</li>
+        <li><b>The type is a menu's type.</b> Headings and dish names are in Besley, a Clarendon, the kind of letter trattoria menus and shop signs were printed in. The reading text is Libre Franklin.</li>
+        <li><b>The stripes are yours.</b> The red and white band under the photograph comes from the stripes in your logo.</li>
+        <li><b>Dots between the dish and the price</b>, the way a printed menu sets them.</li>
+        <li><b>Your logo and the mouse are not in the concept.</b> The logo would go straight back in on the real site. I left the character out of a demo because he belongs to someone else.</li>
+      </ul>
+    </section>
+
+    <section data-ptab="plan">
+      <h3>From concept to live</h3>
+      <div class="plan-wk"><span>Week 1</span><div><b>Lock the content</b><p>You check the menus, prices, hours and policies against what is true today. I collect the original photographs, and we decide whether to shoot the dining room and a few dishes.</p></div></div>
+      <div class="plan-wk"><span>Week 2</span><div><b>Build it for real</b><p>The pages you see here, with your logo. Requests from the banquet, catering, gift card and contact forms are saved to the site's own database, emailed to Elizabeth or Vince, and listed in the staff page behind a login. Reserve links to OpenTable with the date, time and party size filled in.</p></div></div>
+      <div class="plan-wk"><span>Week 3</span><div><b>Switch over</b><p>The new site goes live on topogigiochicago.com. Every old address, such as /dinner-menu/ and /banquets-2/, forwards to its new page. The "do not list" tag comes off, a sitemap goes to Google, and the menu and reservation links on your Google listing are checked.</p></div></div>
+      <div class="plan-wk"><span>After</span><div><b>Keep it current</b><p>Menu and price changes, holiday hours and new photographs, done within a day of you sending them.</p></div></div>
+      <h3>What I need from you</h3>
+      <ul class="plist">
+        <li>The logo file and the original photographs</li>
+        <li>Access to the domain, or an introduction to whoever manages it today</li>
+        <li>The email addresses that should receive each kind of request</li>
+        <li>A read through the menu on this concept for anything I got wrong</li>
+      </ul>
+    </section>
+
+    <section data-ptab="questions">
+      <h3>What I assumed, and what to check</h3>
+      <ul class="plist">
+        <li><b>The menu is copied from your site as it read on November 17, 2026.</b> Dish names are set in capitals and lower case, descriptions in sentence case, and the misspellings listed under "Your site today" are corrected. Prices are yours.</li>
+        <li><b>Dietary marks are copied from your menus.</b> A few dishes are marked differently at lunch and at dinner. Joe's Salad is gluten free and vegetarian at lunch, and also pescatarian at dinner. Please check them.</li>
+        <li><b>"The dishes people come back for"</b> are the ones your banquet page says guests rave about, plus the pasta that carries your name. Swap in your real best sellers.</li>
+        <li><b>The Reserve panel offers parties of up to ten.</b> I don't know your limit on OpenTable. Lunch and dinner times follow your posted hours.</li>
+        <li><b>The OpenTable button is a real link.</b> It opens your live OpenTable page in a new tab, and anything booked there is a real reservation. The link is built the same way as the Reservations button on your site today, with the chosen date, time and party size in place of October 15, 2024. Click it once to confirm OpenTable opens on the right table.</li>
+        <li><b>The garden's season.</b> The site says "the summer months" and mentions a heated tent. I did not put dates on either.</li>
+        <li><b>Open-now uses your posted hours.</b> It does not know about holidays or weather.</li>
+        <li><b>Private events.</b> The three formats and their starting prices are summarised from your Banquet Packages page. The full list of dishes is not reproduced here.</li>
+        <li><b>One catering price looks like a typing error.</b> Insalata Rustica di Nonna Caruso is $48 for a half pan and $54 for a full pan on your site. Every other salad roughly doubles. I copied it as it is.</li>
+        <li><b>Catering.</b> The tray menu is copied from your Catering page. Your page says prices change, so the form promises a confirmed price, not a posted one.</li>
+        <li><b>Photographs</b> are yours, from the current site. The garden picture is a phone photo and there are only three food pictures, so a short shoot would lift the whole site. The mouse statue and the t-shirt art are left out.</li>
+        <li><b>Reviews.</b> The ratings are from Google and OpenTable on November 17, 2026. The three quotes are short excerpts from Google reviews.</li>
+        <li><b>Names.</b> Elizabeth for banquets and Vince for catering and gift cards, as on your site today. I corrected the spelling of two guests' names in the story, Joe Pesci and Sid Caesar, and of San Pellegrino and Tignanello on the drinks list. The other wine names are as you wrote them, so please read that list closely.</li>
+        <li><b>The staff portal is a demo.</b> It keeps its data in the browser it is opened in and starts with six people tagged Sample. The real one uses a shared database and a staff login.</li>
+        <li><b>Nothing else here is live.</b> The forms don't send anything and nothing is charged.</li>
+      </ul>
+    </section>
+
+    <section data-ptab="inbox">
+      <h3>The staff portal</h3>
+      <p>Every request made on this site lands in one staff page, one row per person, with a status, notes and a next step. On the real site it is at /admin behind a staff login. Here it is one click, from this button or from the Staff link in the footer.</p>
+      <p><a class="jumpto" href="#admin" data-action="pitch-jump">Open the staff portal</a></p>
+      <h3>What you have submitted in this browser</h3>
+      <div id="inbox"></div>
+    </section>
+  </div>
+  <div class="pitch__foot">
+    <span>Prepared by Jason Kemp, November 2026</span>
+    <span>Sources: topogigiochicago.com, your OpenTable page, your Google listing, and the home pages of Carbone, Gene &amp; Georgetti, Italian Village, Bavette's, Gibsons Italia and Monteverde</span>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+/* Generated by tools/menu.py from the restaurant's own menu pages (read 2026-11-17). Names and prices are theirs. */
+const MENU = {"dinner":[{"it":"Stuzzicarelli","en":"Appetizer","items":[{"n":"Antipasto Freddo","p":7.95,"t":["GF"],"d":"Assortment of salami, aged provolone. Roasted red peppers, Greek olives, and artichokes.","x":"per person"},{"n":"Prosciutto di Parma","p":14.95,"t":["GF"],"d":"Slices of Prosciutto di Parma, Mozzarella di Bufala, and roasted red peppers."},{"n":"Calamari Fritti","p":15.95,"t":["P"],"d":"Golden fried calamari served with lemon wedges and marinara sauce."},{"n":"Calamari alla Griglia","p":15.95,"t":["P"],"d":"Grilled calamari sautéed with lemon and white wine sauce."},{"n":"Brodetto di Cozze al Pomodoro","p":15.25,"t":["P"],"d":"West Coast mussels in marinara sauce."},{"n":"Cozze e Vongole alla Calabrese","p":17.95,"t":["P"],"d":"Steamed Little Neck clams and West Coast mussels with house cured Calabrese sausage and garlic in white wine-saffron broth."},{"n":"Baked Clams “Topo Gigio”","p":13.95,"t":["P"],"d":"Baked Little Neck clams with caramelized onion sauce."},{"n":"Capesante con Pesto e Crema","p":15.95,"t":["P"],"d":"Seared sea scallops in pesto cream sauce with roasted red peppers."},{"n":"Scampi e Capesante al Vino Bianco","p":17.95,"t":["P"],"d":"Scampi and sea scallops sautéed with mushrooms, Chardonnay and lemon sauce."},{"n":"Carpaccio alla Piemontese","p":14.95,"t":["GF"],"d":"Paper-thin slices of raw filet mignon, Parmigiano Reggiano, mushrooms, lemon, extra virgin olive oil, and capers. (add arugula for an additional $)"},{"n":"Portobello e Polenta","p":10.95,"t":["V"],"d":"Grilled portobello mushrooms sautéed in garlic, and olive oil. Served with polenta from Valle d’Aosta."},{"n":"Scottish Smoked Salmon","p":17.95,"t":["P"],"d":"The finest Scottish smoked salmon served with frisée, dill, mascarpone, capers, and citrus vinaigrette."},{"n":"Bruschetta alla Romana","p":7.5,"t":["V"],"d":"Toasted rustic bread with garlic, cherry tomatoes, basil, and extra virgin olive oil."}]},{"it":"Zuppe","en":"Soup","items":[{"n":"Tortellini en Brodo","p":6.95,"t":[],"d":"Veal stuffed tortellini in chicken broth, fresh spinach and Parmigiano cheese."},{"n":"Zuppa del Giorno","p":6.95,"t":[],"d":"Soup of the day."}]},{"it":"Le Insalate","en":"Salad","items":[{"n":"Imported Burrata","p":17.95,"t":["V"],"d":"Imported Italian burrata served with toasted whites, tomatoes, cucumbers, and roasted red peppers. (add sliced prosciutto or arugula for an additional $)"},{"n":"Insalata con Salmone alla Griglia","p":24.95,"t":["GF","P"],"d":"Grilled Alaskan salmon over radicchio and romaine lettuce with asparagus and Prosecco di Valdobbiadene vinaigrette."},{"n":"Insalata di Gamberi","p":23.95,"t":["P"],"d":"Large shrimp, fresh spinach, string beans with Ligurian extra virgin olive oil and lemon dressing."},{"n":"Insalata di Pomodori e Melone","p":11.95,"t":["GF","V"],"d":"A salad of vine-ripened tomatoes, red onion, cucumber, cantaloupe melon and arugula."},{"n":"Insalata di Finocchio, Frisée e Radicchio","p":10.95,"t":["GF","V"],"d":"Fennel, frisée radicchio salad, with citrus vinaigrette dressing."},{"n":"Insalata Mista della Casa","p":8.95,"t":["V"],"d":"Romaine and curly endive, with tomato, cucumbers, walnuts and black raisins with balsamic vinaigrette dressing."},{"n":"Caesar Salad","p":11.95,"t":["P"],"d":"Romaine lettuce with croutons, dressed in our special Caesar dressing with fresh shaved Parmesan."},{"n":"Insalata di Calamari Grigliati","p":17.95,"t":["P"],"d":"Grilled calamari sautéed with olive oil, lemon, cherry tomatoes, green beans, potatoes and corn on a bed of arugula."},{"n":"Joe’s Salad","p":13.95,"t":["GF","P","V"],"d":"The way he likes it. Everything in the pantry. (no meat or seafood)"},{"n":"La Caprese","p":14.95,"t":["GF","V"],"d":"Beefsteak tomato, fiordilatte (fresh mozzarella), fresh basil, Umbrian extra virgin olive oil."},{"n":"Insalata di Petti di Pollo alla Griglia","p":18.95,"t":[],"d":"Grilled chicken breast with walnuts, raisins, romaine lettuce and balsamic vinaigrette dressing."},{"n":"Panzanella alla Romana","p":12.95,"t":["V"],"d":"Chopped tomatoes, garlic, red onions, artichokes, capers, walnuts, raisins, basil, and oregano tossed with balsamic vinegar and olive oil."},{"n":"Insalata ai Frutti di Mare","p":22.95,"t":["P"],"d":"Fresh steamed calamari, mussels, clams and shrimp over salad with citrus vinaigrette and giardiniera."}]},{"it":"Pastasciutta","en":"Pasta","items":[{"n":"Rigatoni al Filo di Fumo","p":19.95,"t":[],"d":"Rigatoni in pomodoro sauce, with pancetta, fresh mozzarella and fresh basil, topped with Pecorino cheese."},{"n":"Fusilli alla Topo Gigio","p":20.95,"t":[],"d":"Corkscrew shaped pasta in our own four-cheese sauce with a splash of meat sauce, pancetta and savory pieces of chicken."},{"n":"Tortellini alla Panna","p":20.95,"t":[],"d":"Veal stuffed tortellini in cream sauce, with fresh mushrooms, pancetta, sweet peas, and Parmigiano Reggiano cheese."},{"n":"Conchiglie alla Sarda","p":21.95,"t":[],"d":"Seashell pasta in a tomato-cream sauce with ground sausage, peas and Pecorino cheese."},{"n":"Spaghetti con le Polpette","p":20.95,"t":[],"d":"Our very own spaghetti in a Bolognese sauce with meatballs."},{"n":"Garganelli con le Luganighe","p":19.95,"t":[],"d":"Hand rolled garganelli pasta, porcini mushrooms and sausage ragù, Parmigiano Reggiano."},{"n":"Fusilloni Tocco Delicato","p":17.95,"t":["V"],"d":"Large corkscrew pasta with arugula, cherry tomatoes, fresh basil, shaved Parmesan with garlic and oil."},{"n":"Conchiglie Mediterranea","p":29.95,"t":["P"],"d":"Seashell pasta with shrimp, sea scallops, and pea pods in a garden-fresh tomato and basil sauce."},{"n":"Spaghetti ai Frutti di Mare","p":29.95,"t":["P"],"d":"Spaghetti with calamari, mussels, clams and sea scallops in our marinara sauce."},{"n":"Linguine alla “Vic Damone”","p":26.95,"t":["P"],"d":"His own recipe, linguine with little clams, olive oil, garlic, cherry tomatoes and fresh cilantro!"},{"n":"Campanelle alla Norma","p":18.95,"t":["V"],"d":"Campanelle pasta in arrabiata sauce with sautéed eggplant and aged ricotta cheese."},{"n":"Linguine delle “Cinque Terre”","p":28.95,"t":["P"],"d":"Home made linguine with shrimp sautéed with red peppers and pesto sauce."},{"n":"Farfalle ai Due Salmoni","p":27.95,"t":["P"],"d":"Bow tie shaped pasta with Norwegian smoked salmon and North Pacific salmon in a light tomato-cream sauce and dill."},{"n":"Risotto Frutti di Mare delle Marche","p":32.95,"t":["P"],"d":"Aged Carnaroli risotto with shrimp, scallops, clams, in a light tomato-cream-crab sauce."}]},{"it":"Secondi Piatti","en":"Second Plate","items":[{"n":"Eggplant alla Parmigiana","p":20.95,"t":["V"],"d":"Roasted eggplant, layered with mozzarella and pomodoro sauce, baked with Pecorino cheese."},{"n":"Petti di Pollo alla Valdostana","p":26.95,"t":[],"d":"Breast of chicken stuffed with Fontina cheese, prosciutto cotto, peppers and spinach. Baked with sun dried tomatoes and porcini mushrooms sauce."},{"n":"Pollo Arrosto al Rosmarino","p":26.95,"t":[],"d":"Half chicken roasted with wine, lemon, garlic, fresh rosemary and roasted potatoes."},{"n":"Polletto con Salsiccia alla Cacciatora","p":28.95,"t":[],"d":"Quartered chicken and Italian sausage baked with tomatoes, peppers, onions and mushrooms."},{"n":"Petti di Pollo Marinato alla Griglia","p":20.95,"t":[],"d":"Grilled chicken breast marinated in our special blend of herbs and spices. Served with mixed vegetables."},{"n":"Petti di Pollo alla Fiorentina","p":26.95,"t":[],"d":"Breast of chicken sautéed with pancetta, spinach and baked with fresh mozzarella. Roasted potatoes and asparagus."},{"n":"Petti di Pollo alla Parmigiana","p":23.95,"t":[],"d":"Breast of chicken lightly breaded, baked with pomodoro sauce and Parmesan cheese. Served with a side of spinach."},{"n":"Saltimbocca alla Parmigiana","p":32.95,"t":[],"d":"Veal saltimbocca and Prosciutto di Parma with pomodoro sauce, baked with mozzarella. Cottage fries."},{"n":"Saltimbocca alla Romana","p":32.95,"t":[],"d":"Veal saltimbocca and Prosciutto di Parma sautéed in wine and sage sauce. Over spinach in garlic and oil."},{"n":"Piccatina di Vitella al Limone","p":32.95,"t":[],"d":"Veal scaloppini sautéed with capers, lemon and wine sauce. Served with mixed vegetables."},{"n":"Spiedini Adriatica","p":30.95,"t":["P"],"d":"Grilled scampi and sea scallops on a skewer with peppers and onions, served on a bed of spinach in garlic and oil."},{"n":"White Fish al Limone e Capperi","p":28.95,"t":["P"],"d":"Lake Superior white fish baked with capers, lemon and wine sauce. Served with mixed vegetables."}]},{"it":"Bistecche e Braciole","en":"Steaks & Chops","items":[{"n":"Veal Chop alla Sassi","p":45.95,"t":[],"d":"Grilled 12 oz. veal chop sautéed in wine, mushrooms, artichokes and sage sauce. Served with roasted potatoes and spinach."},{"n":"Tomahawk Pork Chop","p":37.95,"t":[],"d":"Niman Ranch organic grilled tomahawk pork chop, 12 oz. Served with spinach and mashed potatoes."},{"n":"Filetto di Manzo al Barolo","p":44.95,"t":[],"d":"Grilled prime filet mignon medallions, sautéed in a Barolo-mushroom sauce and served with spinach and roasted potatoes."},{"n":"Rib Eye, Bone-In 16 oz","p":49.95,"t":["GF"],"d":"Grilled prime bone-in rib eye served with roasted potatoes."}]},{"it":"Dolce","en":"Dessert","items":[{"n":"Tiramisu","p":10.95,"t":["V"],"d":"Made fresh every day."},{"n":"Zabaglione Chocolate Mousse Cake","p":10.95,"t":["V"],"d":"Our own recipe. Chocolate mousse on flourless chocolate cake."},{"n":"Tartufo Semifreddo","p":9.95,"t":["V"],"d":"Chocolate mousse gelato with a core of zabaglione."},{"n":"Gelato","p":7.95,"t":["GF","V"],"d":"Choice of: vanilla, chocolate, hazelnut and pistachio."},{"n":"Sorbet","p":7.95,"t":["GF","V"],"d":"Choice of: lemon, coconut, wild berry, and peaches."},{"n":"Biscotti","p":7.95,"t":["V"],"d":"Assorted biscotti and cuccidati (Sicilian fig cookies)"},{"n":"Sicilian Cannoli","p":7.95,"t":["V"],"d":"Freshly made sweet ricotta filling in a cannoli shell with flavored peanuts."},{"n":"Spumoni","p":8.95,"t":["GF","V"],"d":"Classic Neapolitan ice cream."},{"n":"Salted Caramel Cheesecake","p":9.95,"t":["GF","V"],"d":"Salted caramel cheesecake with an almond crust."},{"n":"Affogato","p":10.95,"t":["V"],"d":"Vanilla gelato drowned in hot espresso."},{"n":"Dessert Special Of The Day","p":9.95,"t":["V"],"d":"– no outside cake/ desserts allowed! –"}]},{"it":"Contorni","en":"Sides","items":[{"n":"Meatballs","p":8.95,"t":[],"d":"","x":"3 pieces"},{"n":"Sausage & Peppers","p":14.95,"t":[],"d":""},{"n":"Shrimp","p":3.95,"t":["P"],"d":"","x":"each"},{"n":"Spinach","p":6.95,"t":["V"],"d":""},{"n":"Asparagus","p":7.95,"t":["GF","V"],"d":""},{"n":"Broccoli","p":6.95,"t":["V"],"d":"","x":"steamed or garlic and oil"},{"n":"Mixed Vegetables","p":6.95,"t":["GF","V"],"d":"","x":"broccoli, cauliflower, carrots"},{"n":"Cottage Fries","p":5.95,"t":["GF","V"],"d":"","x":"house chips"},{"n":"Mashed Potatoes","p":5.95,"t":["V"],"d":""},{"n":"Roasted Potatoes","p":5.95,"t":["GF","V"],"d":""},{"n":"Mushrooms","p":6.95,"t":["V"],"d":""},{"n":"Peas","p":5.95,"t":["GF","V"],"d":""}]}],"lunch":[{"it":"Stuzzicarelli","en":"Appetizer","items":[{"n":"Bruschetta al Prosciutto di Parma","p":8.95,"t":[],"d":"Garlic bread with cherry tomato, baked with mozzarella, topped with prosciutto and fresh basil."},{"n":"Portobello e Polenta","p":9.95,"t":["V"],"d":"Grilled portobello mushrooms sautéed in garlic and olive oil. Served over polenta."},{"n":"Polenta con il Sugo Bolognese","p":8.95,"t":[],"d":"Polenta with Bolognese sauce and Parmigiano-Reggiano."},{"n":"Calamari alla Griglia","p":13.95,"t":["P"],"d":"Grilled calamari in a wine and lemon sauce."},{"n":"Calamari Fritti","p":13.95,"t":["P"],"d":"Tender fried calamari served with marinara sauce and lemon wedges."},{"n":"Brodetto di Cozze","p":13.95,"t":["P"],"d":"West Coast mussels sautéed in a light tomato broth."},{"n":"Scottish Smoked Salmon","p":14.25,"t":["P"],"d":"The finest Scottish salmon served with frisée, dill mascarpone, capers and citrus vinaigrette."},{"n":"Carpaccio alla Piemontese","p":12.95,"t":["GF"],"d":"Paper thin slices of raw prime filet mignon drizzled with lemon and extra virgin olive oil. Served with shaved Parmigiano-Reggiano cheese and capers."}]},{"it":"Zuppe","en":"Soup","items":[{"n":"Tortellini en Brodo","p":6.95,"t":[],"d":"Tortellini in chicken broth, fresh spinach and Parmigiano cheese."},{"n":"Zuppa del Giorno","p":6.95,"t":[],"d":"Soup of the day."}]},{"it":"Insalate","en":"Salad","items":[{"n":"Insalata Mista della Casa","p":7.0,"t":["GF","V"],"d":"Romaine and curly endive, tomatoes, cucumber salad, balsamic vinaigrette, walnuts and black raisins."},{"n":"Caesar Salad","p":9.95,"t":["P"],"d":"Romaine lettuce with croutons, dressed in our special Caesar dressing with fresh shaved Parmesan."},{"n":"Joe’s Salad","p":11.95,"t":["GF","V"],"d":"Romaine lettuce, endive, tomatoes, cucumbers, capers, walnuts, raisins, potato, mushrooms, artichoke hearts, avocado, mozzarella, Parmigiano-Reggiano and roasted red peppers. (no meat or seafood)"},{"n":"La Caprese","p":11.95,"t":["GF","V"],"d":"Slices of fresh Mozzarella di Bufala, beefsteak tomatoes, extra virgin olive oil and fresh basil"},{"n":"Insalata di Pollo alla Griglia","p":15.95,"t":[],"d":"Marinated grilled chicken breast slices over romaine and curly endive with tomatoes, raisins, walnuts, and balsamic vinaigrette dressing."},{"n":"Insalata Frutti di Mare","p":18.95,"t":["P"],"d":"Marinated calamari, mussels, clams and shrimp salad with citrus vinaigrette and giardiniera."},{"n":"Insalata di Gamberi e Spinaci","p":19.95,"t":["P"],"d":"Fresh spinach salad, grilled shrimp, avocado and string beans with lemon and extra virgin olive oil."},{"n":"Insalata con Salmone alla Griglia","p":22.95,"t":["P"],"d":"Grilled Alaskan King salmon over radicchio and romaine lettuce with asparagus. Prosecco vinaigrette."}]},{"it":"Pastasciutta","en":"Pasta","items":[{"n":"Fusilli alla Topo Gigio","p":17.95,"t":[],"d":"Fusilli with fresh chicken, pancetta, mozzarella, quattro formaggi and Bolognese sauce."},{"n":"Rigatoni al Filo di Fumo","p":16.95,"t":[],"d":"Rigatoni in pomodoro sauce with pancetta, fresh mozzarella, fresh basil and Pecorino cheese."},{"n":"Tortellini alla Panna","p":17.95,"t":[],"d":"Veal stuffed tortellini in cream sauce with pancetta, peas, mushrooms and Parmigiano-Reggiano."},{"n":"Penne alla Vodka","p":17.95,"t":[],"d":"Penne with tomato-cream sauce and pancetta deglazed with vodka. Parmigiano-Reggiano."},{"n":"Conchiglie alla Sarda","p":17.95,"t":[],"d":"Seashell pasta in a tomato-cream sauce with ground sausage, peas and Pecorino cheese."},{"n":"Gnocchi al Pomodoro e Basilico","p":16.95,"t":["V"],"d":"Our homemade potato gnocchi in pomodoro sauce, fresh basil and Pecorino cheese."},{"n":"Spaghetti con le Polpette","p":17.95,"t":[],"d":"Spaghetti in classic Bolognese sauce with our homemade meatballs and Parmigiano cheese."},{"n":"Fusilloni Tocco Delicato","p":14.95,"t":["V"],"d":"Large corkscrew pasta with arugula, cherry tomatoes, fresh basil, shaved Parmigiano Reggiano with garlic and oil."}]},{"it":"Pasta al Sapore di Mare","en":"Seafood Pasta","items":[{"n":"Fettucine alla Crema di Gamberi & Basilico Fresco","p":22.95,"t":["P"],"d":"Homemade fettucine with jumbo shrimp and fresh basil in a Parmigiano-cream sauce."},{"n":"Linguine alla Vongole Veraci","p":20.95,"t":["P"],"d":"Linguine with Manila clams, garlic and olive oil."},{"n":"Spaghetti alla Diavola","p":23.95,"t":["P"],"d":"Spaghetti with scampi and clams in a spicy marinara sauce."}]},{"it":"Secondi Piatti","en":"Second Plate","items":[{"n":"Filetto di Bue al Barolo","p":30.95,"t":[],"d":"Grilled beef tenderloin with mushrooms in a Barolo wine sauce. With mashed potatoes and spinach."},{"n":"Petti di Pollo alla Fiorentina","p":20.95,"t":[],"d":"Breast of chicken sautéed in a light tomato sauce topped with spinach, pancetta and mozzarella then baked. With asparagus."},{"n":"Petti di Pollo al Limone","p":20.95,"t":[],"d":"Breast of chicken sautéed with lemon, wine and capers. Spinach aglio e olio."},{"n":"Piccatina di Vitella al Limone","p":22.95,"t":[],"d":"Veal scaloppini sautéed in a lemon, wine and capers sauce. Served with mixed vegetables."},{"n":"Veal Saltimbocca alla Parmigiana","p":22.95,"t":[],"d":"Veal saltimbocca and Prosciutto di Parma with pomodoro sauce baked with mozzarella. With cottage fries."},{"n":"Eggplant alla Parmigiana","p":18.95,"t":["V"],"d":"Roasted eggplant baked with tomato sauce, fresh mozzarella and Parmigiano cheese."},{"n":"Scampi alla Griglia","p":25.95,"t":["P"],"d":"Grilled jumbo scampi, served with spinach and sautéed in garlic and olive oil."},{"n":"White Fish al Limone e Capperi","p":24.95,"t":["P"],"d":"Lake Superior white fish baked in a lemon, wine and caper sauce. Served with mixed vegetables."}]},{"it":"Dolce","en":"Dessert","items":[{"n":"Tiramisu","p":10.95,"t":["V"],"d":"Made fresh every day."},{"n":"Zabaglione Chocolate Mousse Cake","p":10.95,"t":["V"],"d":"Our own recipe. Chocolate mousse on flourless chocolate cake."},{"n":"Tartufo Semifreddo","p":9.95,"t":["V"],"d":"Chocolate mousse gelato with a core of zabaglione."},{"n":"Gelato","p":7.95,"t":["GF","V"],"d":"Choice of: vanilla, chocolate, hazelnut and pistachio."},{"n":"Sorbet","p":7.95,"t":["GF","V"],"d":"Choice of: lemon, coconut, wild berry, and peaches."},{"n":"Biscotti","p":7.95,"t":["V"],"d":"Assorted biscotti and cuccidati (Sicilian fig cookies)"},{"n":"Sicilian Cannoli","p":7.95,"t":["V"],"d":"Freshly made sweet ricotta filling in a cannoli shell with flavored peanuts."},{"n":"Spumoni","p":8.95,"t":["GF","V"],"d":"Classic Neapolitan ice cream."},{"n":"Salted Caramel Cheesecake","p":9.95,"t":["V"],"d":"Salted caramel cheesecake with an almond crust."},{"n":"Affogato","p":10.95,"t":["V"],"d":"Vanilla gelato drowned in hot espresso."},{"n":"Dessert Special Of The Day","p":9.95,"t":["V"],"d":""}]},{"it":"Contorni","en":"Sides","items":[{"n":"Meatballs","p":8.95,"t":[],"d":"","x":"3 pieces"},{"n":"Sausage & Peppers","p":14.95,"t":[],"d":""},{"n":"Shrimp","p":3.95,"t":["P"],"d":"","x":"each"},{"n":"Spinach","p":6.95,"t":["V"],"d":""},{"n":"Asparagus","p":7.95,"t":["GF","V"],"d":""},{"n":"Broccoli","p":6.95,"t":["V"],"d":"","x":"steamed or garlic and oil"},{"n":"Mixed Vegetables","p":6.95,"t":["GF","V"],"d":"","x":"broccoli, cauliflower, carrots"},{"n":"Cottage Fries","p":5.95,"t":["GF","V"],"d":"","x":"house chips"},{"n":"Mashed Potatoes","p":5.95,"t":["V"],"d":""},{"n":"Roasted Potatoes","p":5.95,"t":["GF","V"],"d":""},{"n":"Mushrooms","p":6.95,"t":["V"],"d":""},{"n":"Peas","p":5.95,"t":["GF","V"],"d":""}]}],"drinks":[{"title":"Martinis","items":[{"n":"Classic Dirty Martini","p":16.0,"d":"Grey Goose Vodka or Bombay Gin, Dry Vermouth, and Olive Juice (Regular or Blue Cheese Olives Garnish)"},{"n":"French Martini","p":16.0,"d":"Absolut Mandarin Vodka, Chambord Liqueur, Pineapple Juice."},{"n":"Vesper Martini","p":16.0,"d":"Bombay Gin, Grey Goose, Lillet Blanc Aperitif. Garnished with a Lemon Twist."},{"n":"Topo Espresso Martini","p":16.0,"d":"Our House Recipe."},{"n":"Limoncello Tini","p":16.0,"d":"Absolut Citron Vodka, Limoncello, Lemon Juice, and Simple Syrup. Served in a Sugar Rimmed Glass."}]},{"title":"Signature Cocktails","items":[{"n":"Hugo Spritz","p":16.0,"d":"St. Germain, Prosecco, and Soda Water. Garnished with Fresh Mint and Lime."},{"n":"Cucumber Elderflower Gimlet","p":16.0,"d":"Bombay Gin, St. Germain Liqueur, and Lime Juice. Shaken with a Cucumber Garnish."},{"n":"Topo Old Fashioned","p":16.0,"d":"Maker’s Mark, Simple Syrup, and a dash of Bitters. Garnished with a Cherry."},{"n":"Topo Margarita","p":15.0,"d":"Patron Tequila, Blood Orange Liquori, Cointreau, and Lime Juice. Rimmed with Tajin."},{"n":"Carajillo","p":15.0,"d":"Licor 43 with a shot of Espresso and Garnished with Cinnamon."}]},{"title":"Beer","items":[{"n":"Stella Artois","p":8.0},{"n":"Moretti","p":8.0},{"n":"Peroni","p":8.0},{"n":"Blue Moon","p":8.5},{"n":"312","p":8.0},{"n":"Amstel Light","p":8.0},{"n":"Bud Light","p":8.0},{"n":"Budweiser","p":8.0},{"n":"Miller Lite","p":8.0},{"n":"Coors","p":8.0},{"n":"Michelob Ultra","p":8.0},{"n":"Guinness","p":8.0},{"n":"Lagunitas IPA","p":8.0},{"n":"Heineken","p":8.0},{"n":"Peroni-0 (N/A)","p":8.0}]},{"title":"Mocktails","items":[{"n":"The Amalfi Coast","p":8.0,"d":"Pineapple, Cranberry, Orange Juice, and a splash of Sea Water (Soda Water) . Garnished with a Cherry."},{"n":"Mint Lime Spritz","p":8.0,"d":"Lime Juice, Soda Water, Simple Syrup. Garnished with Mint."},{"n":"Paloma Amora","p":7.0,"d":"Grapefruit Juice, Soda Water, Lime Juice. Garnished with an Orange."}]},{"title":"Champagne & Prosecco","items":[{"n":"Korbel Natural","p":40.0,"r":"Russian River Valley, California"},{"n":"Moet & Chandon White Star","p":85.0,"r":"Champagne, France"},{"n":"Dom Perignon","p":225.0,"r":"Champagne, France"},{"n":"Veuve Clicquot, Grande Dame","p":200.0,"r":"Champagne, France"},{"n":"Veuve Clicquot, Yellow Label","p":95.0,"r":"Champagne, France"},{"n":"Prosecco, Giancarlo","p":40.0,"r":"Italy"}]},{"title":"Vini Bianchi (White)","items":[{"n":"Chardonnay, Joel Gott Unoaked","p":42.0,"r":"California"},{"n":"Chardonnay, Ferrari Carano","p":50.0,"r":"Sonoma"},{"n":"Chardonnay, Flowers","p":70.0,"r":"Sonoma Coast"},{"n":"Pinot Grigio, Barone Fini","p":45.0,"r":"Valdadige DOC"},{"n":"Sauvignon Blanc, Marco Felluga","p":50.0,"r":"Collio, Italy"},{"n":"Gavi Di Gavi, La Scolca White Label","p":45.0,"r":"Piedmont"},{"n":"Sauvignon Blanc, Kim Crawford","p":45.0,"r":"Marlborough"},{"n":"Sauvignon Blanc, Josh Cellars","p":45.0,"r":"North Coast"},{"n":"Riesling, Seaglass","p":41.0,"r":"California"},{"n":"Rose, Joel Gott","p":42.0,"r":"California"},{"n":"Rose, Hampton Water","p":48.0,"r":"Provence"},{"n":"Moscato, Seven Daughters","p":45.0,"r":"Veneto"}]},{"title":"Vini Rossi (Red)","items":[{"n":"Cabernet Sauvignon, Alexander Valley","p":55.0,"r":"Sonoma"},{"n":"Cabernet Sauvignon, Benziger","p":50.0,"r":"Sonoma"},{"n":"Cabernet Sauvignon, Iron & Sand","p":58.0,"r":"Paso Robles"},{"n":"Cabernet Sauvignon, Napa Cellars","p":54.0,"r":"Napa Valley"},{"n":"Cabernet Sauvignon, Ferrari Carano","p":68.0,"r":"Sonoma"},{"n":"Merlot, Rutherford Hill","p":48.0,"r":"Napa"},{"n":"Pinot Noir, Erath Resplendent","p":48.0,"r":"Oregon"},{"n":"Monrosso Chianti","p":45.0,"r":"Tuscany"},{"n":"Chianti Classico Riserva, Monsanto","p":48.0,"r":"Tuscany"},{"n":"Chianti Classico Riserva, Ducale Tan Ruffino","p":50.0,"r":"Tuscany"},{"n":"Barbera, Terra d’Oro","p":45.0,"r":"Amador County"},{"n":"Valpolicella Ripasso, Righetti","p":45.0,"r":"Italy"},{"n":"Sangiovese Rosso, Faleso Vitano","p":45.0,"r":"Umbria"},{"n":"Red Blend, Tenuta Polvaro","p":45.0,"r":"Veneto"},{"n":"Rosso di Montalcino, Il Poggione","p":55.0,"r":"Tuscany"},{"n":"Pinot Noir, Vinum Cellars","p":50.0,"r":"Monterey"},{"n":"Pinot Noir, Enroute by Far Niente","p":65.0,"r":"Russian River"},{"n":"Zinfandel, Rodney Strong","p":50.0,"r":"Sonoma"},{"n":"Malbec, Reserve Santa Julia","p":45.0,"r":"Argentina"},{"n":"Siena Blend, Ferrari Carano","p":54.0,"r":"Sonoma"},{"n":"Modus, Ruffino","p":55.0,"r":"Tuscany"},{"n":"Nebbiolo Lange, Ca Gialla","p":60.0,"r":"Piedmont, Italy"},{"n":"Red Blend, San Polo","p":48.0,"r":"Tuscany"},{"n":"Polizano Negro Amaro Tomraesca","p":55.0,"r":"Tuscany"}]},{"title":"Vini Rossi Reserve","items":[{"n":"Barolo, Villadoria Serralunga","p":85.0,"r":"Piedmont"},{"n":"Barolo, Serfano","p":75.0,"r":"Piedmont"},{"n":"Barbaresco, Villadoria","p":55.0,"r":"Italy"},{"n":"Brunello di Montalcino, Rudolphi","p":130.0,"r":"Italy"},{"n":"Brunello di Montalcino, Casanova Di Neri","p":155.0,"r":"Tuscany"},{"n":"Cabernet Sauvignon, Bella Union (by Far Niente)","p":88.0,"r":"Napa Valley"},{"n":"Cabernet Sauvignon, Jordan","p":98.0,"r":"Alexander Valley"},{"n":"Cabernet Sauvignon, Silver Oak","p":130.0,"r":"Alexander Valley"},{"n":"Cabernet Sauvignon, Chimney Rock","p":155.0,"r":"Napa Valley"},{"n":"Chianti Classico Riserva, Ruffino Gold Label","p":76.0,"r":"Tuscany"},{"n":"Prisoner Red Blend","p":90.0,"r":"Napa Valley"},{"n":"Amarone, Della Valpolicella Classico","p":75.0,"r":"Verona"},{"n":"Tignanello, Antinori","p":185.0,"r":"Tuscany"}]},{"title":"Water","items":[{"n":"San Pellegrino Sparkling Water","d":"Small 250 ml or large 750 ml."},{"n":"Acqua Panna","d":"Still Italian spring water."}]}],"catering":[{"title":"Antipasti","unit":["Half pan","Full pan"],"items":[{"n":"Antipasto Freddo","a":"$40.00","b":"$80.00","d":"A presentation of salami, cheese and vegetables including: roasted peppers, artichokes, Roasted eggplant, marinated artichokes, pesto mushrooms, frittata, caponata."},{"n":"Tartine al Filetto di Manzo","a":"$7.00","b":"Each","d":"Sliced beef tenderloin on toasted rye with creole mustard – horseradish sauce (minimum 20)"},{"n":"Costoletta di Agnello alla Brace","a":"$8.00","b":"Each","d":"Malcolm farm lamb chop, grilled med. Rare. Garlic, rosemary and balsamic vinegar reduction (minimum 20)"},{"n":"Spiedini di Salsiccia","a":"$7.50","b":"Each","d":"Grilled Italian sausage skewers (minimum 20)"},{"n":"Spiedini di Pollo","a":"$7.00","b":"Each","d":"Chicken skewers in garlic and rosemary rub (minimum 20)"},{"n":"Bruschetta","a":"$4.50","b":"Each","d":"Toasted Italian bread with garlic, extra virgin olive oil, cherry tomatoes and fresh basil. (minimum 20)"},{"n":"Crostini di Tonno e Peperoni Arrosto","a":"$5.50","b":"Each","d":"Toasted crostini with tuna and roasted peppers. (minimum 20)"},{"n":"Polpettine al Sugo di Pomodoro","a":"$5.50","b":"Each","d":"Our own meatballs, cooked in a tasty tomato sauce (as many as you want)"},{"n":"Tartine al Salmone Affumicato di Scozia","a":"$7.00","b":"Each","d":"Smoked Scottish salmon, on rye toasts with mascarpone dill and lemon (minimum 20)"},{"n":"Cocktail di Gamberi","a":"$7.00","b":"Each","d":"Jumbo shrimp with cocktail sauce (minimum 20)"}]},{"title":"Insalate","items":[{"n":"Insalata Mista della Casa","a":"$40.00","b":"$80.00","d":"Romaine and curly endive, with tomato, cucumbers, walnuts and black raisin, In a balsamic vinaigrette dressing."},{"n":"Joe’s Salad","a":"$50.00","b":"$95.00","d":"The way, he likes it; with everything in the pantry and balsamic vinaigrette dressing. (no meat or seafood)"},{"n":"Pomodori e Cipolla Rossa","a":"$50.00","b":"$95.00","d":"Sliced tomatoes and red onion with balsamic vinaigrette dressing and fresh basil. Add blue cheese crumble… ($ extra)"},{"n":"Insalata Rustica di Nonna Caruso","a":"$48.00","b":"$54.00","d":"Frank’s mother’s favorite: wedges of tomatoes, boiled sliced potatoes and red onions In a balsamic vinaigrette dressing."},{"n":"La Caprese","a":"$48.00","b":"$94.00","d":"Slices of tomatoes and fresh mozzarella, dressed with fresh basil, extra virgin olive oil."},{"n":"Insalata di Petti di Pollo","a":"$60.00","b":"$120.00","d":"Sliced grilled chicken breast with walnuts, raisins and vinaigrette dressing."},{"n":"Insalata ai Frutti di Mare","a":"$80.00","b":"$170.00","d":"Fresh steamed calamari, mussels, clams and shrimp over salad with citrus vinaigrette."}]},{"title":"Pastasciutta","items":[{"n":"Rigatoni al Filo di Fumo","a":"$65.00","b":"$130.00","d":"Rigatoni in pomodoro sauce with pancetta, fresh mozzarella and fresh basil topped with Pecorino cheese."},{"n":"Conchiglie alla Sarda","a":"$70.00","b":"$135.00","d":"Seashell pasta in a tomato cream sauce with ground sausage, petite peas and Pecorino cheese."},{"n":"Orecchiette Taormina","a":"$65.00","b":"$130.00","d":"Ear-shaped pasta, in a fresh tomato sauce, eggplant and dry ricotta cheese."},{"n":"Spaghetti con Polpette","a":"$70.00","b":"$135.00","d":"S paghetti in a Bolognese sauce with our own meatballs!!"},{"n":"Fusilli alla Topo Gigio","a":"$70.00","b":"$135.00","d":"Corkscrew-shaped pasta in tomato cream sauce with chicken, pancetta and mozzarella."},{"n":"Spaghetti ai Frutti di Mare","a":"$70.00","b":"$135.00","d":"Spaghetti with calamari, mussels, clams and sea scallops in a marinara sauce."},{"n":"Penne Rigate Aromatiche","a":"$70.00","b":"$135.00","d":"Penne rigate with red peppers, spinach, mushrooms in a cherry tomato, garlic and basil sauce."},{"n":"Linguine alla Nocerina","a":"$70.00","b":"$135.00","d":"A classic dish from the Umbrian region, linguine in a sun-dried tomato, Porcini mushrooms and cream sauce."},{"n":"Farfalle ai Due Salmoni","a":"$70.00","b":"$135.00","d":"Bow tie pasta with Norwegian smoked salmon and North Pacific salmon in a light Tomato cream sauce and dill."},{"n":"Tortellini alla Panna","a":"$70.00","b":"$135.00","d":"Tortellini in a cream sauce, with fresh mushrooms, pancetta and sweet peas, topped with Parmigiano cheese. Side of sauces Bolognese………………………………16oz.: $14.50 | 32oz. $29.00 four cheese…………………………… 16oz.: $15.00 | 32oz. $30.00 marinara………………………………..16oz.: $14.00 | 32oz. $28.00 pomodoro……………………………..16oz.: $14.00 | 32oz. $28.00 cream …………………………………16oz.: $14.00 | 32oz. $28.00 pesto …………………………………16oz.: $14.50 | 32oz. $29.00"}]},{"title":"I Secondi Piatti","items":[{"n":"Pollo Arrosto al Rosmarino","a":"$80.00","b":"$155.00","d":"1/4 chicken roasted with garlic, lemon, wine, rosemary and roasted potatoes."},{"n":"Pollo e Salsiccia in Casseruola","a":"$80.00","b":"$155.00","d":"Boneless chicken breast and sausage baked in a casserole with tomatoes, peppers and onions. *half pan = 9 pieces, full pan = 18 {both cut in half} *"},{"n":"Petti di Pollo Savoia","a":"$80.00","b":"$155.00","d":"Boneless chicken breast, baked with fresh spinach, mushrooms, in a Marsala cream sauce with vegetables. *half pan = 9 pieces, full pan = 18 {both cut in half} *"},{"n":"Petti di Pollo al Limone","a":"$80.00","b":"$155.00","d":"Boneless chicken breast, baked with lemon, wine and caper sauce. Served with spinach. *half pan = 9 pieces, full pan = 18 {both cut in half} *"},{"n":"Chicken Parmigiana","a":"$80.00","b":"$155.00","d":"Boneless breast of chicken, baked with tomato sauce and fresh mozzarella. *half pan = 9 pieces, full pan = 18 *"},{"n":"Eggplant Parmigiana","a":"$80.00","b":"$155.00","d":"An old favorite never out of style."},{"n":"Sausage & Peppers","a":"$80.00","b":"$155.00","d":"Italian sausage and peppers."},{"n":"White Fish al Limone","a":"$18.00","b":"Each","d":"Half filet of Lake Superior white fish, baked in a lemon, wine and caper sauce. With vegetables and potatoes. Dessert"}]},{"title":"Dessert","items":[{"n":"Tiramisu, house made","a":"$46.00","b":"$80.00"},{"n":"Mini Cannoli Siciliani","a":"$5.50","b":"Each"},{"n":"Italian Fig Cookies","a":"$2.50","b":"Each"}]}]};
+
+/* ---------- facts about the restaurant, from topogigiochicago.com as read on 2026-11-17 ---------- */
+const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+/* minutes after midnight, Chicago time. null is closed. */
+const HOURS = [
+  { open: 960, close: 1260 },                                 // Sunday 4:00 to 9:00
+  null,                                                       // Monday
+  { open: 690, close: 1320, lunch: true },                    // Tuesday 11:30 to 10:00
+  { open: 690, close: 1320, lunch: true },
+  { open: 690, close: 1320, lunch: true },
+  { open: 690, close: 1350, lunch: true, late: true },        // Friday 11:30 to 10:30
+  { open: 690, close: 1350, lunch: true, late: true },
+];
+const LUNCH_END = 900;                                        // 3:00 pm
+const OPENTABLE = 'https://www.opentable.com/r/topo-gigio';
+const PHONE = '(312) 266-9355';
+
+/* the dishes the restaurant's own banquet page says guests rave about, plus the pasta that carries its name */
+const FAVOURITES = ['Brodetto di Cozze al Pomodoro', 'White Fish al Limone e Capperi', 'Conchiglie alla Sarda', 'Rigatoni al Filo di Fumo', 'Fusilli alla Topo Gigio', 'Tiramisu'];
+
+/* short excerpts from Google reviews, read 2026-11-17 */
+const QUOTES = [
+  'Easily one of the best risottos I’ve ever had!',
+  'The calamari was so light and crunchy.',
+  'The outdoor patio was lovely and made the whole dining experience even better.',
+];
+
+const DIET = { GF: 'Gluten free', V: 'Vegetarian', P: 'Pescatarian' };
+const MENUS = {
+  dinner: { title: 'Dinner', when: 'Tuesday to Saturday from 3:00 pm. Sunday 4:00 to 9:00 pm. Ask about the daily specials.' },
+  lunch: { title: 'Lunch', when: 'Tuesday to Saturday, 11:30 am to 3:00 pm. Ask about the daily specials.' },
+  drinks: { title: 'Wine and cocktails', when: 'Wines are priced by the bottle. The list changes with vintages and seasons, so call if you have your heart set on one.' },
+};
+const MENU_NOTES = {
+  food: [
+    ['Allergies', 'Tell your server about any allergy or dietary restriction before you order.'],
+    ['Gluten-free pasta', 'Available for a $3 upcharge.'],
+    ['Split plates', '$4 charge.'],
+    ['Prices', 'Prices change with the market. Call first if you have concerns.'],
+    ['Cooked to order', 'Consuming raw or undercooked meats, poultry, seafood, shellfish or eggs may increase your risk of foodborne illness.'],
+  ],
+  drinks: [
+    ['Corkage', '$25 a bottle, up to three bottles.'],
+    ['The list', 'Wines change with vintages and seasons. Call for the current list.'],
+  ],
+};
+
+/* ---------- core: helpers, clock, state, router, overlays ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const money = n => n == null ? '' : (Number.isInteger(n) ? '$' + n.toLocaleString('en-US') : '$' + n.toFixed(2));
+const fmtT = m => { const h = Math.floor(m / 60), mm = m % 60, ap = h >= 12 ? 'pm' : 'am', hh = ((h + 11) % 12) + 1; return hh + ':' + String(mm).padStart(2, '0') + ' ' + ap; };
+const fmtEnd = (m, len) => fmtT(m + len);
+
+/* The site runs on the restaurant's clock (Chicago), wherever the visitor is. */
+const WD = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+function chicagoNow() {
+  const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Chicago', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false }).formatToParts(new Date());
+  const g = t => (parts.find(p => p.type === t) || {}).value;
+  let h = parseInt(g('hour'), 10); if (h === 24) h = 0;
+  return { d: WD[g('weekday')], mins: h * 60 + parseInt(g('minute'), 10) };
+}
+
+/* demo state, kept in memory and mirrored to localStorage as a convenience */
+const STATE = { people: [], events: [], staff: false, seeded: false };
+try { const s = JSON.parse(localStorage.getItem('tg-concept-1') || 'null'); if (s && Array.isArray(s.events) && Array.isArray(s.people)) Object.assign(STATE, s); } catch (e) {}
+function save() { try { localStorage.setItem('tg-concept-1', JSON.stringify(STATE)); } catch (e) {} }
+
+/* staff records: one row per person, one event per thing they asked for. Every form on the site writes here. */
+const STATUSES = ['New', 'Replied', 'Booked', 'Closed'];
+const uid = p => p + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+function personFor(p) {
+  if (!p) return null;
+  const name = String(p.name || [p.first, p.last].filter(Boolean).join(' ')).trim();
+  let email = String(p.email || '').trim(), phone = String(p.phone || '').trim();
+  if (p.contact) { const c = String(p.contact).trim(); if (c.includes('@')) email = email || c; else phone = phone || c; }
+  const key = (email || phone || name).toLowerCase(); if (!key) return null;
+  let rec = STATE.people.find(x => x.key === key);
+  if (!rec) { rec = { id: uid('p'), key, name, email, phone, status: 'New', notes: '', first: Date.now(), last: Date.now() }; STATE.people.push(rec); }
+  else { if (name) rec.name = name; if (email) rec.email = email; if (phone) rec.phone = phone; }
+  return rec;
+}
+function inboxAdd(kind, title, body, person) {
+  const rec = personFor(person), ts = Date.now();
+  STATE.events.unshift({ id: uid('e'), pid: rec ? rec.id : null, kind, title, body, ts });
+  if (rec) rec.last = ts;
+  save(); renderInbox(); if (currentPage === 'admin') renderAdmin();
+  return rec;
+}
+const dayKey = ts => new Date(ts).toLocaleDateString('en-CA', { timeZone: 'America/Chicago' });
+function fmtWhen(ts) {
+  const t = new Date(ts).toLocaleTimeString('en-US', { timeZone: 'America/Chicago', hour: 'numeric', minute: '2-digit' }).toLowerCase();
+  const d = dayKey(ts);
+  if (d === dayKey(Date.now())) return 'Today ' + t;
+  if (d === dayKey(Date.now() - 864e5)) return 'Yesterday ' + t;
+  return new Date(ts).toLocaleDateString('en-US', { timeZone: 'America/Chicago', month: 'short', day: 'numeric' }) + ', ' + t;
+}
+
+let toastT;
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2600); }
+
+/* overlays */
+const OV = { open: null };
+function openOverlay(id) {
+  closeOverlay();
+  const el = $('#' + id); el.classList.add('on'); el.setAttribute('aria-hidden', 'false');
+  $('#scrim').classList.add('on'); document.body.classList.add('locked'); OV.open = id;
+}
+function closeOverlay() {
+  if (!OV.open) return;
+  const el = $('#' + OV.open); el.classList.remove('on'); el.setAttribute('aria-hidden', 'true');
+  $('#scrim').classList.remove('on'); document.body.classList.remove('locked'); OV.open = null;
+}
+function openMenu() { $('#nav-menu').classList.add('on'); $('#nav-menu').setAttribute('aria-hidden', 'false'); document.body.classList.add('locked'); }
+function closeMenu() { $('#nav-menu').classList.remove('on'); $('#nav-menu').setAttribute('aria-hidden', 'true'); if (!OV.open) document.body.classList.remove('locked'); }
+
+/* router: plain #names only. A few names are sections inside a page. */
+const PAGES = ['home', 'menu', 'events', 'catering', 'gifts', 'story', 'visit', 'admin'];
+const INSIDE = { carryout: ['menu', 'sec-carryout'], parking: ['visit', 'sec-parking'] };
+const TITLES = { home: 'Topo Gigio website concept', menu: 'Menu | Topo Gigio concept', events: 'Private events | Topo Gigio concept', catering: 'Catering | Topo Gigio concept', gifts: 'Gift cards | Topo Gigio concept', story: 'Our story | Topo Gigio concept', visit: 'Hours and location | Topo Gigio concept', admin: 'Staff | Topo Gigio concept' };
+let currentPage = null, afterRoute = null;
+function route() {
+  let h = (location.hash || '#home').slice(1), target = null;
+  if (INSIDE[h]) { target = INSIDE[h][1]; h = INSIDE[h][0]; }
+  if (!PAGES.includes(h)) h = 'home';
+  if (h !== currentPage) {
+    $$('.page').forEach(p => p.classList.toggle('on', p.dataset.page === h));
+    $$('.nav a').forEach(a => a.classList.toggle('on', a.dataset.nav === h));
+    document.title = TITLES[h];
+    currentPage = h;
+    if (h === 'menu') renderMenu();
+    if (h === 'home' || h === 'visit') renderStatus();
+    document.body.classList.toggle('admin', h === 'admin');
+    if (h === 'admin') renderAdmin();
+  }
+  if (target) { const el = document.getElementById(target); if (el) el.scrollIntoView(); } else window.scrollTo(0, 0);
+  setOver();
+  if (afterRoute) { const f = afterRoute; afterRoute = null; f(); }
+}
+window.addEventListener('hashchange', route);
+
+/* the header is clear while it sits on the home hero */
+function setOver() {
+  const hero = $('.hero');
+  const over = currentPage === 'home' && hero && window.scrollY < hero.offsetHeight - 80 - (hero.offsetTop || 0);
+  document.body.classList.toggle('over', !!over);
+}
+window.addEventListener('scroll', setOver, { passive: true });
+window.addEventListener('resize', setOver);
+
+/* one listener for every data-action */
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-action], [data-ptab-go], [data-jump]');
+  if (!t) return;
+  if (t.dataset.ptabGo) { pitchTab(t.dataset.ptabGo); return; }
+  if (t.dataset.jump) { const el = document.getElementById(t.dataset.jump); if (el) el.scrollIntoView({ behavior: 'smooth' }); return; }
+  const a = t.dataset.action;
+  if (a === 'menu-open') openMenu();
+  else if (a === 'menu-close') closeMenu();
+  else if (a === 'overlay-close') closeOverlay();
+  else if (a === 'pitch-open') openOverlay('pitch');
+  else if (a === 'pitch-jump') closeOverlay();
+  else if (a === 'reserve') { closeMenu(); openReserve(); }
+  else if (a === 'ask-event') askEvent(t);
+  else if (a === 'adm') adminAction(t);
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeOverlay(); closeMenu(); } });
+
+/* pitch notes */
+function pitchTab(name) {
+  $$('.ptabs button').forEach(b => b.classList.toggle('on', b.dataset.ptab === name));
+  $$('.pitch__body > section').forEach(s => s.classList.toggle('on', s.dataset.ptab === name));
+  $('.pitch__body').scrollTop = 0;
+  if (!$('#pitch').classList.contains('on')) openOverlay('pitch');
+}
+$$('.ptabs button').forEach(b => b.addEventListener('click', () => pitchTab(b.dataset.ptab)));
+function renderInbox() {
+  const box = $('#inbox'), cnt = $('#inbox-cnt'), mine = STATE.events.filter(e => !e.sample);
+  if (!mine.length) { box.innerHTML = '<p class="inbox-empty">Nothing yet. Send a banquet inquiry, a catering request or a message, or use Reserve, and it shows up here and in the portal.</p>'; cnt.hidden = true; return; }
+  cnt.hidden = false; cnt.textContent = mine.length;
+  box.innerHTML = mine.map(e => { const p = STATE.people.find(x => x.id === e.pid); return `<div class="inbox-item"><div class="kind"><span>${esc(e.kind)}</span><span>${esc(fmtWhen(e.ts))}</span></div><b>${p ? esc(p.name) + ': ' : ''}${esc(e.title)}</b><p>${esc(e.body)}</p></div>`; }).join('');
+}
+
+/* ---------- rendering: open or closed, hours, house dishes, menu, trays ---------- */
+function nextOpen(now) {
+  for (let i = 0; i < 8; i++) {
+    const d = (now.d + i) % 7, h = HOURS[d];
+    if (!h) continue;
+    if (i === 0 && now.mins >= h.open) continue;
+    return { d, i, h };
+  }
+  return null;
+}
+function openState() {
+  const now = chicagoNow(), h = HOURS[now.d];
+  if (h && now.mins >= h.open && now.mins < h.close) return { open: true, now, h, text: 'Open now until ' + fmtT(h.close) };
+  const n = nextOpen(now), day = n.i === 0 ? 'today' : n.i === 1 ? 'tomorrow' : DAYS[n.d];
+  const lead = !h ? 'Closed today.' : 'Closed now.';
+  return { open: false, now, h, next: n, text: lead + ' Opens ' + day + ' at ' + fmtT(n.h.open) };
+}
+function renderStatus() {
+  const s = openState(), el = $('#status');
+  el.classList.toggle('is-open', s.open); $('span', el).textContent = s.text;
+  const b = $('#tn-hours'), sub = $('#tn-hours-sub'), h = s.h;
+  if (!h) { b.textContent = 'Closed on Mondays'; sub.textContent = 'Open Tuesday from ' + fmtT(HOURS[2].open) + '.'; }
+  else {
+    b.textContent = 'Open today, ' + fmtT(h.open) + ' to ' + fmtT(h.close);
+    sub.textContent = h.lunch ? 'Lunch until ' + fmtT(LUNCH_END) + ', then dinner.' + (h.late ? ' The bar stays open late.' : '') : 'Dinner only on Sundays.';
+  }
+  renderHours();
+}
+function renderHours() {
+  const today = chicagoNow().d, order = [2, 3, 4, 5, 6, 0, 1];
+  const html = order.map(d => { const h = HOURS[d]; return `<tr class="${d === today ? 'is-today' : ''}"><td>${DAYS[d]}</td><td>${h ? fmtT(h.open) + ' to ' + fmtT(h.close) + (h.late ? '<small>Bar open late</small>' : '') : 'Closed'}</td></tr>`; }).join('');
+  ['#hours', '#hours-home'].forEach(id => { const t = $(id); if (t) t.innerHTML = '<tbody>' + html + '</tbody>'; });
+}
+
+const tagsHTML = t => t && t.length ? `<span class="dt">${t.map(k => `<abbr title="${DIET[k]}">${k}</abbr>`).join('')}</span>` : '';
+function dishHTML(i) {
+  return `<div class="dish"><div class="dish__top"><span class="dish__name">${esc(i.n)}${i.x ? `<small>${esc(i.x)}</small>` : ''}${tagsHTML(i.t)}</span>${i.p != null ? `<span class="dish__dots"></span><span class="dish__price">${money(i.p)}</span>` : ''}</div>${i.d || i.r ? `<p>${esc(i.d || i.r)}</p>` : ''}</div>`;
+}
+function renderFav() {
+  const all = MENU.dinner.flatMap(s => s.items);
+  $('#fav').innerHTML = FAVOURITES.map(n => all.find(i => i.n === n)).filter(Boolean).map(dishHTML).join('');
+}
+function renderQuotes() {
+  $('#quotes').innerHTML = QUOTES.map(q => `<blockquote class="quote"><p>“${esc(q)}”</p><cite>From a Google review</cite></blockquote>`).join('');
+}
+
+/* menu page */
+const MSTATE = { tab: null, q: '', diet: [] };
+function defaultMenu() { const n = chicagoNow(), h = HOURS[n.d]; return h && h.lunch && n.mins < LUNCH_END ? 'lunch' : 'dinner'; }
+function renderMenu() {
+  if (!MSTATE.tab) MSTATE.tab = defaultMenu();
+  const tab = MSTATE.tab, food = tab !== 'drinks', q = MSTATE.q.toLowerCase();
+  $$('#mtabs button').forEach(b => { const on = b.dataset.menu === tab; b.classList.toggle('on', on); b.setAttribute('aria-selected', on); });
+  $('#m-diet').hidden = !food;
+  $$('#m-diet button').forEach(b => { const on = MSTATE.diet.includes(b.dataset.diet); b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+  $('#m-title').textContent = MENUS[tab].title; $('#m-when').textContent = MENUS[tab].when;
+  const diet = food ? MSTATE.diet : [];
+  const secs = MENU[tab].map((s, n) => ({ n, s, items: s.items.filter(i => (!q || (i.n + ' ' + (i.d || '') + ' ' + (i.r || '') + ' ' + (i.x || '')).toLowerCase().includes(q)) && diet.every(k => (i.t || []).includes(k))) })).filter(x => x.items.length);
+  const name = s => s.it || s.title;
+  $('#m-jump').innerHTML = secs.map(x => `<button class="u" type="button" data-jump="msec-${x.n}">${esc(x.s.en || name(x.s))}</button>`).join('');
+  const total = secs.reduce((a, x) => a + x.items.length, 0);
+  const filtered = q || diet.length;
+  $('#m-body').innerHTML = (filtered ? `<p class="note" style="padding-top:18px">${total} ${total === 1 ? 'item' : 'items'} ${q ? 'matching “' + esc(MSTATE.q) + '”' : ''}${q && diet.length ? ', ' : ''}${diet.map(k => DIET[k].toLowerCase()).join(' and ')}. <button class="u" type="button" id="m-clear">Show everything</button></p>` : '')
+    + (secs.length ? secs.map(x => `<section class="msec" id="msec-${x.n}" style="scroll-margin-top:calc(var(--head) + 70px)"><h2 class="h-m">${esc(name(x.s))}${x.s.en ? `<small>${esc(x.s.en)}</small>` : ''}</h2><div class="mcols${!food && x.items.every(i => !i.d) ? ' mcols--3' : ''}">${x.items.map(dishHTML).join('')}</div></section>`).join('')
+      : `<p class="kempty">Nothing on the ${esc(MENUS[tab].title.toLowerCase())} menu matches that.</p>`);
+  const c = $('#m-clear'); if (c) c.addEventListener('click', () => { MSTATE.q = ''; MSTATE.diet = []; $('#m-q').value = ''; renderMenu(); });
+  $('#m-notes').innerHTML = MENU_NOTES[food ? 'food' : 'drinks'].map(n => `<p><b>${n[0]}.</b> ${n[1]}</p>`).join('')
+    + (food ? `<p class="mkey">${Object.keys(DIET).map(k => `<span><span class="dt" style="margin-left:0"><abbr title="${DIET[k]}">${k}</abbr></span> ${DIET[k]}</span>`).join('')}</p>` : '');
+}
+$$('#mtabs button').forEach(b => b.addEventListener('click', () => { MSTATE.tab = b.dataset.menu; renderMenu(); }));
+$$('#m-diet button').forEach(b => b.addEventListener('click', () => { const k = b.dataset.diet, i = MSTATE.diet.indexOf(k); if (i < 0) MSTATE.diet.push(k); else MSTATE.diet.splice(i, 1); renderMenu(); }));
+$('#m-q').addEventListener('input', e => { MSTATE.q = e.target.value.trim(); renderMenu(); });
+
+/* catering trays */
+function renderTrays() {
+  $('#trays').innerHTML = MENU.catering.map((s, n) => `<details class="trays"${n === 0 ? ' open' : ''}><summary><span>${esc(s.title)}<small>${s.items.length} dishes</small></span></summary>
+    <div class="tray tray--head"><span style="text-align:left">Dish</span><span>Half pan</span><span>Full pan</span></div>
+    ${s.items.map(i => `<div class="tray"><b>${esc(i.n)}</b><span>${esc(String(i.a).replace(/\.00$/, ''))}</span><span>${esc(String(i.b).replace(/\.00$/, '').replace(/^Each$/, 'each'))}</span>${i.d ? `<p>${esc(i.d)}</p>` : ''}</div>`).join('')}</details>`).join('');
+}
+
+/* ---------- staff portal (#admin). On the real site this sits behind a staff login. ---------- */
+const ADM = { tab: 'people', filter: '', q: '', sel: null };
+const ST_CLASS = { 'New': 'st-new', 'Replied': 'st-contacted', 'Booked': 'st-wl', 'Closed': 'st-member' };
+
+/* Sample people, so the portal has something in it the first time it is opened. They are tagged and can be removed. */
+function seedSamples() {
+  if (STATE.seeded) return; STATE.seeded = true;
+  const H = 36e5, now = Date.now();
+  const rows = [
+    { h: 3,  p: { name: 'Maya R.', email: 'maya.r@example.com', phone: '312-555-0142' }, status: 'New', kind: 'Banquet inquiry', title: 'Rehearsal dinner, 55 guests', body: 'A Friday in June. Plated four-course dinner. Notes: two vegetarians, would like the room from 6 pm.' },
+    { h: 6,  kind: 'OpenTable', title: 'Table for 4, Friday at 7:00 pm', body: 'Left the site to book this table on OpenTable.' },
+    { h: 9,  p: { name: 'Dan K.', email: 'dan.k@example.com', phone: '312-555-0117' }, status: 'New', kind: 'Catering request', title: 'For 30 people, pick-up Thursday at 12:30 pm', body: 'One full pan of Rigatoni al Filo di Fumo, one full pan of house salad, 30 cannoli.' },
+    { h: 27, p: { name: 'Priya S.', email: 'priya.s@example.com' }, status: 'Replied', notes: 'Emailed her the total. She will pay and pick up on Saturday.', kind: 'Gift request', title: 'Gift card, $150', body: 'A wedding present. Would like it in an envelope.' },
+    { h: 30, kind: 'OpenTable', title: 'Table for 2, Saturday at 6:30 pm', body: 'Left the site to book this table on OpenTable.' },
+    { h: 52, p: { name: 'Chris L.', email: 'chris.l@example.com', phone: '312-555-0125' }, status: 'Replied', notes: 'Sent the buffet menu and two open Thursdays. Waiting to hear back.', kind: 'Banquet inquiry', title: 'Company event, 80 guests', body: 'A Thursday in December. Buffet. Notes: needs a screen for a short presentation.' },
+    { h: 75, p: { name: 'Ana M.', phone: '312-555-0163' }, status: 'New', kind: 'Message', title: 'A question', body: 'Is the tent open this week, and can we bring a stroller?' },
+    { h: 120, p: { name: 'Tom B.', email: 'tom.b@example.com', phone: '312-555-0188' }, status: 'Booked', notes: 'Date confirmed. Menu chosen: plated, whitefish or veal, pasta course added.', kind: 'Banquet inquiry', title: 'Anniversary or birthday, 45 guests', body: 'A Saturday in January. Plated four-course dinner.' },
+  ];
+  rows.forEach((r, n) => {
+    const ts = now - r.h * H; let pid = null;
+    if (r.p) { pid = 'ps' + n; STATE.people.push({ id: pid, key: 'sample-' + n, name: r.p.name, email: r.p.email || '', phone: r.p.phone || '', status: r.status, notes: r.notes || '', first: ts, last: ts, sample: true }); }
+    STATE.events.push({ id: 'es' + n, pid, kind: r.kind, title: r.title, body: r.body, ts, sample: true });
+  });
+  STATE.events.sort((a, b) => b.ts - a.ts);
+  save();
+}
+
+const eventsOf = p => STATE.events.filter(e => e.pid === p.id);
+function nextStep(p) {
+  const e = eventsOf(p)[0], k = e ? e.kind : '';
+  if (p.status === 'Replied') return 'Waiting on them. Follow up if you haven’t heard back.';
+  if (p.status === 'Booked') return 'Nothing to do. It is confirmed.';
+  if (p.status === 'Closed') return 'Nothing to do.';
+  if (k === 'Banquet inquiry') return 'Elizabeth: reply with availability and a quote.';
+  if (k === 'Catering request') return 'Vince: confirm the order, the price and the pick-up time.';
+  if (k === 'Gift request') return 'Vince: confirm the amount or size and how to pay. Pickup is at the restaurant.';
+  return 'Reply to them.';
+}
+const tags = p => (p.sample ? '<span class="tag2">Sample</span>' : '');
+
+function detailHTML(p, withName) {
+  const ev = eventsOf(p);
+  return `<div class="pd">
+    ${withName ? `<h2 class="h-m">${esc(p.name || 'No name given')}</h2>` : ''}
+    <div class="pd__tags">${tags(p)}</div>
+    <dl class="pd__info">
+      <div><dt>Email</dt><dd>${p.email ? `<a class="u" href="mailto:${esc(p.email)}">${esc(p.email)}</a>` : 'Not given'}</dd></div>
+      <div><dt>Phone</dt><dd>${p.phone ? `<a class="u" href="tel:${esc(p.phone.replace(/[^0-9+]/g, ''))}">${esc(p.phone)}</a>` : 'Not given'}</dd></div>
+      <div><dt>First seen</dt><dd>${esc(fmtWhen(p.first))}</dd></div>
+    </dl>
+    <p class="q">Status</p>
+    <div class="pd__status">${STATUSES.map(s => `<button type="button" class="${p.status === s ? 'on' : ''}" data-action="adm" data-do="status" data-id="${p.id}" data-s="${s}" aria-pressed="${p.status === s}">${s}</button>`).join('')}</div>
+    <div class="pd__next"><b>Next step</b>${esc(nextStep(p))}</div>
+    <label class="field"><span>Notes</span><textarea data-adm-notes="${p.id}" placeholder="Anything the next person to pick this up should know">${esc(p.notes)}</textarea></label>
+    <p class="q" style="margin-top:22px">History</p>
+    <ol class="pd__log">${ev.map(e => `<li><span>${esc(fmtWhen(e.ts))}</span><b>${esc(e.kind)}</b> ${esc(e.title)}<p>${esc(e.body)}</p></li>`).join('')}</ol>
+  </div>`;
+}
+
+function peopleList() {
+  const q = ADM.q.toLowerCase();
+  return STATE.people.filter(p => (!ADM.filter || p.status === ADM.filter) && (!q || (p.name + ' ' + p.email + ' ' + p.phone).toLowerCase().includes(q))).sort((a, b) => b.last - a.last);
+}
+const wide = () => window.matchMedia('(min-width: 1021px)').matches;
+function renderPeople() {
+  const list = peopleList(), box = $('#adm-list'); if (!box) return;
+  if (wide() && (!ADM.sel || !list.some(p => p.id === ADM.sel))) ADM.sel = list[0] ? list[0].id : null;
+  box.innerHTML = list.length ? list.map(p => { const e = eventsOf(p)[0]; return `<button type="button" class="prow${ADM.sel === p.id ? ' on' : ''}" data-action="adm" data-do="open" data-id="${p.id}">
+      <span class="prow__name">${esc(p.name || 'No name given')}${tags(p)}</span>
+      <span class="prow__last">${e ? `<b>${esc(e.kind)}</b> ${esc(e.title)}` : ''}</span>
+      <span class="prow__status ${ST_CLASS[p.status]}">${esc(p.status)}</span>
+      <span class="prow__when">${esc(fmtWhen(p.last))}</span>
+    </button>`; }).join('') : `<p class="kempty">${STATE.people.length ? 'Nobody matches that. Clear the search or pick another status.' : 'Nobody yet. Inquiries, requests and messages from the site appear here.'}</p>`;
+  const d = $('#adm-detail'), p = STATE.people.find(x => x.id === ADM.sel);
+  if (d) d.innerHTML = p ? detailHTML(p, true) : '<p class="kempty" style="border:0">Pick a person to see their details.</p>';
+  if (p && !wide() && OV.open === 'sheet' && $('#sheet').dataset.person === p.id) personSheet(p);
+}
+function personSheet(p) {
+  sheetSet('Staff portal', p.name || 'No name given', detailHTML(p, false), `<span></span><button class="btn btn-red" type="button" data-action="overlay-close">Done</button>`);
+  $('#sheet').dataset.person = p.id;
+  if (OV.open !== 'sheet') openOverlay('sheet');
+}
+
+function renderAdmin() {
+  const root = $('#adm-root');
+  $('#adm-out').hidden = !STATE.staff;
+  if (!STATE.staff) {
+    root.innerHTML = `<div class="wrap adm__gate">
+      <h1 class="h-xl">Staff portal</h1>
+      <p class="lead">The staff side of the site. Every banquet inquiry, catering request, gift card request and message lands here, one row per person, so nothing sits unanswered in one person's inbox.</p>
+      <div class="btn-row" style="margin-top:28px"><button class="btn btn-red" type="button" data-action="adm" data-do="in">Open the portal</button></div>
+      <p class="note" style="margin-top:18px;max-width:34em">On the live site this page is at /admin behind a staff login. This concept has no password.</p>
+    </div>`;
+    return;
+  }
+  const ev = STATE.events, ppl = STATE.people, cnt = s => ppl.filter(p => p.status === s).length;
+  const samples = ppl.filter(p => p.sample).length;
+  const stats = [
+    [cnt('New'), 'people to reply to'],
+    [ev.filter(e => e.kind === 'Banquet inquiry').length, 'banquet inquiries'],
+    [ev.filter(e => e.kind === 'Catering request' || e.kind === 'Gift request').length, 'catering and gift requests'],
+    [ev.filter(e => e.kind === 'OpenTable').length, 'click-throughs to OpenTable'],
+  ];
+  const today = new Date().toLocaleDateString('en-US', { timeZone: 'America/Chicago', weekday: 'long', month: 'long', day: 'numeric' });
+  root.innerHTML = `<div class="wrap adm__in">
+    <div class="adm__head"><h1 class="h-l">Staff portal</h1><span>${esc(today)}</span></div>
+    <p class="adm__note">Concept portal. It shows what was submitted in this browser${samples ? ', plus ' + samples + ' sample people so it isn’t empty' : ''}. The live portal reads from the site’s database, so Elizabeth, Vince and the host stand all see the same list.${samples ? ' <button class="u" type="button" data-action="adm" data-do="clear">Remove the samples</button>' : ''}</p>
+    <div class="adm__stats">${stats.map(s => `<div><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div>
+    <div class="adm__tabs" role="tablist">
+      <button type="button" role="tab" class="${ADM.tab === 'people' ? 'on' : ''}" data-action="adm" data-do="tab" data-v="people">People <small>${ppl.length}</small></button>
+      <button type="button" role="tab" class="${ADM.tab === 'activity' ? 'on' : ''}" data-action="adm" data-do="tab" data-v="activity">Activity <small>${ev.length}</small></button>
+    </div>
+    ${ADM.tab === 'people' ? `<div class="adm__tools">
+        <div class="cats">${['', ...STATUSES].map(s => `<button type="button" class="${ADM.filter === s ? 'on' : ''}" data-action="adm" data-do="filter" data-s="${s}">${s || 'Everyone'} <small>${s ? cnt(s) : ppl.length}</small></button>`).join('')}</div>
+        <div class="adm__find"><input type="search" id="adm-q" placeholder="Search name, email or phone" aria-label="Search people" value="${esc(ADM.q)}"><button class="btn btn-s btn-line" type="button" data-action="adm" data-do="csv">Copy as CSV</button></div>
+      </div>
+      <div class="adm__split"><div class="ptable" id="adm-list"></div><aside class="adm__detail" id="adm-detail" aria-live="polite"></aside></div>`
+    : `<div class="alog">${ev.length ? ev.map(e => { const p = ppl.find(x => x.id === e.pid); return `<div class="alog__row">
+          <span class="alog__when">${esc(fmtWhen(e.ts))}</span>
+          <span class="alog__kind${e.kind === 'OpenTable' ? ' is-wl' : ''}">${esc(e.kind)}</span>
+          <span class="alog__what"><b>${p ? esc(p.name) : 'No details left'}</b> ${esc(e.title)}<small>${esc(e.body)}</small></span>
+          ${p ? `<button class="u" type="button" data-action="adm" data-do="open" data-id="${p.id}">Open</button>` : '<span></span>'}
+        </div>`; }).join('') : '<p class="kempty">Nothing yet.</p>'}</div>`}
+  </div>`;
+  if (ADM.tab === 'people') { renderPeople(); $('#adm-q').addEventListener('input', e => { ADM.q = e.target.value.trim(); renderPeople(); }); }
+}
+
+function csvText() {
+  const q = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+  const rows = [['Name', 'Email', 'Phone', 'Status', 'Latest', 'When', 'Notes']];
+  peopleList().forEach(p => { const e = eventsOf(p)[0]; rows.push([p.name, p.email, p.phone, p.status, e ? e.kind + ': ' + e.title : '', fmtWhen(p.last), p.notes]); });
+  return rows.map(r => r.map(q).join(',')).join('\n');
+}
+function adminAction(t) {
+  const d = t.dataset.do, p = STATE.people.find(x => x.id === t.dataset.id);
+  if (d === 'in') { STATE.staff = true; save(); renderAdmin(); window.scrollTo(0, 0); }
+  else if (d === 'out') { STATE.staff = false; save(); renderAdmin(); }
+  else if (d === 'clear') { STATE.people = STATE.people.filter(x => !x.sample); STATE.events = STATE.events.filter(x => !x.sample); ADM.sel = null; save(); renderAdmin(); renderInbox(); toast('Samples removed'); }
+  else if (d === 'tab') { ADM.tab = t.dataset.v; renderAdmin(); }
+  else if (d === 'filter') { ADM.filter = t.dataset.s; renderAdmin(); }
+  else if (d === 'open' && p) {
+    ADM.sel = p.id;
+    if (ADM.tab !== 'people') { ADM.tab = 'people'; ADM.filter = ''; ADM.q = ''; renderAdmin(); } else renderPeople();
+    if (!wide()) personSheet(p);
+  }
+  else if (d === 'status' && p) { p.status = t.dataset.s; save(); renderAdmin(); if (!wide() && OV.open === 'sheet') personSheet(p); toast(p.name + ' marked ' + p.status); }
+  else if (d === 'csv') {
+    const text = csvText(), n = peopleList().length;
+    const fallback = () => { sheetSet('Staff portal', 'People as CSV', `<p style="margin-bottom:14px">Select all of this and copy it into a spreadsheet.</p><label class="field"><span class="sr">CSV</span><textarea readonly style="min-height:320px;font-size:13.5px;white-space:pre">${esc(text)}</textarea></label>`, `<span></span><button class="btn btn-red" type="button" data-action="overlay-close">Done</button>`); delete $('#sheet').dataset.person; openOverlay('sheet'); };
+    try { navigator.clipboard.writeText(text).then(() => toast('Copied ' + n + ' ' + (n === 1 ? 'person' : 'people') + ' as CSV'), fallback); } catch (e) { fallback(); }
+  }
+}
+document.addEventListener('input', e => {
+  const t = e.target.closest('[data-adm-notes]'); if (!t) return;
+  const p = STATE.people.find(x => x.id === t.dataset.admNotes); if (p) { p.notes = t.value; save(); }
+});
+
+/* ---------- reserve panel and request forms ---------- */
+function sheetSet(label, title, body, foot) {
+  $('#sheet-label').textContent = label; $('#sheet-title').textContent = title;
+  $('#sheet-body').innerHTML = body; $('#sheet-foot').innerHTML = foot || '';
+  $('#sheet-body').scrollTop = 0;
+  delete $('#sheet').dataset.person;
+}
+const todayKey = () => dayKey(Date.now());
+const parseDay = k => { const [y, m, d] = k.split('-').map(Number); return new Date(y, m - 1, d); };
+const addDays = (k, n) => { const d = parseDay(k); d.setDate(d.getDate() + n); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+const daysBetween = (a, b) => Math.round((parseDay(b) - parseDay(a)) / 864e5);
+const niceDay = k => parseDay(k).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+
+/* Reserve: three questions, then OpenTable with them filled in. OpenTable stays the reservation book. */
+function slotsFor(k) {
+  const h = HOURS[parseDay(k).getDay()]; if (!h) return [];
+  const out = [], now = chicagoNow(), today = k === todayKey();
+  for (let m = h.open; m <= h.close - 30; m += 30) if (!today || m > now.mins) out.push(m);
+  return out;
+}
+function firstBookable() { let k = todayKey(); for (let i = 0; i < 8; i++) { if (slotsFor(k).length) return k; k = addDays(k, 1); } return todayKey(); }
+function openReserve() {
+  const k = firstBookable();
+  sheetSet('Dining room', 'Reserve a table', `
+    <div class="form-grid">
+      <label class="field span2"><span>Date</span><input type="date" id="rs-date" min="${todayKey()}" value="${k}"></label>
+      <label class="field"><span>Time</span><select id="rs-time"></select></label>
+      <label class="field"><span>Party size</span><select id="rs-size">${[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `<option value="${n}"${n === 2 ? ' selected' : ''}>${n} ${n === 1 ? 'person' : 'people'}</option>`).join('')}<option value="big">More than 10</option></select></label>
+    </div>
+    <div id="rs-msg"></div>
+    <div class="rnote"><b>The garden, the tent and the bars can't be booked</b>They are first come, first served. Just come by.</div>
+    <div class="rnote"><b>Planning for 40 to 90 guests?</b>That's the private room upstairs. <a class="u" href="#events" data-action="overlay-close">See private events</a></div>
+    <p class="note" style="margin-top:18px">The button below opens Topo Gigio's real OpenTable page in a new tab. Unlike the rest of this concept, a table booked there is a real reservation.</p>`,
+    `<a class="btn btn-line" href="tel:+13122669355"><svg class="ic"><use href="#i-tel"/></svg>Call</a><a class="btn btn-red" id="rs-go" target="_blank" rel="noopener">Find this table on OpenTable</a>`);
+  const date = $('#rs-date'), time = $('#rs-time'), size = $('#rs-size'), go = $('#rs-go'), msg = $('#rs-msg');
+  let label = '';
+  function sync(keepTime) {
+    const kk = date.value || k, slots = slotsFor(kk), prev = keepTime ? Number(time.value) : 0;
+    time.innerHTML = slots.map(m => `<option value="${m}">${fmtT(m)}</option>`).join('');
+    const pick = slots.includes(prev) ? prev : slots.includes(1140) ? 1140 : slots[0];
+    if (pick != null) time.value = String(pick);
+    time.disabled = !slots.length;
+    const big = size.value === 'big', closed = !HOURS[parseDay(kk).getDay()];
+    msg.innerHTML = closed ? `<p class="rclosed">We're closed on Mondays. Pick another day.</p>`
+      : !slots.length ? `<p class="rclosed">The kitchen has closed for today. Pick another day.</p>`
+      : big ? `<p class="rclosed">For more than 10, call us at <a class="tel" href="tel:+13122669355">${PHONE}</a> and we'll work it out.</p>` : '';
+    const ok = slots.length && !big;
+    go.hidden = !ok;
+    if (ok) {
+      const m = Number(time.value), n = Number(size.value);
+      go.href = OPENTABLE + '?p=' + n + '&sd=' + kk + 'T' + String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0') + ':00';
+      label = 'Table for ' + n + ', ' + niceDay(kk) + ' at ' + fmtT(m);
+    }
+  }
+  date.addEventListener('change', () => sync(true)); time.addEventListener('change', () => sync(true)); size.addEventListener('change', () => sync(true));
+  go.addEventListener('click', () => { inboxAdd('OpenTable', label, 'Left the site to book this table on OpenTable.'); toast('Opening OpenTable in a new tab'); });
+  sync(false);
+  openOverlay('sheet');
+}
+
+/* request forms. Each one writes a row to the staff portal and shows what happens next. */
+function clearErrs(form) { $$('.field--err', form).forEach(f => f.classList.remove('field--err')); $$('.err', form).forEach(e => e.remove()); }
+function fieldErr(form, name, text) {
+  const f = form.elements[name].closest('.field'); f.classList.add('field--err');
+  const s = document.createElement('small'); s.className = 'err'; s.textContent = text; f.appendChild(s);
+}
+function validate(form) {
+  clearErrs(form); let ok = true;
+  $$('[required]', form).forEach(i => {
+    const bad = !i.value.trim() || (i.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(i.value.trim()));
+    if (bad) { ok = false; fieldErr(form, i.name, i.type === 'email' && i.value.trim() ? 'That email address doesn’t look right.' : 'Please fill this in.'); }
+  });
+  return ok;
+}
+function bindForm(id, build) {
+  const form = $(id), orig = form.innerHTML;
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const v = Object.fromEntries(new FormData(form).entries());
+    let ok = validate(form);
+    const r = build(v, form, ok);
+    if (!ok || !r) { const bad = $('.field--err input, .field--err select, .field--err textarea', form); if (bad) bad.focus(); toast('Check the fields marked in red'); return; }
+    inboxAdd(r.kind, r.title, r.body, r.person);
+    form.innerHTML = `<h2 class="h-m">${esc(r.done)}</h2>
+      <div class="ok-box" style="margin-top:14px"><b>${esc(r.title)}</b><br>${esc(r.next)}</div>
+      <p class="note" style="margin-top:14px">This is a concept, so nothing was emailed. On the real site this goes to ${esc(r.to)} and into the staff portal.</p>
+      <div class="btn-row" style="margin-top:20px"><a class="btn btn-ink" href="#admin">See it in the staff portal</a><button class="u" type="button" data-again>Send another</button></div>`;
+    form.scrollIntoView({ block: 'nearest' });
+  });
+  form.addEventListener('click', e => { if (e.target.closest('[data-again]')) { form.innerHTML = orig; setDateMins(); } });
+  form.addEventListener('input', e => { const f = e.target.closest('.field--err'); if (f) { f.classList.remove('field--err'); const s = $('.err', f); if (s) s.remove(); } });
+}
+function setDateMins() { $$('main input[type="date"]').forEach(i => { i.min = todayKey(); }); }
+
+bindForm('#ev-form', (v, form, ok) => {
+  const g = Number(v.guests);
+  if (v.guests && (g < 40 || g > 90)) { fieldErr(form, 'guests', g < 40 ? 'The room is for 40 guests or more. For a smaller group, reserve a table or call us.' : 'The room holds 90 at most. Call Elizabeth and we’ll talk it through.'); return null; }
+  if (!ok) return null;
+  return { kind: 'Banquet inquiry', title: v.type + ', ' + g + ' guests', person: v, done: 'Inquiry sent', to: 'Elizabeth',
+    body: (v.date ? niceDay(v.date) : 'No date given') + '. ' + (v.format === 'Not sure yet' ? 'Style of service not decided' : v.format) + '.' + (v.notes.trim() ? ' Notes: ' + v.notes.trim() : ''),
+    next: 'Elizabeth replies with availability and a quote.' };
+});
+bindForm('#cat-form', (v, form, ok) => {
+  if (v.date) {
+    const wd = parseDay(v.date).getDay(), ahead = daysBetween(todayKey(), v.date);
+    if (ahead < 2) { fieldErr(form, 'date', 'We need at least 48 hours. The earliest we can do is ' + niceDay(addDays(todayKey(), 2)) + '.'); return null; }
+    if (![0, 2, 3, 4].includes(wd)) { fieldErr(form, 'date', 'Catering pick-up is Tuesday to Thursday and Sunday.'); return null; }
+  }
+  if (!ok) return null;
+  return { kind: 'Catering request', title: 'For ' + v.guests + ' people, pick-up ' + niceDay(v.date) + ' at ' + v.time, person: v, done: 'Request sent', to: 'Vince',
+    body: v.order.trim(), next: 'Vince confirms the order and the price with you before anything is cooked.' };
+});
+bindForm('#gift-form', (v, form, ok) => {
+  if (!ok) return null;
+  return { kind: 'Gift request', title: v.what + ', ' + v.detail.trim(), person: v, done: 'Request sent', to: 'Vince',
+    body: v.notes.trim() || 'Pickup at the restaurant.', next: 'Vince replies to confirm it and how to pay. Pickup is at the restaurant.' };
+});
+bindForm('#contact-form', (v, form, ok) => {
+  if (!ok) return null;
+  return { kind: 'Message', title: v.about, person: v, done: 'Message sent', to: 'the restaurant’s inbox',
+    body: v.msg.trim(), next: 'We reply by email or phone.' };
+});
+
+function askEvent(t) {
+  const fmt = t && t.dataset.format;
+  const go = () => {
+    const f = $('#ev-form'); if (!f.elements.name) f.querySelector('[data-again]').click();
+    if (fmt) f.elements.format.value = fmt;
+    f.scrollIntoView({ block: 'center' }); f.elements.name.focus({ preventScroll: true });
+    if (fmt) toast('Style of service set to ' + fmt.toLowerCase());
+  };
+  if (currentPage === 'events') go(); else { afterRoute = go; location.hash = '#events'; }
+}
+
+function init() {
+  seedSamples();
+  renderFav(); renderQuotes(); renderTrays(); renderInbox(); setDateMins();
+  setInterval(() => { if (currentPage === 'home' || currentPage === 'visit') renderStatus(); }, 60000);
+  route();
+}
+init();
+
+/* for the test harness */
+window.__tg = { STATE, MENU, HOURS, chicagoNow, openState, slotsFor, todayKey, addDays, parseDay };
+
+})();
+</script>
+</body>
+</html>

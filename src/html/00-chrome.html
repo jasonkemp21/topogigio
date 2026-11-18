@@ -1,0 +1,45 @@
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L16 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></symbol>
+</svg>
+
+<header class="head">
+  <div class="wrap">
+    <nav class="nav nav--left" aria-label="Menu and events">
+      <a href="#menu" data-nav="menu">Menu</a>
+      <a href="#events" data-nav="events">Private events</a>
+      <a href="#catering" data-nav="catering">Catering</a>
+      <a href="#story" data-nav="story">Our story</a>
+    </nav>
+    <a class="logo" href="#home" aria-label="Topo Gigio Ristorante, home">Topo Gigio <span>Ristorante</span></a>
+    <nav class="nav nav--right" aria-label="Visit and reserve">
+      <a href="#visit" data-nav="visit">Hours and location</a>
+      <a href="#gifts" data-nav="gifts">Gift cards</a>
+      <button class="btn btn-white" type="button" data-action="reserve">Reserve</button>
+      <button class="menu-btn" type="button" data-action="menu-open" aria-label="Open menu"><svg class="ic"><use href="#i-menu"/></svg></button>
+    </nav>
+  </div>
+</header>
+
+<div class="menu" id="nav-menu" aria-hidden="true">
+  <div class="menu__top">
+    <a class="logo" href="#home" data-action="menu-close">Topo Gigio <span>Ristorante</span></a>
+    <button class="menu-btn" style="display:inline-flex" type="button" data-action="menu-close" aria-label="Close menu"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <nav class="menu__links" aria-label="All pages">
+    <a href="#menu" data-action="menu-close">Menu</a>
+    <a href="#visit" data-action="menu-close">Hours and location</a>
+    <a href="#events" data-action="menu-close">Private events</a>
+    <a href="#catering" data-action="menu-close">Catering</a>
+    <a href="#gifts" data-action="menu-close">Gift cards</a>
+    <a href="#story" data-action="menu-close">Our story</a>
+  </nav>
+  <div class="menu__foot">
+    <button class="btn btn-white btn-wide" type="button" data-action="reserve">Reserve a table</button>
+    <p>1516 N Wells St, Old Town<br>Call <a class="tel" href="tel:+13122669355">(312) 266-9355</a></p>
+  </div>
+</div>
+
+<main id="main">

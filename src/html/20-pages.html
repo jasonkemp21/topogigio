@@ -1,0 +1,326 @@
+<!-- MENU -->
+<section class="page" data-page="menu">
+  <div class="phead"><div class="wrap">
+    <h1 class="h-xl">Menu</h1>
+    <p class="lead">Every dish and every price, as text you can search. Ask your server about the daily specials.</p>
+  </div></div>
+  <div class="mbar"><div class="wrap">
+    <div class="mtabs" role="tablist" id="mtabs">
+      <button type="button" role="tab" data-menu="dinner">Dinner</button>
+      <button type="button" role="tab" data-menu="lunch">Lunch</button>
+      <button type="button" role="tab" data-menu="drinks">Drinks</button>
+    </div>
+    <div class="mtools">
+      <input type="search" id="m-q" placeholder="Search the menu" aria-label="Search the menu">
+      <div class="cats" id="m-diet" aria-label="Dietary filters">
+        <button type="button" data-diet="GF" aria-pressed="false">Gluten free</button>
+        <button type="button" data-diet="V" aria-pressed="false">Vegetarian</button>
+        <button type="button" data-diet="P" aria-pressed="false">Pescatarian</button>
+      </div>
+    </div>
+  </div></div>
+  <div class="wrap">
+    <div class="mwhen"><div><h2 class="h-l" id="m-title"></h2><p id="m-when" style="margin-top:8px"></p></div><nav class="mjump" id="m-jump" aria-label="Menu sections"></nav></div>
+    <div id="m-body"></div>
+    <div class="mnotes" id="m-notes"></div>
+    <div class="sec" id="sec-carryout" style="scroll-margin-top:var(--head);padding-bottom:0">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">Carry-out</h2>
+          <p class="lead" style="margin-top:14px">Call the restaurant to place an order. We don't take carry-out orders online and we don't deliver.</p>
+          <div class="btn-row" style="margin-top:24px"><a class="btn btn-red" href="tel:+13122669355"><svg class="ic"><use href="#i-tel"/></svg>Call (312) 266-9355</a></div>
+        </div>
+        <dl class="facts">
+          <div><dt>Lunch</dt><dd>Tuesday to Saturday, 11:30 am to 3:00 pm</dd></div>
+          <div><dt>Dinner</dt><dd>Tuesday to Thursday, until 6:00 pm</dd></div>
+          <div><dt>For a crowd</dt><dd>Trays by the half or full pan, with 48 hours' notice. <a class="u" href="#catering">See catering</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="end"></div>
+</section>
+
+<!-- PRIVATE EVENTS -->
+<section class="page" data-page="events">
+  <div class="phead phead--photo">
+    <img src="img/room.webp" alt="The private room set with round tables for a dinner">
+    <div class="wrap">
+      <h1 class="h-xl">Private events</h1>
+      <p class="lead">One private room on the second floor, for 40 to 90 guests.</p>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">The room</h2>
+          <p class="lead" style="margin-top:14px">Classic décor, a mosaic dome in a twenty-five-foot ceiling, burgundy velvet drapes and a bar of its own. We plan each event with you, to your specifications.</p>
+          <dl class="facts" style="margin-top:26px">
+            <div><dt>Guests</dt><dd>40 minimum, 90 maximum</dd></div>
+            <div><dt>Where</dt><dd>Second floor, 1516 N Wells St</dd></div>
+            <div><dt>Good for</dt><dd>Weddings, anniversary dinners and company events</dd></div>
+            <div><dt>Planner</dt><dd>Elizabeth, <a class="tel" href="tel:+13122669355">(312) 266-9355</a><br><a class="tel" href="mailto:emiranda@topogigiochicago.com">emiranda@topogigiochicago.com</a></dd></div>
+          </dl>
+        </div>
+        <form class="panel" id="ev-form" novalidate>
+          <h2 class="h-m">Ask about a date</h2>
+          <p>Elizabeth replies with availability and a quote.</p>
+          <div class="form-grid">
+            <label class="field"><span>Your name</span><input name="name" required autocomplete="name"></label>
+            <label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+            <label class="field"><span>Phone (optional)</span><input name="phone" type="tel" autocomplete="tel"></label>
+            <label class="field"><span>Date you have in mind</span><input name="date" type="date"></label>
+            <label class="field"><span>Occasion</span><select name="type"><option>Wedding</option><option>Rehearsal dinner</option><option>Anniversary or birthday</option><option>Company event</option><option>Something else</option></select></label>
+            <label class="field"><span>Guests (40 to 90)</span><input name="guests" type="number" min="40" max="90" inputmode="numeric" required></label>
+            <label class="field span2"><span>Style of service</span><select name="format"><option>Not sure yet</option><option>Plated four-course dinner</option><option>Buffet</option><option>Finger-food cocktail party</option></select></label>
+            <label class="field span2"><span>Anything we should know? (optional)</span><textarea name="notes"></textarea></label>
+          </div>
+          <button class="btn btn-red btn-wide" type="submit" style="margin-top:18px">Send inquiry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="sec-head"><div><h2 class="h-l">Three ways to serve it</h2><p class="lead grey">Prices are per guest, before the bar package. The full package list comes with your quote.</p></div></div>
+      <div class="formats">
+        <div><h3 class="h-m">Plated dinner</h3><b>Entrées $33 to $45</b><p>Four courses. Antipasto served butler style, house salad, your guests' choice of two main courses plus a vegetarian option, dessert, coffee and tea. A pasta course can be added.</p><button class="u" type="button" data-action="ask-event" data-format="Plated four-course dinner">Ask about a plated dinner</button></div>
+        <div><h3 class="h-m">Buffet</h3><b>From $40 a guest</b><p>Built dish by dish from the buffet menu, plus a bar package.</p><button class="u" type="button" data-action="ask-event" data-format="Buffet">Ask about a buffet</button></div>
+        <div><h3 class="h-m">Cocktail party</h3><b>From $35 a guest</b><p>Finger food priced by the piece, 20 pieces minimum of each, plus a bar package.</p><button class="u" type="button" data-action="ask-event" data-format="Finger-food cocktail party">Ask about a cocktail party</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h-l">Have a look</h2></div>
+      <div class="gal">
+        <figure><img src="img/long.webp" alt="The room dressed for a seated dinner, tables running its full length" loading="lazy"><figcaption>Seated dinner</figcaption></figure>
+        <figure><img src="img/dome.webp" alt="The hand-painted sun in the centre of the ceiling dome" loading="lazy"><figcaption>The hand-painted sun in the dome</figcaption></figure>
+        <figure><img src="img/mural.webp" alt="The mural wall across from the bar, with high-top tables" loading="lazy"><figcaption>The mural wall</figcaption></figure>
+        <figure><img src="img/bar.webp" alt="The private room's wooden bar" loading="lazy"><figcaption>The bar</figcaption></figure>
+        <figure><img src="img/wedding.webp" alt="The room arranged for a wedding with a dance floor" loading="lazy"><figcaption>Set for a wedding</figcaption></figure>
+      </div>
+    </div>
+  </div>
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div><h2 class="h-l">Who has held events here</h2><p class="lead grey" style="margin-top:12px">Companies that have booked the room.</p></div>
+        <p class="hosted">IFMA, Motorola, Andersen Consulting, The Boston Consulting Group, Morgan Stanley Dean Witter, HBO, Wells Fargo, DHL, McDonald's, Grainger, Guaranteed Rate, Rock Trading, Chicago Fire and Chicago PD, The Chicago Board of Trade, GTCR, Jameson Realty, New West Realty and The Habitat Company.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATERING -->
+<section class="page" data-page="catering">
+  <div class="phead"><div class="wrap">
+    <h1 class="h-xl">Catering</h1>
+    <p class="lead">Trays from our kitchen for your table. Pick-up only, with 48 hours' notice.</p>
+  </div></div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">How it works</h2>
+          <ol class="steps" style="margin-top:22px">
+            <li><b>Tell us what you need</b><span>Use the form, or email Vince. Give us at least 48 hours.</span></li>
+            <li><b>We confirm the order and the price</b><span>Prices change with the market, so Vince confirms the total before we cook.</span></li>
+            <li><b>Pick it up</b><span>11:30 am to 4:30 pm, Tuesday to Thursday and Sunday. We don't deliver.</span></li>
+          </ol>
+          <dl class="facts" style="margin-top:28px">
+            <div><dt>Tray sizes</dt><dd>A half pan feeds 10 to 16. A full pan feeds 18 to 25</dd></div>
+            <div><dt>Extras</dt><dd>Sterno heaters $4 each, racks $2 each. Plates and utensils cost extra</dd></div>
+            <div><dt>Gluten free</dt><dd>Gluten-free pasta isn't available for catering</dd></div>
+            <div><dt>Contact</dt><dd>Vince, <a class="tel" href="mailto:vince@topogigiochicago.com">vince@topogigiochicago.com</a></dd></div>
+          </dl>
+        </div>
+        <form class="panel" id="cat-form" novalidate>
+          <h2 class="h-m">Request catering</h2>
+          <p>Nothing is ordered until Vince confirms it with you.</p>
+          <div class="form-grid">
+            <label class="field"><span>Your name</span><input name="name" required autocomplete="name"></label>
+            <label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+            <label class="field"><span>Phone</span><input name="phone" type="tel" autocomplete="tel"></label>
+            <label class="field"><span>How many people</span><input name="guests" type="number" min="1" inputmode="numeric" required></label>
+            <label class="field"><span>Pick-up day</span><input name="date" type="date" required></label>
+            <label class="field"><span>Pick-up time</span><select name="time"><option>11:30 am</option><option>12:30 pm</option><option>1:30 pm</option><option>2:30 pm</option><option>3:30 pm</option><option>4:30 pm</option></select></label>
+            <label class="field span2"><span>What would you like?</span><textarea name="order" required placeholder="For example: one full pan of Rigatoni al Filo di Fumo, one half pan of house salad"></textarea></label>
+          </div>
+          <button class="btn btn-red btn-wide" type="submit" style="margin-top:18px">Send request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="sec-head"><div><h2 class="h-l">The catering menu</h2><p class="lead grey">Prices for a half pan and a full pan, unless marked each.</p></div></div>
+      <div id="trays"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GIFT CARDS -->
+<section class="page" data-page="gifts">
+  <div class="phead"><div class="wrap">
+    <h1 class="h-xl">Gift cards and t-shirts</h1>
+    <p class="lead">Ask for one here and pick it up at the restaurant.</p>
+  </div></div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">How to get one</h2>
+          <ol class="steps" style="margin-top:22px">
+            <li><b>Send a request</b><span>Say what you'd like. You can also ask over the phone or in person.</span></li>
+            <li><b>Vince replies</b><span>He confirms the amount or the shirt size and how to pay.</span></li>
+            <li><b>Pick it up at the restaurant</b><span>Gift cards and t-shirts are for in-person pickup only. We no longer mail them.</span></li>
+          </ol>
+          <p class="note" style="margin-top:18px">Vince: <a class="tel" href="mailto:vince@topogigiochicago.com">vince@topogigiochicago.com</a></p>
+        </div>
+        <form class="panel" id="gift-form" novalidate>
+          <h2 class="h-m">Request a gift card or shirt</h2>
+          <p>Nothing is charged here.</p>
+          <div class="form-grid">
+            <label class="field"><span>Your name</span><input name="name" required autocomplete="name"></label>
+            <label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+            <label class="field"><span>What would you like</span><select name="what"><option>Gift card</option><option>T-shirt</option><option>Both</option></select></label>
+            <label class="field"><span>Gift card amount or shirt size</span><input name="detail" required placeholder="$100, or a size large"></label>
+            <label class="field span2"><span>Anything else? (optional)</span><textarea name="notes"></textarea></label>
+          </div>
+          <button class="btn btn-red btn-wide" type="submit" style="margin-top:18px">Send request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="page" data-page="story">
+  <div class="phead"><div class="wrap">
+    <h1 class="h-xl">Our story</h1>
+    <p class="lead">A mouse, a boy in Calabria and a restaurant on Wells Street.</p>
+  </div></div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top cols-wide">
+        <div class="photo r-45"><img src="img/garden.webp" alt="The garden at dusk with guests at every table" loading="lazy"></div>
+        <div>
+          <h2 class="h-l">The name</h2>
+          <p class="lead" style="margin-top:14px">Topo is Italian for mouse. Topo Gigio was the puppet who appeared on The Ed Sullivan Show in the 1960s, and a cartoon and comic-book character in Italy.</p>
+          <p style="margin-top:14px;max-width:36em">Frank, our founding owner, grew up watching Topo Gigio and his adventures. When he came to the United States from Calabria, he brought his family's recipes with him. They are on the menu today.</p>
+          <h2 class="h-l" style="margin-top:44px">The cooking</h2>
+          <p style="margin-top:14px;max-width:36em">We opened in 1988, in the heart of Old Town, with a modern Tuscan-style approach to Italian cooking. More than 35 years later the dining room is lively in the cold months and the garden is full in the summer.</p>
+          <p style="margin-top:14px;max-width:36em">The dishes people talk about are the mussels marinara, the Lake Superior whitefish, Conchiglie alla Sarda, Rigatoni al Filo di Fumo and the tiramisu, which is made fresh every day. Vic Damone cooked in our kitchen, and Linguine alla "Vic Damone" is his own recipe.</p>
+          <div class="btn-row" style="margin-top:26px"><a class="btn btn-red" href="#menu">See the menu</a><button class="u" type="button" data-action="reserve">Reserve a table</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">Recognition</h2>
+          <ul class="awards" style="margin-top:22px">
+            <li><b>IFMA award for Culinary Excellence</b><span>Seventeen years running</span></li>
+            <li><b>"Top Italian Restaurant in Chicago"</b><span>James Ward, Channel 7 restaurant critic</span></li>
+            <li><b>Parts Unknown with Anthony Bourdain</b><span>A segment on the show</span></li>
+            <li><b>Chicago Sun-Times</b><span>Our mussels, whitefish, pastas and tiramisu have been praised in its pages</span></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="h-l">At the tables</h2>
+          <p style="margin-top:22px;color:var(--grey)">Over the years the restaurant has entertained Vic Damone, Madonna, Brooke Shields, Bonnie Hunt, Jerry Seinfeld, Bruce Springsteen, Keanu Reeves, Joe Pesci, Robert De Niro, Red Skelton, Don Ameche, Marisa Tomei, Tommy Lee Jones, Christopher Lloyd, Sid Caesar, Imogene Coca, Joyce Sloane, Joe Pantoliano, Joe Mantegna, Frankie Avalon, David Duchovny, Minnie Driver, David Schwimmer, Julia Roberts, Wayne Gretzky and Lori Greiner, among others.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="page" data-page="visit">
+  <div class="phead"><div class="wrap">
+    <h1 class="h-xl">Hours and location</h1>
+    <p class="lead">1516 N Wells St in Old Town, just south of North Avenue.</p>
+  </div></div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">Hours</h2>
+          <table class="hours" id="hours" style="margin-top:22px"></table>
+          <p class="note" style="margin-top:14px">Hours can change on major holidays and in bad weather. If you're not sure, call <a class="tel" href="tel:+13122669355">(312) 266-9355</a>.</p>
+        </div>
+        <div>
+          <h2 class="h-l">Getting a table</h2>
+          <dl class="facts" style="margin-top:22px">
+            <div><dt>Dining room</dt><dd>Reservations are recommended, especially on weekends. Lunch reservations are through OpenTable only</dd></div>
+            <div><dt>Garden, tent, bars</dt><dd>First come, first served. No reservations</dd></div>
+            <div><dt>Groups of 40 to 90</dt><dd>The private room upstairs. <a class="u" href="#events">Private events</a></dd></div>
+          </dl>
+          <div class="btn-row" style="margin-top:24px"><button class="btn btn-red" type="button" data-action="reserve">Reserve a table</button><a class="btn btn-line" href="tel:+13122669355">Call</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec sec-wall" id="sec-parking" style="scroll-margin-top:var(--head)">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">Getting here</h2>
+          <dl class="facts" style="margin-top:22px">
+            <div><dt>Address</dt><dd>1516 N Wells St, Chicago, IL 60610</dd></div>
+            <div><dt>Parking</dt><dd>Self-park lot at 1554 N Wells St, and street parking. We don't offer valet</dd></div>
+            <div><dt>By car</dt><dd>From I-90/94, take the North Avenue exit and head east about 1¾ miles to Wells. Turn right onto Wells</dd></div>
+          </dl>
+          <div class="btn-row" style="margin-top:24px">
+            <a class="btn btn-ink" href="https://www.google.com/maps/search/?api=1&query=Topo+Gigio+Ristorante+1516+N+Wells+St+Chicago+IL+60610" target="_blank" rel="noopener">Get directions</a>
+            <a class="u" href="https://www.google.com/maps/search/?api=1&query=1554+N+Wells+St+Parking+Chicago" target="_blank" rel="noopener">Find the parking lot</a>
+          </div>
+        </div>
+        <div>
+          <h2 class="h-l">Good to know</h2>
+          <dl class="facts" style="margin-top:22px">
+            <div><dt>Dress</dt><dd>Business casual. No tank tops indoors</dd></div>
+            <div><dt>Pets</dt><dd>Not on the patio, except service animals</dd></div>
+            <div><dt>Outside food</dt><dd>No outside food or drinks</dd></div>
+            <div><dt>Split plates</dt><dd>$4 charge</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">Send us a note</h2>
+          <p class="lead grey" style="margin-top:12px">For a table tonight, call. For everything else, write.</p>
+        </div>
+        <form class="panel" id="contact-form" novalidate>
+          <div class="form-grid">
+            <label class="field"><span>Your name</span><input name="name" required autocomplete="name"></label>
+            <label class="field"><span>Email or phone</span><input name="contact" required></label>
+            <label class="field span2"><span>What is it about</span><select name="about"><option>A question</option><option>Catering</option><option>Private events</option><option>Gift cards</option><option>The website</option></select></label>
+            <label class="field span2"><span>Message</span><textarea name="msg" required></textarea></label>
+          </div>
+          <button class="btn btn-red btn-wide" type="submit" style="margin-top:18px">Send message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRONT DESK: the staff side. Not in the menu. On the real site it sits at /admin behind a login. -->
+<section class="page adm" data-page="admin">
+  <div class="adm__bar">
+    <div class="wrap">
+      <a class="logo" href="#home">Topo Gigio <span>Ristorante</span></a>
+      <div class="adm__right"><a class="u" href="#home">Back to site</a><button class="u" type="button" id="adm-out" data-action="adm" data-do="out" hidden>Sign out</button></div>
+    </div>
+  </div>
+  <div id="adm-root"></div>
+  <div class="end"></div>
+</section>
